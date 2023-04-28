@@ -1,0 +1,43 @@
+/* * 공통 */
+body {position: static; min-width: initial;}
+.login label {display: block; font-size: var(--fz-base); margin: 20px 0 10px;}
+.login input {width: 100%; height: 40px; background: var(--white); padding: 0 10px; border-radius: 8px;}
+.login button {width: 100%; height: 40px; font-size: var(--fz-md); background: var(--main); color: #fff; border-radius: 8px; margin: 20px 0;}
+.login .help {margin-top: 30px;}
+.login .help-tit {font-size: var(--fz-sm); border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 10px; display: flex; justify-content: flex-start; align-items: center;}
+.login .help-tit img {padding-right: 5px;}
+.login .help-box .txt {font-size: var(--fz-sm); line-height: 1.3;}
+.login .help-box .txt em {font-weight: 700;}
+.login .btn-help {height: 34px; background: var(--gray); color: #fff; border-radius: 6px;}
+.login .reset {position: fixed; left: 0; right: 0; top: 0; bottom: 0; display: none;}
+.login .reset-bg {background: var(--trans); position: absolute; left: 0; right: 0; top: 0; bottom: 0;}
+.login .reset form {position: absolute; z-index: 10; left: 50%; top: 50%; transform: translate(-50%,-50%); padding: 20px; border-radius: 12px; background: #fff;}
+.login .reset p {margin: 15px 0; font-size: var(--fz-sm); line-height: 1.3;}
+.reset-btns {display: flex; justify-content: space-between; align-items: center;}
+.reset-btns button {width: calc(50% - 5px); height: 34px; background: var(--gray); color: #fff; border-radius: 6px;}
+.reset-btns .btn-send {background: var(--main);}
+
+/* * 로그인 pc */
+#LOGIN_PC {min-width: 1310px; padding: 0 15px; width: 100%; height: 99vh; display: flex; justify-content: center; align-items: center; background: var(--white);}
+#LOGIN_PC .login-wrap {position: relative; width: 1280px; padding: 30px 50px; min-height: 90vh; max-height: 95vh; border: 1px solid var(--silver); border-radius: 20px; box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); background: #fff; overflow: hidden;}
+#LOGIN_PC .copy {position: absolute; left: 20px; bottom: 20px; font-size: var(--fz-sm);}
+#LOGIN_PC .login-bg {position: absolute; top: 0; bottom: 0; right: 0; width: 50%;}
+#LOGIN_PC .login-wrap form {width: 40%;}
+#LOGIN_PC .title {font-size: var(--fz-lg); color: var(--main); font-weight: 800; margin: 40px 0 15px;}
+#LOGIN_PC .title2 {font-size: var(--fz-md); line-height: 1.3;}
+#LOGIN_PC .help {display: flex; justify-content: space-between; align-items: flex-start;}
+#LOGIN_PC .help-box {width: calc(50% - 10px);}
+#LOGIN_PC .help-box .txt {margin-bottom: 10px;}
+#LOGIN_PC .btn-help {width: 100%;}
+#LOGIN_PC .reset form {width: 470px;}
+
+/* * 로그인 mo */
+#LOGIN_MO .copy {position: fixed; left: 20px; bottom: 20px;}
+#LOGIN_MO .logo {width: 100%; height: 54px; display: flex; justify-content: flex-start; padding: 0 20px; align-items: center; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);}
+#LOGIN_MO .logo img {height: 34px; width: auto; object-fit: cover;}
+#LOGIN_MO .login-box {padding: 20px;}
+#LOGIN_MO .title {font-size: var(--fz-big); color: var(--main); font-weight: 800;}
+#LOGIN_MO .title2 {line-height: 1.3; margin: 20px 0;}
+#LOGIN_MO .help-box:first-of-type {margin-bottom: 30px;}
+#LOGIN_MO .btn-help {width: 160px; margin: 15px 0;}
+#LOGIN_MO .reset form {width: calc(100% - 40px);}

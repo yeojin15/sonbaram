@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <script src="/js/image-uploader.js"></script>
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <link rel="stylesheet" href="/css/103.객실요금.css">
+</head>
+<body>
+  <div class="BODYWRAP">
+    <section id="HEADER_PC"></section>
+    <script>
+      $(document).ready(function(){
+        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+      });
+    </script>
+    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+    <main id="PAGE">
+      <section id="roomInfo">
+        <form action="">
+          <div class="search">
+            <!-- 본사관리자/에이전시관리자 숙박업소명 선택 -->
+            <div class="search-room lodgename">
+              <label for="">숙박업소명</label>
+              <input type="text" value="숙박업소명">
+              <button type="button" class="btn-bg">검색</button>
+            </div>
+            <div class="search-room roomname">
+              <label for="">객실명</label>
+              <input type="text" maxlength="25">
+              <button type="button" class="btn-bg">검색</button>
+              <button type="button" class="btn-bg">추가</button>
+            </div>
+          </div>
+
+          <div class="room-flex">
+            <!-- 객실리스트 -->
+            <div class="room-list">
+              <p>* 객실 순서 변경은 드래그&amp;드롭으로 변경해주세요.</p>
+              <div class="room-list__head">
+                <h5>사진</h5>
+                <h5>에이전시명</h5>
+                <h5>숙박업소명</h5>
+                <h5>동/그룹</h5>
+                <h5>객실명</h5>
+                <h5>인원(명)</h5>
+                <h5>면적(㎡/평)</h5>
+              </div>
+              <ul id="roomSort" class="room-list__item">
+                <li>
+                  <div>
+                    <img src="https://picsum.photos/300/200" alt="thumbnail">
+                  </div>
+                  <div>A에이전시</div>
+                  <div>B숙박업소</div>
+                  <div>A동</div>
+                  <div>어반블루</div>
+                  <div>2 ~ 6</div>
+                  <div>33.3㎡ / 10평</div>
+                </li>
+                <li>
+                  <div>
+                    <img src="https://picsum.photos/300/200" alt="thumbnail">
+                  </div>
+                  <div>A에이전시</div>
+                  <div>B숙박업소</div>
+                  <div>A동</div>
+                  <div>어반블루</div>
+                  <div>2 ~ 6</div>
+                  <div>33.3㎡ / 10평</div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 객실정보, 가격정보 -->
+            <div class="room-info">
+              <div class="room-info__tabs">
+                <ul class="tab">
+                  <li class="active" data-target="contentRoom">객실정보</li>
+                  <li data-target="contentPrice">가격정보</li>
+                </ul>
+                <button type="button" class="btn">타입/시설관리</button>
+              </div>
+
+              <div class="room-info__contents">
+                <!-- 객실정보 -->
+                <div id="contentRoom" class="active room-info__content content-room">
+                  <ul class="room-info__list">
+                    <li class="flex">
+                      <div class="room-info__item">
+                        <p class="tit-lb">객실명</p>
+                        <div class="cell">
+                          <input type="text" maxlength="25">
+                        </div>
+                      </div>
+                      <div class="room-info__item">
+                        <p class="tit-lb">동/그룹</p>
+                        <div class="cell">
+                          <select name="" id="">
+                            <option value="">동/그룹명1</option>
+                          </select>
+                          <input type="text" placeholder="직접입력" maxlength="25">
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">인원</p>
+                      <div class="cell">
+                        <input type="number" class="sm" min="1" max="999">
+                        <span class="mark"> ~ </span>
+                        <input type="number" class="sm" min="1" max="999">
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">무료</p>
+                      <div class="cell">
+                        <input type="number" class="sm">
+                        <p class="mark">인원수에 포함하지 않은 유아 수</p>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">면적</p>
+                      <div class="cell">
+                        <input type="text" class="sm">
+                        <span class="mark">㎡</span>
+                        <span class="mark"><i class="fa-solid fa-arrows-left-right"></i></span>
+                        <input type="text" class="sm">
+                        <span class="mark">PY</span>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">타입</p>
+                      <div class="cell">
+                        <p class="checkbox">
+                          <input type="checkbox" id="type1">
+                          <label for="type1" class="checkbox-lb">타입명</label>
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">시설</p>
+                      <div class="cell">
+                        <p class="checkbox">
+                          <input type="checkbox" id="fac1">
+                          <label for="fac1" class="checkbox-lb">시설명</label>
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">옵션</p>
+                      <div class="cell">
+                        <p class="checkbox">
+                          <input type="checkbox" id="opt1">
+                          <label for="opt1" class="checkbox-lb">옵션명 <span class="opt-price">10,000원</span></label>
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">안내</p>
+                      <div class="cell">
+                        <input type="text" maxlength="100" class="full">
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">설명</p>
+                      <div class="cell">
+                        <textarea name="" id="" maxlength="500"></textarea>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">사진</p>
+                      <div class="cell">
+                        <div class="image-box">
+                          <label class="active">
+                            <span><i class="fa-solid fa-upload"></i></span>
+                            <span>Drag &amp; Drop<br>1920*1080으로 등록하시면 좋습니다.<br>사진은 각 3MB 이하로 등록해주세요.</span>
+                          </label>
+                          <div class="input-images"></div>
+                      </div>
+                      </div>
+                    </li>
+                    <li>
+                      <p class="tit-lb">사용</p>
+                      <div class="cell">
+                        <p class="radio">
+                          <input type="radio" name="use" id="useY" value="useY" checked />
+                          <label for="useY" class="radio-lb">사용</label>
+                          <input type="radio" name="use" id="useN" value="useN" />
+                          <label for="useN" class="radio-lb">미사용</label>
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="flex-center">
+                    <button type="submit" class="btn-lg btn-bg">저장</button>
+                  </div>
+                </div>
+
+                <!-- 가격정보 -->
+                <div id="contentPrice" class="room-info__content content-price">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
+    </main>
+  </div>
+  <script>
+    $(document).ready(function(){
+      // input 에 value 속성 있으면 disabled 처리
+      $('.book-info input').each(function(){
+        if($(this).attr('value')!=undefined) $(this).prop('disabled', true)
+      });
+
+      $("#roomSort").sortable();
+
+      $('.room-info__tabs li').each(function(){
+        $(this).click(function(){
+          $('.room-info__tabs li').removeClass('active');
+          $(this).addClass('active');
+          let targetDivId = $(this).data("target");
+          $('.room-info__content').removeClass('active');
+          $("#" + targetDivId).addClass('active');
+        });
+      });
+
+      $('.input-images').imageUploader();
+      $('.input-images .uploaded').sortable();
+    });
+  </script>
+</body>
+</html>

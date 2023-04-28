@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+</head>
+<body>
+  <section id="HEADER_MO">
+    <header class="top-header">
+      <h2>손바람</h2>
+      <div class="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <!-- aside snb -->
+    <aside class="aside">
+      <div class="aside-back"></div>
+      <nav class="snb">
+        <div class="snb-info">
+          <h3>손바람</h3>
+          <a href="" class="logout">로그아웃</a>
+          <ul>
+            <li><a href="">오늘예약 (1)</a></li>
+            <li><a href="">숙박완료 (1)</a></li>
+            <li><a href="">환불요청 (1)</a></li>
+            <li><a href="">입금대기 (1)</a></li>
+          </ul>
+        </div>
+        <ul class="snb-menu">
+          <li><a href=""><span><i class="fa-regular fa-home"></i></span> 홈</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-lines-pen"></i></span> 예약관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-bed"></i></span> 객실/요금</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-exclamation"></i></span> 휴일관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-minus"></i></span> 방막기</a></li>
+          <li><a href=""><span><i class="fa-regular fa-sack-dollar"></i></span> 정산관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-circle-info"></i></span> 기본정보</a></li>
+          <li><a href=""><span><i class="fa-regular fa-gear"></i></span> 옵션관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-list"></i></span> 공지사항</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-question"></i></span> FAQ</a></li>
+          <li><a href=""><span><i class="fa-regular fa-envelope"></i></span> 문자발송</a></li>
+          <li><a href=""><span><i class="fa-regular fa-users"></i></span> 직원관리</a></li>
+        </ul>
+    </nav>
+    </aside>
+  </section>
+  <!-- aside 토글 액션 -->
+  <script>
+    $('.toggle').click(function(){
+      $('#HEADER_MO').toggleClass('toggleOn');
+    });
+    $('.aside-back, .snb-info li, .snb-menu li').click(function(){
+      $('#HEADER_MO').removeClass('toggleOn');
+    })
+  </script>
+</body>
+</html>

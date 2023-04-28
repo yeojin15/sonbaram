@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <script src="/js/calendar.js"></script>
+  <link rel="stylesheet" href="/css/102.예약관리.css">
+</head>
+<body>
+  <div class="BODYWRAP">
+    <section id="HEADER_PC"></section>
+    <script>
+      $(document).ready(function(){
+        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+      });
+    </script>
+    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+    <main id="PAGE">
+      <section id="book">
+        <form action="">
+          <div class="book-wrap">
+            <!-- 작은 달력 -->
+            <div class="smCalendar" id="smCalendarWrap">
+              <div class="smCalendar-ctrl">
+                <div class="left">
+                  <button type="button" id="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+                  <button type="button" id="todayBtn"><i class="fa-regular fa-home"></i></button>
+                </div>
+                <h2 id="currentYearMonth"></h2>
+                <button type="button" id="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+              </div>
+              <div id="fullCalendar" style="height: 250px;"></div>
+            </div>
+            <!-- 검색 부분 -->
+            <div class="book-form">
+              <div class="book-form__flex">
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">검색대상일</h3>
+                  <div class="book-form__box radio">
+                    <input type="radio" name="book-date" id="dateBook" value="dateBook" checked />
+                    <label for="dateBook" class="radio-lb">예약일 <input type="date"></label>
+                  </div>
+                  <div class="book-form__box radio">
+                    <input type="radio" name="book-date" id="dateRegister" value="dateRegister" />
+                    <label for="dateRegister" class="radio-lb">등록일 <input type="date"></label>
+                  </div>
+                </div>
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">예약정보</h3>
+                  <div class="book-form__box">
+                    <label for="">예약자</label>
+                    <input type="text" maxlength="5">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">연락처</label>
+                    <input type="tel" placeholder="000-0000-0000" maxlength="13">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">이메일</label>
+                    <input type="email" maxlength="25">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">예약상태</label>
+                    <select name="" id="">
+                      <option value="all">전체</option>
+                      <option value="book">예약접수</option>
+                      <option value="reserved">예약완료</option>
+                      <option value="cutoff">취소요청</option>
+                      <option value="cancel">예약취소</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">숙박정보</h3>
+                  <div class="book-form__box">
+                    <label for="">객실명</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">객실명1</option>
+                    </select>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">숙박자</label>
+                    <input type="text" maxlength="5">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">연락처</label>
+                    <input type="tel" placeholder="000-0000-0000" maxlength="13">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">이메일</label>
+                    <input type="email" maxlength="25">
+                  </div>
+                </div>
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">결제정보</h3>
+                  <div class="book-form__box">
+                    <label for="">결제방법</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">무통장입금</option>
+                      <option value="">카드결제</option>
+                    </select>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">결제상태</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">입금대기</option>
+                      <option value="">입금완료</option>
+                      <option value="">결제성공</option>
+                      <option value="">결제취소</option>
+                      <option value="">결제실패</option>
+                      <option value="">환불요청</option>
+                      <option value="">환불완료</option>
+                    </select>
+                  </div>
+                  <div class="book-form__btns">
+                    <button type="button" class="btn">예약추가</button>
+                    <button type="submit" class="btn">검색</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+  
+      <div class="section-end"></div>
+
+      <section id="bookTable">
+        <h2 class="tit-sec">에약현황</h2>
+        <table class="table-base">
+          <thead>
+            <tr>
+              <th>숙박업소명</th>
+              <th>에이전시명</th>
+              <th>등록일</th>
+              <th>예약일</th>
+              <th>동/그룹명</th>
+              <th>객실명</th>
+              <th>예약자</th>
+              <th>숙박기간</th>
+              <th>결제수단</th>
+              <th>요금</th>
+              <th>예약상태</th>
+              <th>결제상태</th>
+              <th>상담기록</th>
+              <th>문자기록</th>
+              <th>상세보기</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A숙박업소</td>
+              <td>B에이전시</td>
+              <td>22.03.09</td>
+              <td>22.03.26</td>
+              <td>A동</td>
+              <td>C객실명</td>
+              <td>홍길동</td>
+              <td>22.03.26 ~ 22.03.27</td>
+              <td>무통장</td>
+              <td>100,000</td>
+              <td>예약접수</td>
+              <td>입금대기</td>
+              <td>10</td>
+              <td>5</td>
+              <td><button type="button" class="btn">상세보기</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="flex-center">
+          <button type="submit" class="btn btn-lg mt30">더보기</button>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

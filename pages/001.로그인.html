@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/001.로그인.css">
+</head>
+<body>
+  <section class="login" id="LOGIN_PC">
+    <div class="login-wrap">
+      <div class="login-bg" style="background: url(/img/login-bg.png) no-repeat center / cover;"></div>
+      <form action="">
+        <div class="logo"><img src="/img/logo-b.png" alt="로고"></div>
+        <h1 class="title">손바람</h1>
+        <h2 class="title2">반갑습니다.<br>손바람과 함께하는 손쉬운 예약관리시스템</h2>
+        <div class="login-form">
+          <label for="login_id" class="">아이디</label>
+          <input type="text" name="login_id" id="login_id" placeholder="아이디를 입력하세요" required />
+          <label for="login_pw" class="">비밀번호</label>
+          <input type="password" name="login_pw" id="login_pw" placeholder="비밀번호를 입력하세요" required />
+          <button type="submit">로그인</button>
+        </div>
+        <div class="help">
+          <div class="help-box">
+            <h3 class="help-tit"><img src="/img/deco.png" alt="로그인 안내">로그인 안내</h3>
+            <div class="txt">사용자 ID는 아래 회사 담당자에게 문의바라며, 비밀번호를 연속으로 <em>5회이상 틀렸을 시</em>는 <em>아이디가 잠기니</em> 주의하시기 바랍니다.</div>
+          </div>
+          <div class="help-box">
+            <h3 class="help-tit"><img src="/img/deco.png" alt="비밀번호 찾기">비밀번호를 잃어버리셨나요?</h3>
+            <div class="txt">비밀번호 분실 시는 아래의 비밀번호 초기화 버튼을 눌러 이메일 인증을 통해 비밀번호를 다시 세팅하시기 바랍니다.</div>
+            <button type="button" class="btn-help btnHelp">비밀번호 초기화</button>
+          </div>
+        </div>
+      </form>
+      <p class="copy">COPYRIGHTⓒ Sonbaram. ALL RIGHTS RESERVED.</p>
+    </div>
+    <!-- 비밀번호 초기화 모달 -->
+    <div class="reset">
+      <div class="reset-bg btnCancel"></div>
+      <form action="">
+        <h3 class="help-tit"><img src="/img/deco.png" alt="">비밀번호 초기화 메일발송</h3>
+        <div class="reset-form">
+          <label for="reset_id">아이디(Email)</label>
+          <input type="email" id="reset_id" placeholder="아이디(Email Address)를 입력하세요" required />
+          <label for="reset_name">이름</label>
+          <input type="text" id="reset_name" placeholder="이름을 입력하세요" required />
+        </div>
+        <p>*사용자ID(Email)와 사용자 이름을 입력하고 <em class="c-main fw700">‘메일보내기’</em>버튼을 클릭하세요</p>
+        <div class="reset-btns">
+          <button type="reset" class="btn-reset btnCancel">취소</button>
+          <button type="submit" class="btn-reset btn-send">메일보내기</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- 비밀번호 초기화 모달 액션 -->
+  <script>
+    $('.btnHelp').click(function(){
+      $('.reset').show();
+    })
+    $('.btnCancel').click(function(){
+      $('.reset').hide();
+    })
+  </script>
+</body>
+</html>

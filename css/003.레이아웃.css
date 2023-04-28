@@ -1,0 +1,46 @@
+/* * 레이아웃 pc */
+#HEADER_PC {position: sticky; top: 0; z-index: 900; min-width: 1280px;}
+#HEADER_PC .top-header {height: 60px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); padding: 0 var(--gap-lg); background: #fff; border-bottom: 1px solid var(--silver);}
+#HEADER_PC .header-title {width: 250px; display: flex; justify-content: flex-start; align-items: center;}
+#HEADER_PC .header-title h2 {font-size: var(--fz-big); color: var(--main); font-weight: 600; margin-right: 10px;}
+#HEADER_PC .header-title .toggle {position: relative; width: 45px; height: 20px; border-radius: 20px; border: 1px solid var(--main); cursor: pointer; transition: .4s;}
+#HEADER_PC .header-title .toggle-switch {position: absolute; left: 2px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; border-radius: 50%; background: var(--main); transition: .4s;}
+#HEADER_PC .gnb {width: calc(100% - 250px); display: flex; justify-content: space-between; align-items: center;}
+#HEADER_PC .gnb ul {display: flex; justify-content: flex-start; align-items: center;}
+#HEADER_PC .gnb li {position: relative; padding-right: 20px; transition: .4s;}
+#HEADER_PC .gnb li:after {content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: var(--black);}
+#HEADER_PC .gnb li:last-of-type:after {display: none;}
+#HEADER_PC .gnb li:hover {color: var(--main);}
+#HEADER_PC .header-info {display: flex; justify-content: flex-end; align-items: center;}
+#HEADER_PC .header-info h3 {font-weight: 700; margin-right: 15px;}
+#HEADER_PC .header-info .user {display: flex; justify-content: flex-end; align-items: center;}
+#HEADER_PC .header-info .user h4 {position: relative; padding-right: 20px;}
+#HEADER_PC .header-info .user h4:after {content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: var(--black);}
+#HEADER_PC .snb {position: fixed; transition: .4s; z-index: 800; left: -100%; width: 200px; top: 60px; bottom: 0; border-right: 1px solid var(--silver); padding: 30px 0 30px 30px; background: #fff;}
+#HEADER_PC .snb li {margin-bottom: 30px; font-weight: 600; transition: .4s;}
+#HEADER_PC .snb li:hover {color: var(--main);}
+#HEADER_PC.toggleOn .snb {left: 0;}
+#HEADER_PC.toggleOn .toggle {background: var(--main);}
+#HEADER_PC.toggleOn .toggle-switch {left: 25px; background: #fff;}
+
+/* * 레이아웃 mo */
+#HEADER_MO header {position: fixed; z-index: 900; left: 0; right: 0; top: 0; height: 50px; box-shadow: var(--shadow); padding: 0 var(--gap-md); display: flex; justify-content: space-between; align-items: center;}
+#HEADER_MO header h2 {font-size: var(--fz-big); font-weight: 600;}
+#HEADER_MO .toggle {position: relative; width: 20px; height: 16px; cursor: pointer;}
+#HEADER_MO .toggle span {position: absolute; height: 2px; background: var(--black); left: 0; right: 0; transition: .4s;}
+#HEADER_MO .toggle span:nth-of-type(1) {top: 0;}
+#HEADER_MO .toggle span:nth-of-type(2) {top: 50%; transform: translateY(-50%);}
+#HEADER_MO .toggle span:nth-of-type(3) {bottom: 0;}
+#HEADER_MO .aside {position: fixed; z-index: 910; left: 100%; right: -100%; top: 0; bottom: 0; opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s;}
+#HEADER_MO .aside-back {content: ''; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: rgba(34,34,34,.6);}
+#HEADER_MO .snb {position: absolute; z-index: 1; width: 60%; background: #fff; top: 0; right: -100%; bottom: 0; transition: .4s;}
+#HEADER_MO .snb-info {position: relative; padding: 15px; border-bottom: 1px solid var(--silver);}
+#HEADER_MO .snb-info h3 {font-size: var(--fz-big); font-weight: 700; margin-bottom: 20px;}
+#HEADER_MO .snb-info .logout {position: absolute; right: 15px; top: 10px; display: inline-block; padding: 5px 10px; border: 1px solid var(--silver);}
+#HEADER_MO .snb-info ul {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+#HEADER_MO .snb-info li {width: 50%; line-height: 2; font-size: var(--fz-md); font-weight: 500;}
+#HEADER_MO .snb-menu {padding: 15px;}
+#HEADER_MO .snb-menu li {margin-bottom: 20px; font-weight: 700;}
+#HEADER_MO .snb-menu a span {display: inline-block; width: 20px;}
+#HEADER_MO.toggleOn .aside {left: 0; right: 0; opacity: 1; visibility: visible; transition: opacity .4s;}
+#HEADER_MO.toggleOn .snb {right: 0; transition: .4s;}

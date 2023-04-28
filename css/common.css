@@ -1,0 +1,88 @@
+@import url(/css/reset.css);
+
+/* * 모달 */
+.modal {position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0; display: none;}
+.modal.modalOn {display: block;}
+.modal-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
+.modal-wrap {position: absolute; left: 50%; top: 50%; min-width: 350px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
+.modal-close {position: absolute; right: 15px; top: 15px; font-size: var(--fz-lg); cursor: pointer;}
+.modal-content {text-align: center; padding-top: 30px;}
+.modal-btns {width: 100%; display: flex; justify-content: space-between; align-items: center;}
+.modal-btns button {margin: 0 5px; flex: 1; border: 1px solid var(--main); padding: 10px; border-radius: 4px; color: var(--main); transition: .4s;}
+.modal-btns button:hover {transform: translateY(-4px); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
+.modal-btns .btn-active {background: var(--main); color: #fff;}
+
+/* * 제목 */
+.tit-sec {font-size: var(--fz-lg); font-weight: 700; margin-bottom: var(--gap-big);}
+.tit-sub {font-size: var(--fz-md); font-weight: 500; margin-bottom: var(--gap-md);}
+
+/* * 버튼 */
+.btn {padding: 5px 7px; border-radius: 4px; border: 1px solid var(--silver); transition: .4s;}
+.btn:hover {border-color: var(--main); background: var(--main); color: #fff;}
+.btn-bg {padding: 5px 7px; border-radius: 4px; background: var(--main); color: #fff;}
+.btn-lg {padding: 10px 20px; font-size: var(--fz-md);}
+.btn-lg.btn-bg {background: var(--main);}
+
+/* * input, select */
+input {width: 130px; height: 24px; line-height: 24px; padding: 0 5px; border-bottom: 1px solid var(--input);}
+input:disabled {background: var(--silver);}
+input.sm {width: 70px;}
+select {height: 24px; background: url(/img/indic-select.png) no-repeat right 5px center / 8px 5px; border-bottom: 1px solid var(--input); padding: 0 25px 0 5px;}
+textarea {border: 1px solid var(--input); border-radius: 6px; padding: 10px; resize: none; line-height: 1.2;}
+
+/* * radio */
+.radio {position: relative;}
+.radio-lb {position: relative; padding-left: 15px; cursor: pointer; color: var(--silver); white-space: nowrap;}
+.radio-lb:after {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1px solid var(--silver); border-radius: 50%; box-sizing: border-box;}
+.radio-lb:before {content: ''; position: absolute; left: 3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--main); opacity: 0;}
+.radio > input {position: absolute; width: 0; opacity: 0; visibility: hidden;}
+.radio > input:checked + .radio-lb {color: var(--black);}
+.radio > input:checked + .radio-lb:after {border-color: var(--main);}
+.radio > input:checked + .radio-lb:before {opacity: 1;}
+.radio > input:checked + .radio-lb input {color: var(--black);}
+.radio-lb input {color: var(--silver);}
+
+/* * checkbox */
+.checkbox {position: relative;}
+.checkbox-lb {position: relative; padding-left: 15px; cursor: pointer; white-space: nowrap;}
+.checkbox-lb:after {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1px solid var(--silver); border-radius: 2px; box-sizing: border-box;}
+.checkbox-lb:before {content: '\f00c'; position: absolute; font-size: 10px; left: 2px; top: 50%; transform: translateY(-50%); font-family: 'Font Awesome 6 Pro'; color: #fff; z-index: 1; opacity: 0;}
+.checkbox input {position: absolute; width: 0; opacity: 0; visibility: hidden;}
+.checkbox input:checked + .checkbox-lb:after {border-color: var(--main); background: var(--main);}
+.checkbox input:checked + .checkbox-lb:before {opacity: 1;}
+
+/* * fullCalendar */
+.toastui-calendar-layout.toastui-calendar-month {border: 1px solid var(--silver);}
+.toastui-calendar-day-names.toastui-calendar-month {padding: 0 !important;}
+#fullCalendarWrap .fullCalendar-head {display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--gap-lg);}
+#fullCalendarWrap .fullCalendar-ctrl {display: flex; justify-content: flex-start; align-items: center;}
+#fullCalendarWrap .fullCalendar-ctrl h2 {font-size: var(--fz-lg); font-weight: 700; margin: 0 var(--gap-big);}
+#fullCalendarWrap .fullCalendar-ctrl #todayBtn {margin-left: var(--gap-md);}
+#fullCalendarWrap .fullCalendar-ctrl button {padding: 5px 10px; border: 1px solid var(--silver); border-radius: 4px; transition: .4s;}
+#fullCalendarWrap .fullCalendar-ctrl button:hover {background: var(--main); color: #fff;}
+#fullCalendarWrap .fullCalendar-status span {padding-left: 15px; position: relative; display: inline-block; margin-left: 10px;}
+#fullCalendarWrap .fullCalendar-status span:after {content: ''; position: absolute; width: 12px; height: 12px; left: 0; top: 50%; transform: translateY(-50%);}
+#fullCalendarWrap .fullCalendar-status span.c-book:after {background: var(--book);}
+#fullCalendarWrap .fullCalendar-status span.c-reserved:after {background: var(--reserved);}
+#fullCalendarWrap .fullCalendar-status span.c-stayed:after {background: var(--stayed);}
+#fullCalendarWrap .fullCalendar-status span.c-stop:after {background: var(--stop);}
+#fullCalendarWrap .fullCalendar-status span.c-cancel:after {background: var(--cancel);}
+#fullCalendarWrap .toastui-calendar-day-name-item.toastui-calendar-month {font-size: var(--fz-base); font-weight: 700;}
+
+/* * smCalendar */
+#smCalendarWrap .smCalendar-ctrl {display: flex; justify-content: space-between; align-items: center; position: relative; margin-bottom: var(--gap-md);}
+#smCalendarWrap .smCalendar-ctrl #currentYearMonth {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: var(--fz-lg); font-weight: 700;}
+#smCalendarWrap .smCalendar-ctrl button {padding: 5px 10px; border: 1px solid var(--silver); border-radius: 4px; transition: .4s;}
+#smCalendarWrap .smCalendar-ctrl button:hover {background: var(--main); color: #fff;}
+#smCalendarWrap .toastui-calendar-day-name-item.toastui-calendar-month {text-align: center;}
+#smCalendarWrap .toastui-calendar-daygrid-cell {display: flex; justify-content: center; align-items: center;}
+#smCalendarWrap .toastui-calendar-grid-cell-header {height: 100% !important; display: flex; justify-content: center; align-items: center;}
+#smCalendarWrap .toastui-calendar-grid-cell-date {display: flex; justify-content: center; align-items: center;}
+
+
+/* * table-base */
+.table-base {table-layout: fixed; width: 100%;}
+.table-base thead tr {border-bottom: 2px solid var(--gray);}
+.table-base thead th {padding: 10px 0; font-weight: 500;}
+.table-base tbody tr {border-bottom: 1px solid var(--silver);}
+.table-base tbody td {padding: 10px 5px; vertical-align: middle; text-align: center;}

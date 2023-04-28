@@ -1,0 +1,54 @@
+/* * 검색부분 */
+.search {margin-bottom: var(--gap-lg);}
+.search-room {display: flex; justify-content: flex-start; align-items: center; margin-bottom: var(--gap-md);}
+.search-room label {width: 65px;}
+.search-room input {margin-right: 5px;}
+.search-room button {margin-right: 5px;}
+
+/* * 객실리스트 */
+.room-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
+.room-list {width: 50%; padding-right: var(--gap-lg);}
+.room-info {width: 50%; padding-right: var(--gap-lg);}
+.room-list p {text-align: right; color: var(--gray); height: 40px; line-height: 40px; margin-top: var(--gap-md);}
+.room-list__head {display: flex; justify-content: flex-start; align-items: center; width: 100%; height: 40px; background: var(--main);}
+.room-list__head h5 {flex: 1; text-align: center; color: #fff;}
+.room-list__item {height: 501px; overflow: auto;}
+.room-list__item li {position: relative; height: 50px; background: #fff; z-index: 1; font-size: var(--fz-sm); display: flex; justify-content: flex-start; align-items: center; width: 100%; cursor: pointer;}
+.room-list__item li:after,
+.room-list__item li:before {content: ''; position: absolute; border: 1px solid var(--input); width: calc(100% - 2px); height: calc(100% - 1px); z-index: -1;}
+.room-list__item li div {flex: 1; padding: 0 5px; text-align: center; line-height: 1.2;}
+.room-list__item li div img {width: auto; height: 40px; object-fit: cover;}
+
+/* * 객실,가격정보 */
+.room-info__tabs {display: flex; justify-content: space-between; align-items: flex-end;}
+.room-info__tabs .tab {display: flex; justify-content: flex-start; align-items: center;}
+.room-info__tabs .tab li {font-size: var(--fz-md); font-weight: 600; padding-bottom: 3px; margin-right: var(--gap-sm); cursor: pointer; border-bottom: 2px solid transparent; transition: .4s;}
+.room-info__tabs .tab li:hover, 
+.room-info__tabs .tab li.active {color: var(--main); border-color: var(--main);}
+.room-info__contents {position: relative; margin-top: var(--gap-lg);}
+.room-info__content {display: none;}
+.room-info__content.active {display: block;}
+/* 객실정보 */
+.room-info__list li {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: var(--gap-sm);}
+.room-info__list li.flex {display: flex; justify-content: flex-start; align-items: center;}
+.room-info__list li.flex input {width: 170px}
+.room-info__list li.flex select {margin-right: 10px;}
+.room-info__list li.flex select + input:focus {border-color: var(--black);}
+.room-info__item {width: 40%; display: flex; justify-content: flex-start; align-items: center;}
+.room-info__item .cell {flex-wrap: nowrap !important;}
+.room-info__list li .tit-lb {width: 60px; font-weight: 500; line-height: 30px;}
+.room-info__list li .cell {width: calc(100% - 60px); display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.room-info__list span.mark {width: 30px; display: inline-block; text-align: center;}
+.room-info__list p.mark {margin-left: 5px; font-size: var(--fz-sm); color: var(--gray);}
+.room-info__list .checkbox {line-height: 30px;}
+.room-info__list .checkbox-lb {border-bottom: 1px solid var(--input); margin-right: var(--gap-md);}
+.room-info__list input.full {width: 90%;}
+.room-info__list textarea {width: 90%; height: 80px;}
+.room-info__list .image-box {position: relative; cursor: pointer; width: 90%; height: 200px; border: 1px solid var(--input); border-radius: 6px; overflow-y: auto;}
+.room-info__list .image-box label {text-align: center; line-height: 1.3; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.image-uploader .uploaded .uploaded-image {margin: 5px; overflow: hidden;}
+.image-uploader .thumb {position: absolute; width: 100%; left: 0; top: 0; z-index: 1; height: 20px; line-height: 20px; background: var(--trans); color: #fff; text-align: center;}
+.image-uploader .delete-image {z-index: 10;}
+.room-info__list .radio {line-height: 30px;}
+.room-info__list .radio label {padding-right: var(--gap-md);}
+/* 가격정보 */

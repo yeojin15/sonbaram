@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <script src="/js/calendar.js"></script>
+  <link rel="stylesheet" href="/css/102.예약관리.css">
+</head>
+<body>
+  <div class="BODYWRAP">
+    <section id="HEADER_PC"></section>
+    <script>
+      $(document).ready(function(){
+        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+      });
+    </script>
+    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+    <main id="PAGE">
+      <section id="bookDetail">
+        <form action="">
+          <div class="book-wrap">
+            <!-- 작은 달력 -->
+            <div class="smCalendar" id="smCalendarWrap">
+              <div class="smCalendar-ctrl">
+                <div class="left">
+                  <button type="button" id="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+                  <button type="button" id="todayBtn"><i class="fa-regular fa-home"></i></button>
+                </div>
+                <h2 id="currentYearMonth"></h2>
+                <button type="button" id="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+              </div>
+              <div id="fullCalendar" style="height: 250px;"></div>
+            </div>
+            <!-- 예약정보 부분 -->
+            <div class="book-form book-info">
+              <div class="book-form__flex">
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">예약정보</h3>
+                  <div class="book-form__box">
+                    <label for="">등록일</label>
+                    <input type="date" value="2023-04-28">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">예약자</label>
+                    <input type="text">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">연락처</label>
+                    <input type="tel">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">이메일</label>
+                    <input type="text">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">예약상태</label>
+                    <select name="" id="">
+                      <option value="all">전체</option>
+                      <option value="book">예약접수</option>
+                      <option value="reserved">예약완료</option>
+                      <option value="cutoff">취소요청</option>
+                      <option value="cancel">예약취소</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">숙박정보</h3>
+                  <div class="book-form__box">
+                    <label for="">숙박업소명</label>
+                    <input type="text">
+                    <button type="button" class="btn-bg btnSearchLodge">검색</button>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">동/그룹명</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">동/그룹명1</option>
+                    </select>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">객실명</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">객실명1</option>
+                    </select>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">예약일</label>
+                    <input type="date">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">숙박기간</label>
+                    <div class="flex">
+                      <select name="" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                      <div class="stay-length">(23.03.21 ~ 23.03.22)</div>
+                    </div>
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">숙박자</label>
+                    <input type="text" maxlength="5">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">연락처</label>
+                    <input type="tel" placeholder="000-0000-0000" maxlength="13">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">이메일</label>
+                    <input type="email" maxlength="25">
+                  </div>
+                </div>
+                <div class="book-form__wrap">
+                  <h3 class="tit-sub">결제정보</h3>
+                  <div class="book-form__box">
+                    <label for="">결제일시</label>
+                    <input class="box-value" type="text">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">결제방법</label>
+                    <input type="text" value="무통장입금">
+                  </div>
+                  <div class="book-form__box">
+                    <label for="">결제상태</label>
+                    <select name="" id="">
+                      <option value="">전체</option>
+                      <option value="">입금대기</option>
+                      <option value="">입금완료</option>
+                      <option value="">결제성공</option>
+                      <option value="">결제취소</option>
+                      <option value="">결제실패</option>
+                      <option value="">환불요청</option>
+                      <option value="">환불완료</option>
+                    </select>
+                  </div>
+                  <h3 class="tit-sub mt40">에이전시 정보</h3>
+                  <div class="book-form__box">
+                    <label for="">에이전시명</label>
+                    <input type="text" value="B에이전시">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="section-gap"></div>
+
+          <!-- 옵션, 요청사항 -->
+          <div class="option">
+            <div class="option-wrap">
+              <h3 class="tit-sub">옵션</h3>
+              <div class="option-box">
+                <ul>
+                  <li>
+                    <p class="checkbox">
+                      <input type="checkbox" id="temp1">
+                      <label for="temp1" class="checkbox-lb">옵션명</label>
+                    </p>
+                    <span>10,000원</span>
+                    <div class="option-sel">
+                      <label for="">수량</label>
+                      <select name="" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                      <span>(개)</span>
+                    </div>
+                  </li>
+                  <li>
+                    <p class="checkbox">
+                      <input type="checkbox" id="temp2">
+                      <label for="temp2" class="checkbox-lb">옵션명</label>
+                    </p>
+                    <span>20,000원</span>
+                    <div class="option-sel">
+                      <label for="">수량</label>
+                      <select name="" id="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                      </select>
+                      <span>(장)</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="option-wrap">
+              <h3 class="tit-sub">요청사항</h3>
+              <div class="request-txt">요청사항</div>
+            </div>
+          </div>
+
+          <div class="section-gap"></div>
+
+          <!-- 결제금액 안내 -->
+          <div class="book-price">
+            <div class="book-price__wrap">
+              <h3 class="tit-sub">객실요금</h3>
+              <p>100,000원</p>
+            </div>
+            <span class="mark"><i class="fa-regular fa-plus"></i></span>
+            <div class="book-price__wrap">
+              <h3 class="tit-sub">인원추가</h3>
+              <p>100,000원</p>
+              <div class="price-extramen">(성인:2명/아동:1명/유아:1명)</div>
+            </div>
+            <span class="mark"><i class="fa-regular fa-plus"></i></span>
+            <div class="book-price__wrap">
+              <h3 class="tit-sub">옵션요금</h3>
+              <p>100,000원</p>
+            </div>
+            <span class="mark"><i class="fa-regular fa-equals"></i></span>
+            <div class="book-price__wrap">
+              <h3 class="tit-sub">총 결제금액</h3>
+              <p class="total-price">100,000원</p>
+            </div>
+          </div>
+          <div class="book-detail__btn flex-end">
+            <button type="button" class="btnSaveInfo btn btn-lg">저장</button>
+          </div>
+
+
+
+          <!-- 확인 모달 -->
+          <div class="modal">
+            <div class="modal-back modalClose"></div>
+            <div class="modal-wrap">
+              <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+              <div class="modal-content">
+                예약정보를 저장하시겠습니까? 저장 시 예약자 정보도 함께 변경됩니다.
+                <!-- (미입력 항목명)을/를 입력해주세요. -->
+              </div>
+              <div class="modal-btns">
+                <button type="submit" class="btn-active">확인</button>
+                <!-- 미입력 항목 있을 경우 modalClose 주석처리 -->
+                <button type="reset" class="modalClose">취소</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- 숙박업소 검색 모달 -->
+        <div class="modalSearchLodge">
+          <div class="modal-back modalClose"></div>
+          <div class="modal-wrap">
+            <h3 class="tit-sec">숙박업소 선택</h3>
+            <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+            <div class="modal-content">
+              <form action="">
+                <div class="search">
+                  <div class="search-bar">
+                    <h4 class="tit-sub">검색어</h4>
+                    <input type="text" placeholder="숙박업소명을 검색해주세요" />
+                  </div>
+                  <button type="button" class="btn btn-lg mt20">검색</button>
+                </div>
+                <div class="search-result">
+                  <h4 class="tit-sub">목록 (총 00개)</h4>
+                  <div class="search-result__head">
+                    <h5>선택</h5>
+                    <h5>숙박업소명</h5>
+                    <h5>대표자</h5>
+                    <h5>주소</h5>
+                    <h5>연락처</h5>
+                  </div>
+                  <ul>
+                    <li>
+                      <div><button type="button">선택</button></div>
+                      <div>A숙박업소</div>
+                      <div>홍길동</div>
+                      <div>서울시 강남구 도곡로 130</div>
+                      <div>010-0000-0000</div>
+                    </li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // input 에 value 속성 있으면 disabled 처리
+    $('.book-info input').each(function(){
+      if($(this).attr('value')!=undefined) $(this).prop('disabled', true)
+    });
+
+    // 모달 열고 닫기
+    $('.btnSaveInfo').click(function(){
+      $('.modal').addClass('modalOn');
+    });
+    $('.modalClose').click(function(){
+      $('.modal').removeClass('modalOn');
+    });
+
+    // 숙박업소 검색
+    $('.btnSearchLodge').click(function(){
+      $('.modalSearchLodge').addClass('modalOn');
+    });
+    $('.modalClose').click(function(){
+      $('.modalSearchLodge').removeClass('modalOn');
+    });
+  </script>
+</body>
+</html>
