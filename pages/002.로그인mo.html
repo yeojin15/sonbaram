@@ -17,6 +17,17 @@
   <link rel="stylesheet" href="/css/common.css">
   <!-- custom -->
   <link rel="stylesheet" href="/css/001.로그인.css">
+  <script>
+    // 비밀번호 초기화 모달
+    $(document).ready(function(){
+      $('.btnHelp').click(function(){
+        $('.reset').show();
+      })
+      $('.btnCancel').click(function(){
+        $('.reset').hide();
+      })
+    });
+  </script>
 </head>
 <body style="background: #fff;">
   <section class="login" id="LOGIN_MO">
@@ -67,14 +78,5 @@
       </form>
     </div>
   </section>
-  <!-- 비밀번호 초기화 모달 액션 -->
-  <script>
-    $('.btnHelp').click(function(){
-      $('.reset').show();
-    })
-    $('.btnCancel').click(function(){
-      $('.reset').hide();
-    })
-  </script>
 </body>
 </html>

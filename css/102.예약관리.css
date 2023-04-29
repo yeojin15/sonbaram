@@ -1,6 +1,6 @@
 /* * 예약관리 pc */
 .book-wrap {display: flex; justify-content: flex-start; align-items: flex-start;}
-.book-wrap .smCalendar {width: 350px;}
+.book-wrap .smCalendarWrap {width: 350px;}
 /* 검색 부분 */
 .book-form {width: calc(100% - 350px); padding-left: var(--gap-lg);}
 .book-form__flex {width: 100%; display: flex; justify-content: flex-start; align-items: flex-start;} 

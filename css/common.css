@@ -17,11 +17,13 @@
 .tit-sub {font-size: var(--fz-md); font-weight: 500; margin-bottom: var(--gap-md);}
 
 /* * 버튼 */
-.btn {padding: 5px 7px; border-radius: 4px; border: 1px solid var(--silver); transition: .4s;}
-.btn:hover {border-color: var(--main); background: var(--main); color: #fff;}
-.btn-bg {padding: 5px 7px; border-radius: 4px; background: var(--main); color: #fff;}
-.btn-lg {padding: 10px 20px; font-size: var(--fz-md);}
-.btn-lg.btn-bg {background: var(--main);}
+.btn {padding: 0 7px; height: 24px; border-radius: 4px; background: var(--main); color: #fff; transition: .4s;}
+.btn:hover {background: var(--hover);}
+.btnW {padding: 0 7px; height: 24px; border-radius: 4px; border: 1px solid var(--main); color: var(--main); transition: .4s;}
+.btnW:hover {background: var(--hover); border-color: var(--hover); color: #fff;}
+.btn-lg {padding: 0 20px; height: 32px; font-size: var(--fz-md);}
+button:disabled {background: var(--silver); color: var(--gray); cursor: initial;}
+button:disabled:hover {background: var(--silver); color: var(--gray);}
 
 /* * input, select */
 input {width: 130px; height: 24px; line-height: 24px; padding: 0 5px; border-bottom: 1px solid var(--input);}
@@ -57,7 +59,7 @@ textarea {border: 1px solid var(--input); border-radius: 6px; padding: 10px; res
 #fullCalendarWrap .fullCalendar-head {display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: var(--gap-lg);}
 #fullCalendarWrap .fullCalendar-ctrl {display: flex; justify-content: flex-start; align-items: center;}
 #fullCalendarWrap .fullCalendar-ctrl h2 {font-size: var(--fz-lg); font-weight: 700; margin: 0 var(--gap-big);}
-#fullCalendarWrap .fullCalendar-ctrl #todayBtn {margin-left: var(--gap-md);}
+#fullCalendarWrap .fullCalendar-ctrl .todayBtn {margin-left: var(--gap-md);}
 #fullCalendarWrap .fullCalendar-ctrl button {padding: 5px 10px; border: 1px solid var(--silver); border-radius: 4px; transition: .4s;}
 #fullCalendarWrap .fullCalendar-ctrl button:hover {background: var(--main); color: #fff;}
 #fullCalendarWrap .fullCalendar-status span {padding-left: 15px; position: relative; display: inline-block; margin-left: 10px;}
@@ -71,7 +73,7 @@ textarea {border: 1px solid var(--input); border-radius: 6px; padding: 10px; res
 
 /* * smCalendar */
 #smCalendarWrap .smCalendar-ctrl {display: flex; justify-content: space-between; align-items: center; position: relative; margin-bottom: var(--gap-md);}
-#smCalendarWrap .smCalendar-ctrl #currentYearMonth {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: var(--fz-lg); font-weight: 700;}
+#smCalendarWrap .smCalendar-ctrl .currentYearMonth {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-size: var(--fz-lg); font-weight: 700;}
 #smCalendarWrap .smCalendar-ctrl button {padding: 5px 10px; border: 1px solid var(--silver); border-radius: 4px; transition: .4s;}
 #smCalendarWrap .smCalendar-ctrl button:hover {background: var(--main); color: #fff;}
 #smCalendarWrap .toastui-calendar-day-name-item.toastui-calendar-month {text-align: center;}

@@ -26,29 +26,55 @@
 .room-info__tabs .tab li:hover, 
 .room-info__tabs .tab li.active {color: var(--main); border-color: var(--main);}
 .room-info__contents {position: relative; margin-top: var(--gap-lg);}
-.room-info__content {display: none;}
+.room-info__content {display: none; border: 1px solid var(--silver); padding: var(--gap-md)}
 .room-info__content.active {display: block;}
-/* 객실정보 */
-.room-info__list li {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: var(--gap-sm);}
-.room-info__list li.flex {display: flex; justify-content: flex-start; align-items: center;}
-.room-info__list li.flex input {width: 170px}
-.room-info__list li.flex select {margin-right: 10px;}
-.room-info__list li.flex select + input:focus {border-color: var(--black);}
+
+/* *객실정보 */
+.content-room li {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 5px;}
+.content-room li.flex {display: flex; justify-content: flex-start; align-items: center;}
+.content-room li.flex input {width: 170px}
+.content-room li.flex select {margin-right: 10px;}
+.content-room li.flex select + input:focus {border-color: var(--black);}
 .room-info__item {width: 40%; display: flex; justify-content: flex-start; align-items: center;}
 .room-info__item .cell {flex-wrap: nowrap !important;}
-.room-info__list li .tit-lb {width: 60px; font-weight: 500; line-height: 30px;}
-.room-info__list li .cell {width: calc(100% - 60px); display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
-.room-info__list span.mark {width: 30px; display: inline-block; text-align: center;}
-.room-info__list p.mark {margin-left: 5px; font-size: var(--fz-sm); color: var(--gray);}
-.room-info__list .checkbox {line-height: 30px;}
-.room-info__list .checkbox-lb {border-bottom: 1px solid var(--input); margin-right: var(--gap-md);}
-.room-info__list input.full {width: 90%;}
-.room-info__list textarea {width: 90%; height: 80px;}
-.room-info__list .image-box {position: relative; cursor: pointer; width: 90%; height: 200px; border: 1px solid var(--input); border-radius: 6px; overflow-y: auto;}
-.room-info__list .image-box label {text-align: center; line-height: 1.3; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.content-room li .tit-lb {width: 60px; font-weight: 500; line-height: 30px;}
+.content-room li .cell {width: calc(100% - 60px); display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.content-room span.mark {width: 30px; display: inline-block; text-align: center;}
+.content-room p.mark {margin-left: 5px; font-size: var(--fz-sm); color: var(--gray);}
+.content-room .checkbox {line-height: 30px;}
+.content-room .checkbox-lb {border-bottom: 1px solid var(--input); margin-right: var(--gap-md);}
+.content-room input.full {width: 90%;}
+.content-room textarea {width: 90%; height: 80px;}
+.content-room .image-box {position: relative; cursor: pointer; width: 90%; height: 200px; border: 1px solid var(--input); border-radius: 6px; overflow-y: auto;}
+.content-room .image-box label {text-align: center; line-height: 1.3; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
 .image-uploader .uploaded .uploaded-image {margin: 5px; overflow: hidden;}
 .image-uploader .thumb {position: absolute; width: 100%; left: 0; top: 0; z-index: 1; height: 20px; line-height: 20px; background: var(--trans); color: #fff; text-align: center;}
 .image-uploader .delete-image {z-index: 10;}
-.room-info__list .radio {line-height: 30px;}
-.room-info__list .radio label {padding-right: var(--gap-md);}
-/* 가격정보 */
+.content-room .radio {line-height: 30px;}
+.content-room .radio label {padding-right: var(--gap-md);}
+
+/* * 가격정보 */
+.content-price .tit-cont {padding-right: var(--gap-md); font-weight: 500;}
+.room-price__tit p {margin-top: var(--gap-sm); font-size: var(--fz-sm);}
+.content-price li {border-top: 1px solid var(--silver); padding: var(--gap-lg) 0;}
+.content-price li:first-of-type {border-top: none;}
+.content-price .tit-lb {min-width: 60px; font-weight: 500; line-height: 30px;}
+.content-price .room-price__box {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 5px;}
+.content-price .room-price__box.flex-center {justify-content: flex-start; align-items: center;}
+.content-price .room-price__box.flex-center.flexwrap {flex-wrap: wrap;}
+.room-price__input {display: flex; justify-content: flex-start; align-items: center;}
+.room-price__season {margin-left: var(--gap-md);}
+.room-price__setting .season-name {display: flex; justify-content: flex-start; align-items: center;}
+.room-price__setting .room-price__box .cell {margin-left: var(--gap-sm); padding-top: 3px;}
+.room-price__setting .season-info {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 5px;}
+.room-price__setting .season-info .checkbox {margin: 0 10px;}
+.room-price__setting .season-info .btnW {margin-left: 5px;}
+.room-price__table select {margin-left: var(--gap-sm);}
+.room-price__table table {width: 100%; table-layout: fixed;}
+.room-price__table table th {padding: 5px 0; background: var(--silver); text-align: center;}
+.room-price__table table td {padding: 10px 0; text-align: center;}
+.room-price__table table tbody tr {border-bottom: 1px solid var(--input);}
+.room-price__bank label {font-weight: 500; padding-right: var(--gap-md);}
+.room-price__bank p {width: 100%; margin-top: 5px; color: var(--gray);}
+.room-price__bank.bank-info {margin-top: var(--gap-md); display: none;}
+.room-price__bank.bank-info.show {display: block;}

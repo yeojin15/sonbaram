@@ -17,6 +17,17 @@
   <link rel="stylesheet" href="/css/common.css">
   <!-- custom -->
   <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <script>
+    $(document).ready(function(){
+      // aside 토글 액션
+      $('.toggle').click(function(){
+        $('#HEADER_PC').toggleClass('toggleOn');
+      });
+      $('.snb li').click(function(){
+        $('#HEADER_PC').removeClass('toggleOn');
+      })
+    });
+  </script>
 </head>
 <body>
   <section id="HEADER_PC">
@@ -59,14 +70,5 @@
       </ul>
     </aside>
   </section>  
-  <!-- aside 토글 액션 -->
-  <script>
-    $('.toggle').click(function(){
-      $('#HEADER_PC').toggleClass('toggleOn');
-    });
-    $('.snb li').click(function(){
-      $('#HEADER_PC').removeClass('toggleOn');
-    })
-  </script>
 </body>
 </html>

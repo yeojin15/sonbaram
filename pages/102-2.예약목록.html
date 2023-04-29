@@ -17,8 +17,20 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/003.레이아웃.css">
   <!-- custom -->
-  <script src="/js/calendar.js"></script>
   <link rel="stylesheet" href="/css/102.예약관리.css">
+  <script src="/js/common.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script>
+    $(document).ready(function(){
+      // 모달 열고 닫기
+      $('.btnSaveInfo').click(function(){
+        $('.modal').addClass('modalOn');
+      });
+      $('.modalClose').click(function(){
+        $('.modal').removeClass('modalOn');
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="BODYWRAP">
@@ -34,14 +46,14 @@
         <form action="">
           <div class="book-wrap">
             <!-- 작은 달력 -->
-            <div class="smCalendar" id="smCalendarWrap">
+            <div class="smCalendarWrap" id="smCalendarWrap">
               <div class="smCalendar-ctrl">
                 <div class="left">
-                  <button type="button" id="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
-                  <button type="button" id="todayBtn"><i class="fa-regular fa-home"></i></button>
+                  <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+                  <button type="button" class="todayBtn"><i class="fa-regular fa-home"></i></button>
                 </div>
-                <h2 id="currentYearMonth"></h2>
-                <button type="button" id="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+                <h2 class="currentYearMonth"></h2>
+                <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
               </div>
               <div id="fullCalendar" style="height: 250px;"></div>
             </div>
@@ -265,7 +277,7 @@
               <div class="consult-write">
                 <textarea name="" id=""></textarea>
                 <div class="consult-btns">
-                  <button type="submit" class="btn-bg">저장</button>
+                  <button type="submit" class="btn">저장</button>
                   <p class="checkbox">
                     <input type="checkbox" id="상담저장">
                     <label for="상담저장" class="checkbox-lb">문자</label>
@@ -346,20 +358,5 @@
       </section>
     </main>
   </div>
-
-  <script>
-    // input 에 value 속성 있으면 disabled 처리
-    $('.book-info input').each(function(){
-      if($(this).attr('value')!=undefined) $(this).prop('disabled', true)
-    });
-
-    // 모달 열고 닫기
-    $('.btnSaveInfo').click(function(){
-      $('.modal').addClass('modalOn');
-    });
-    $('.modalClose').click(function(){
-      $('.modal').removeClass('modalOn');
-    });
-  </script>
 </body>
 </html>

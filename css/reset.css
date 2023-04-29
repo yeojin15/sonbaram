@@ -4,6 +4,7 @@
 /* * root */
 :root {
   --main:   #385ca6;
+  --hover: #17294F;
   --book:  #31bfff; 
   --reserved:   #8932ff;
   --stayed:   #28cc38;

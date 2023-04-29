@@ -24,21 +24,21 @@ $(document).ready(function(){
     const currentDate = calendar.getDate();
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth() + 1;
-    $('#currentYearMonth').text(`${year}/${month}`);
+    $('.currentYearMonth').text(`${year}/${month}`);
   }
   updateYearMonth();
 
-  $('#prevMonthBtn').on('click', function() {
+  $('.prevMonthBtn').on('click', function() {
     calendar.prev();
     updateYearMonth();
   });
 
-  $('#nextMonthBtn').on('click', function() {
+  $('.nextMonthBtn').on('click', function() {
     calendar.next();
     updateYearMonth();
   });
 
-  $('#todayBtn').on('click', function() {
+  $('.todayBtn').on('click', function() {
     calendar.today();
     updateYearMonth();
   });

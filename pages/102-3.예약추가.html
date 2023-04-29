@@ -17,8 +17,27 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/003.레이아웃.css">
   <!-- custom -->
-  <script src="/js/calendar.js"></script>
   <link rel="stylesheet" href="/css/102.예약관리.css">
+  <script src="/js/common.js"></script>
+  <script src="/js/calendar.js"></script>
+  <script>
+    $(document).ready(function(){
+      // 모달 열고 닫기
+      $('.btnSaveInfo').click(function(){
+        $('.modal').addClass('modalOn');
+      });
+      $('.modalClose').click(function(){
+        $('.modal').removeClass('modalOn');
+      });
+      // 숙박업소 검색
+      $('.btnSearchLodge').click(function(){
+        $('.modalSearchLodge').addClass('modalOn');
+      });
+      $('.modalClose').click(function(){
+        $('.modalSearchLodge').removeClass('modalOn');
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="BODYWRAP">
@@ -34,14 +53,14 @@
         <form action="">
           <div class="book-wrap">
             <!-- 작은 달력 -->
-            <div class="smCalendar" id="smCalendarWrap">
+            <div class="smCalendarWrap" id="smCalendarWrap">
               <div class="smCalendar-ctrl">
                 <div class="left">
-                  <button type="button" id="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
-                  <button type="button" id="todayBtn"><i class="fa-regular fa-home"></i></button>
+                  <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+                  <button type="button" class="todayBtn"><i class="fa-regular fa-home"></i></button>
                 </div>
-                <h2 id="currentYearMonth"></h2>
-                <button type="button" id="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+                <h2 class="currentYearMonth"></h2>
+                <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
               </div>
               <div id="fullCalendar" style="height: 250px;"></div>
             </div>
@@ -82,7 +101,7 @@
                   <div class="book-form__box">
                     <label for="">숙박업소명</label>
                     <input type="text">
-                    <button type="button" class="btn-bg btnSearchLodge">검색</button>
+                    <button type="button" class="btn btnSearchLodge">검색</button>
                   </div>
                   <div class="book-form__box">
                     <label for="">동/그룹명</label>
@@ -160,9 +179,7 @@
               </div>
             </div>
           </div>
-          
           <div class="section-gap"></div>
-
           <!-- 옵션, 요청사항 -->
           <div class="option">
             <div class="option-wrap">
@@ -207,9 +224,7 @@
               <div class="request-txt">요청사항</div>
             </div>
           </div>
-
           <div class="section-gap"></div>
-
           <!-- 결제금액 안내 -->
           <div class="book-price">
             <div class="book-price__wrap">
@@ -236,9 +251,6 @@
           <div class="book-detail__btn flex-end">
             <button type="button" class="btnSaveInfo btn btn-lg">저장</button>
           </div>
-
-
-
           <!-- 확인 모달 -->
           <div class="modal">
             <div class="modal-back modalClose"></div>
@@ -256,7 +268,6 @@
             </div>
           </div>
         </form>
-
         <!-- 숙박업소 검색 모달 -->
         <div class="modalSearchLodge">
           <div class="modal-back modalClose"></div>
@@ -295,32 +306,8 @@
             </div>
           </div>
         </div>
-
       </section>
     </main>
   </div>
-
-  <script>
-    // input 에 value 속성 있으면 disabled 처리
-    $('.book-info input').each(function(){
-      if($(this).attr('value')!=undefined) $(this).prop('disabled', true)
-    });
-
-    // 모달 열고 닫기
-    $('.btnSaveInfo').click(function(){
-      $('.modal').addClass('modalOn');
-    });
-    $('.modalClose').click(function(){
-      $('.modal').removeClass('modalOn');
-    });
-
-    // 숙박업소 검색
-    $('.btnSearchLodge').click(function(){
-      $('.modalSearchLodge').addClass('modalOn');
-    });
-    $('.modalClose').click(function(){
-      $('.modalSearchLodge').removeClass('modalOn');
-    });
-  </script>
 </body>
 </html>

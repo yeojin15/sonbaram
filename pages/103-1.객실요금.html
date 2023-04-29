@@ -17,9 +17,34 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/003.레이아웃.css">
   <!-- custom -->
-  <script src="/js/image-uploader.js"></script>
-  <link rel="stylesheet" href="/css/image-uploader.css">
   <link rel="stylesheet" href="/css/103.객실요금.css">
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <script src="/js/common.js"></script>
+  <script src="/js/image-uploader.js"></script>
+  <script>
+    $(document).ready(function(){
+      // 객실리스트 드래그&드롭으로 순서정렬
+      $("#roomSort").sortable();
+      // 객실정보, 가격정보 탭 변경
+      $('.room-info__tabs li').each(function(){
+        $(this).click(function(){
+          $('.room-info__tabs li').removeClass('active');
+          $(this).addClass('active');
+          let targetDivId = $(this).data("target");
+          $('.room-info__content').removeClass('active');
+          $("#" + targetDivId).addClass('active');
+        });
+      });
+      // 객실정보 이미지 업로드, 업로드한 이미지 순서정렬
+      $('.input-images').imageUploader();
+      $('.input-images .uploaded').sortable();
+      // 무통장입금 사용시 계좌정보 노출
+      $('input[name="bank"]').on('change',function(){
+        if($(this).val()==='bankUseY') $('.room-price__bank.bank-info').addClass('show');
+        else $('.room-price__bank.bank-info').removeClass('show');
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="BODYWRAP">
@@ -38,16 +63,15 @@
             <div class="search-room lodgename">
               <label for="">숙박업소명</label>
               <input type="text" value="숙박업소명">
-              <button type="button" class="btn-bg">검색</button>
+              <button type="button" class="btn">검색</button>
             </div>
             <div class="search-room roomname">
               <label for="">객실명</label>
               <input type="text" maxlength="25">
-              <button type="button" class="btn-bg">검색</button>
-              <button type="button" class="btn-bg">추가</button>
+              <button type="button" class="btn">검색</button>
+              <button type="button" class="btn">추가</button>
             </div>
           </div>
-
           <div class="room-flex">
             <!-- 객실리스트 -->
             <div class="room-list">
@@ -86,7 +110,6 @@
                 </li>
               </ul>
             </div>
-
             <!-- 객실정보, 가격정보 -->
             <div class="room-info">
               <div class="room-info__tabs">
@@ -96,7 +119,6 @@
                 </ul>
                 <button type="button" class="btn">타입/시설관리</button>
               </div>
-
               <div class="room-info__contents">
                 <!-- 객실정보 -->
                 <div id="contentRoom" class="active room-info__content content-room">
@@ -207,44 +229,169 @@
                     </li>
                   </ul>
                   <div class="flex-center">
-                    <button type="submit" class="btn-lg btn-bg">저장</button>
+                    <button type="submit" class="btn-lg btn">저장</button>
                   </div>
                 </div>
-
                 <!-- 가격정보 -->
-                <div id="contentPrice" class="room-info__content content-price">
-                  
+                <div id="contentPrice" class=" room-info__content content-price">
+                  <ul class="room-price__list">
+                    <li class="room-price__tit">
+                      <span class="tit-cont">숙박업소명</span>
+                      <span class="tit-cont">객실명</span>
+                      <p>시즌 Season (시즌은 전체 객실에 적용 됩니다.)</p>
+                    </li>
+                    <li class="room-price__input">
+                      <input type="text" placeholder="시즌명 입력" maxlength="25">
+                      <div class="room-price__season">
+                        <input type="date">
+                        <span class="mark">~</span>
+                        <input type="date">
+                        <button type="button" class="btn">추가</button>
+                      </div>
+                    </li>
+                    <li class="room-price__setting">
+                      <div class="room-price__box flex-center">
+                        <span class="tit-lb">비수기</span>
+                        <p>추가된 시즌 기간 외 날짜가 자동으로 비수기 날짜로 지정됩니다.</p>
+                      </div>
+                      <div class="room-price__box">
+                        <div class="season-name">
+                          <span class="tit-lb">성수기</span>
+                          <!-- 시즌명+날짜 입력되면 button에 disabled 없애기 -->
+                          <button type="button" class="btn seasonAdd" disabled>추가</button>
+                        </div>
+                        <div class="cell">
+                          <div class="season-info">
+                            <input type="date" value="2023-04-28">
+                            <span class="mark">~</span>
+                            <input type="date" value="2023-04-29">
+                            <p class="checkbox">
+                              <input type="checkbox" id="">
+                              <label for="" class="checkbox-lb">매년</label>
+                            </p>
+                            <button type="button" class="btnW">수정</button>
+                            <button type="button" class="btnW">삭제</button>
+                          </div>
+                          <div class="season-info">
+                            <input type="date">
+                            <span class="mark">~</span>
+                            <input type="date">
+                            <p class="checkbox">
+                              <input type="checkbox" id="">
+                              <label for="" class="checkbox-lb">매년</label>
+                            </p>
+                            <button type="button" class="btnW">저장</button>
+                            <button type="button" class="btnW">삭제</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="room-price__box">
+                        <div class="season-name">
+                          <span class="tit-lb">준성수기</span>
+                          <button type="button" class="btn seasonAdd">추가</button>
+                        </div>
+                        <div class="cell">
+                          <div class="season-info">
+                            <input type="date" value="2023-04-28">
+                            <span class="mark">~</span>
+                            <input type="date" value="2023-04-29">
+                            <p class="checkbox">
+                              <input type="checkbox" id="">
+                              <label for="" class="checkbox-lb">매년</label>
+                            </p>
+                            <button type="button" class="btnW">수정</button>
+                            <button type="button" class="btnW">삭제</button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="room-price__table">
+                      <div class="room-price__box flex-center">
+                        <span class="tit-lb">요금 Price</span>
+                        <div class="cell">
+                          <select name="" id="">
+                            <option value="">가격정보 불러오기</option>
+                            <option value="">어반블루</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="room-price__box">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th>구분</th>
+                              <th>일요일</th>
+                              <th>평일</th>
+                              <th>금요일</th>
+                              <th>토요일</th>
+                              <th>성인</th>
+                              <th>아동</th>
+                              <th>유아</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>비수기</td>
+                              <td>100,000</td>
+                              <td>90,000</td>
+                              <td>150,000</td>
+                              <td>150,000</td>
+                              <td>20,000</td>
+                              <td>20,000</td>
+                              <td>10,000</td>
+                            </tr>
+                            <tr>
+                              <td>성수기</td>
+                              <td>100,000</td>
+                              <td>90,000</td>
+                              <td>150,000</td>
+                              <td>150,000</td>
+                              <td>20,000</td>
+                              <td>20,000</td>
+                              <td>10,000</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                    <li class="room-price__bank">
+                      <div class="room-price__box flex-center flexwrap">
+                        <label>객실별 무통장 입금 계좌 설정</label>
+                        <div class="radio">
+                          <input type="radio" name="bank" id="bankUseN" value="bankUseN" checked/>
+                          <label for="bankUseN" class="radio-lb">미사용</label>
+                          <input type="radio" name="bank" id="bankUseY" value="bankUseY"  />
+                          <label for="bankUseY" class="radio-lb">사용</label>
+                        </div>
+                        <p>* 해당 객실 예약 시 등록된 무통장 계좌 정보가 노출됩니다. </p>
+                      </div>
+                      <div class="room-price__bank bank-info">
+                        <div class="room-price__box">
+                          <label for="" class="tit-lb">은행명</label>
+                          <input type="text" maxlength="25">
+                        </div>
+                        <div class="room-price__box">
+                          <label for="" class="tit-lb">계좌번호</label>
+                          <input type="num" maxlength="25">
+                        </div>
+                        <div class="room-price__box">
+                          <label for="" class="tit-lb">예금주</label>
+                          <input type="text" maxlength="25">
+                        </div>
+                        <div class="room-price__box">
+                          <label for="" class="tit-lb">대기시간</label>
+                          <input type="num" class="sm" maxlength="2"> 시간
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
         </form>
       </section>
-
     </main>
   </div>
-  <script>
-    $(document).ready(function(){
-      // input 에 value 속성 있으면 disabled 처리
-      $('.book-info input').each(function(){
-        if($(this).attr('value')!=undefined) $(this).prop('disabled', true)
-      });
-
-      $("#roomSort").sortable();
-
-      $('.room-info__tabs li').each(function(){
-        $(this).click(function(){
-          $('.room-info__tabs li').removeClass('active');
-          $(this).addClass('active');
-          let targetDivId = $(this).data("target");
-          $('.room-info__content').removeClass('active');
-          $("#" + targetDivId).addClass('active');
-        });
-      });
-
-      $('.input-images').imageUploader();
-      $('.input-images .uploaded').sortable();
-    });
-  </script>
 </body>
 </html>

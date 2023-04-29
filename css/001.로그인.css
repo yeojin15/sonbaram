@@ -1,7 +1,7 @@
 /* * 공통 */
 body {position: static; min-width: initial;}
 .login label {display: block; font-size: var(--fz-base); margin: 20px 0 10px;}
-.login input {width: 100%; height: 40px; background: var(--white); padding: 0 10px; border-radius: 8px;}
+.login input {width: 100%; height: 40px; background: var(--white); padding: 0 10px; border-radius: 8px; border: none;}
 .login button {width: 100%; height: 40px; font-size: var(--fz-md); background: var(--main); color: #fff; border-radius: 8px; margin: 20px 0;}
 .login .help {margin-top: 30px;}
 .login .help-tit {font-size: var(--fz-sm); border-bottom: 1px solid var(--gray); padding-bottom: 10px; margin-bottom: 10px; display: flex; justify-content: flex-start; align-items: center;}
