@@ -1,0 +1,15 @@
+.search {width: 50%; padding-right: var(--gap-lg); display: flex; justify-content: space-between; align-items: center;}
+.holiday-flex {display: flex; justify-content: flex-start; align-items: flex-start; margin-top: var(--gap-lg);}
+/* * 휴일리스트 */
+.holiday-list {width: 50%; padding-right: var(--gap-lg);}
+.holiday-list table {width: 100%; table-layout: fixed;}
+.holiday-list table thead tr {height: 40px; line-height: 40px; background: var(--main); color: #fff;}
+.holiday-list table tbody tr {border: 1px solid var(--input); border-top: none;}
+.holiday-list table tbody td {padding: 10px 5px; text-align: center; vertical-align: middle;}
+.holiday-list table tbody td:nth-of-type(2) button {text-decoration: underline; color: var(--main);}
+
+/* * 휴일수정, 등록 */
+.holiday-info {width: 50%; padding-right: var(--gap-lg); border: 1px solid var(--silver); padding: var(--gap-md);}
+.holiday-info li {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 20px;}
+.holiday-info li label {width: 70px; margin-right: var(--gap-md);}
+.holiday-info li .mark {padding: 0 10px;}

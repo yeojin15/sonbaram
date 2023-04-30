@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/104.휴일관리.css">
+  <script>
+    $(document).ready(function(){
+      $('.modalClose').click(function(){
+        $('.modal').removeClass('modalOn');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="BODYWRAP">
+    <section id="HEADER_PC"></section>
+    <script>
+      $(document).ready(function(){
+        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+      });
+    </script>
+    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+    <main id="PAGE">
+      <section id="holiday">
+        <form action="">
+          <div class="search">
+            <div class="search-holiday">
+              <label for="">휴일명</label>
+              <input type="text">
+              <button class="btn">검색</button>
+            </div>
+            <button class="add-holiday btn">신규등록</button>
+          </div>
+          <div class="holiday-flex">
+            <!-- 휴일리스트 -->
+            <div class="holiday-list">
+              <table>
+                <colgroup>
+                  <col width=''>
+                  <col width='40%'>
+                  <col width=''>
+                  <col width=''>
+                  <col width=''>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>휴일명</th>
+                    <th>기간</th>
+                    <th>일자</th>
+                    <th>상태</th>
+                    <th>삭제</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>설날</td>
+                    <td><button type="button">2023.01.01 ~ 2023.01.05</button></td>
+                    <td>35</td>
+                    <td>사용</td>
+                    <td><button type="button" class="btnW">삭제</button></td>
+                  </tr>
+                  <tr>
+                    <td>설날</td>
+                    <td><button type="button">2023.01.01 ~ 2023.01.05</button></td>
+                    <td>35</td>
+                    <td>사용</td>
+                    <td><button type="button" class="btnW">삭제</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- 상세, 수정창 -->
+            <div class="holiday-info">
+              <ul>
+                <li>
+                  <label for="">* 휴일명</label>
+                  <input type="text">
+                </li>
+                <li>
+                  <label for="">* 기간 설정</label>
+                  <input type="date">
+                  <span class="mark">~</span>
+                  <input type="date">
+                </li>
+                <li>
+                  <label for="">* 상태</label>
+                  <p class="radio">
+                    <input type="radio" name="holiday" id="holidayY" value="holidayY" checked />
+                    <label for="holidayY" class="radio-lb">사용</label>
+                    <input type="radio" name="holiday" id="holidayN" value="holidayN" />
+                    <label for="holidayN" class="radio-lb">미사용</label>
+                  </p>
+                </li>
+              </ul>
+              <div class="flex-end">
+                <button type="button" class="btn btn-lg">등록</button>
+              </div>
+            </div>
+          </div>
+          <!-- 모달 -->
+          <div class="modal modalOn">
+            <div class="modal-back modalClose"></div>
+            <div class="modal-wrap">
+              <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+              <div class="modal-content">
+                등록하시겠습니까?
+              </div>
+              <div class="modal-btns">
+                <button type="reset" class="modalClose">닫기</button>
+                <button type="submit" class="btn-active">확인</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
