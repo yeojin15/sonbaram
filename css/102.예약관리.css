@@ -1,21 +1,22 @@
 /* * 예약관리 pc */
 .book-wrap {display: flex; justify-content: flex-start; align-items: flex-start;}
-.book-wrap .smCalendarWrap {width: 350px;}
+.book-wrap .smCalendarWrap {width: var(--smCal);}
 /* 검색 부분 */
-.book-form {width: calc(100% - 350px); padding-left: var(--gap-lg);}
-.book-form__flex {width: 100%; display: flex; justify-content: flex-start; align-items: flex-start;} 
+.book-form {width: calc(100% - var(--smCal)); padding-left: var(--gap-lg); position: relative;}
+.book-form__flex {width: 100%; display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;} 
 .book-form__wrap {max-width: 300px; width: 25%; padding-right: var(--gap-md);}
-.book-form__box {margin-bottom: var(--gap-sm); display: flex; justify-content: flex-start; align-items: center;}
-.book-form__box label {width: 65px; flex: none; white-space: nowrap;}
+.book-form__box {margin-bottom: var(--gap-sm); display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.book-form__box label {width: 65px; padding-top: 5px; padding-bottom: 5px; flex: none; white-space: nowrap;}
 .book-form__box input,
 .book-form__box select {width: 130px;}
-.book-form__box .box-value {width: 180px;}
-.book-form__box.radiobox label {width: 100%;}
-.book-form__btns {display: flex; justify-content: flex-end; width: calc(65px + 130px); margin-top: 80px;}
+.book-form__box.radio label {width: 100%; display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.book-form__box.radio label span {width: 50px;}
+.book-form__box.radio label input {width: 130px;}
+.book-form__btns {display: flex; justify-content: flex-end; position: absolute; top: 100%; right: var(--gap-md);}
 .book-form__btns button {margin-left: var(--gap-sm);}
 
 /* * 예약관리 상세 기본정보 */
-.book-info .book-form__wrap {max-width: 350px; width: 30%;}
+.book-info .book-form__wrap {max-width: var(--smCal); width: 33%;}
 .book-info .stay-length {font-size: var(--fz-sm); padding-top: 5px; text-align: center; white-space: nowrap; color: var(--main);}
 /* 옵션, 요청사항 */
 .option {display: flex; justify-content: flex-start; align-items: flex-start;}
@@ -29,7 +30,7 @@
 .option-wrap .request-txt {width: 450px; font-size: var(--fz-sm); line-height: 1.2; background: var(--white); padding: var(--gap-md); border-radius: 6px; height: 100px; overflow: auto;}
 /* 결제금액 안내 */
 .book-price {display: flex; justify-content: center; align-items: center;}
-.book-price__wrap {width: 250px; position: relative; padding: 0 var(--gap-lg); display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--black);}
+.book-price__wrap {width: 250px; position: relative; display: flex; justify-content: center; align-items: flex-start; border-bottom: 1px solid var(--black);}
 .book-price__wrap .tit-sub {white-space: nowrap; margin-right: var(--gap-md);}
 .book-price .mark {font-size: var(--fz-lg); padding: 0 var(--gap-md);}
 .book-price .price-extramen {position: absolute; left: 50%; top: calc(100% + 10px); width: 100%; transform: translateX(-50%); text-align: center;}

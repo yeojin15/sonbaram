@@ -14,12 +14,9 @@
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
   <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
-  <link rel="stylesheet" href="/css/common.css">
-  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <script src="/js/calendar.js"></script>
   <!-- custom -->
   <link rel="stylesheet" href="/css/102.예약관리.css">
-  <script src="/js/common.js"></script>
-  <script src="/js/calendar.js"></script>
   <script>
     $(document).ready(function(){
       // 모달 열고 닫기
@@ -33,330 +30,330 @@
   </script>
 </head>
 <body>
-  <div class="BODYWRAP">
-    <section id="HEADER_PC"></section>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
     <script>
       $(document).ready(function(){
-        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+        $('#headerWrap').load("/pages/003.레이아웃.html");
       });
     </script>
-    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
-    <main id="PAGE">
-      <section id="bookDetail">
-        <form action="">
-          <div class="book-wrap">
-            <!-- 작은 달력 -->
-            <div class="smCalendarWrap" id="smCalendarWrap">
-              <div class="smCalendar-ctrl">
-                <div class="left">
-                  <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
-                  <button type="button" class="todayBtn"><i class="fa-regular fa-home"></i></button>
-                </div>
-                <h2 class="currentYearMonth"></h2>
-                <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
-              </div>
-              <div id="fullCalendar" style="height: 250px;"></div>
-            </div>
-            <!-- 예약정보 부분 -->
-            <div class="book-form book-info">
-              <div class="book-form__flex">
-                <div class="book-form__wrap">
-                  <h3 class="tit-sub">예약정보</h3>
-                  <div class="book-form__box">
-                    <label for="">등록일</label>
-                    <input type="date" value="2022-03-09">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">예약자</label>
-                    <input type="text" value="홍길동">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">연락처</label>
-                    <input type="tel" value="010-0000-0000">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">이메일</label>
-                    <input type="text" value="aaa@gmail.com">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">예약상태</label>
-                    <select name="" id="">
-                      <option value="all">전체</option>
-                      <option value="book">예약접수</option>
-                      <option value="reserved">예약완료</option>
-                      <option value="cutoff">취소요청</option>
-                      <option value="cancel">예약취소</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="book-form__wrap">
-                  <h3 class="tit-sub">숙박정보</h3>
-                  <div class="book-form__box">
-                    <label for="">숙박업소명</label>
-                    <input type="text" value="A숙박업소">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">동/그룹명</label>
-                    <select name="" id="">
-                      <option value="">전체</option>
-                      <option value="">동/그룹명1</option>
-                    </select>
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">객실명</label>
-                    <select name="" id="">
-                      <option value="">전체</option>
-                      <option value="">객실명1</option>
-                    </select>
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">예약일</label>
-                    <input type="date">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">숙박기간</label>
-                    <div class="flex">
-                      <select name="" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
-                      <div class="stay-length">(23.03.21 ~ 23.03.22)</div>
-                    </div>
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">숙박자</label>
-                    <input type="text" maxlength="5">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">연락처</label>
-                    <input type="tel" placeholder="000-0000-0000" maxlength="13">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">이메일</label>
-                    <input type="email" maxlength="25">
-                  </div>
-                </div>
-                <div class="book-form__wrap">
-                  <h3 class="tit-sub">결제정보</h3>
-                  <div class="book-form__box">
-                    <label for="">결제일시</label>
-                    <input class="box-value" type="text" value="2023-03-19 오전 11:33:13">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">결제방법</label>
-                    <input type="text" value="무통장입금">
-                  </div>
-                  <div class="book-form__box">
-                    <label for="">결제상태</label>
-                    <select name="" id="">
-                      <option value="">전체</option>
-                      <option value="">입금대기</option>
-                      <option value="">입금완료</option>
-                      <option value="">결제성공</option>
-                      <option value="">결제취소</option>
-                      <option value="">결제실패</option>
-                      <option value="">환불요청</option>
-                      <option value="">환불완료</option>
-                    </select>
-                  </div>
-                  <h3 class="tit-sub mt40">에이전시 정보</h3>
-                  <div class="book-form__box">
-                    <label for="">에이전시명</label>
-                    <input type="text" value="B에이전시">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="section-gap"></div>
-
-          <!-- 옵션, 요청사항 -->
-          <div class="option">
-            <div class="option-wrap">
-              <h3 class="tit-sub">옵션</h3>
-              <div class="option-box">
-                <ul>
-                  <li>
-                    <p class="checkbox">
-                      <input type="checkbox" id="temp1">
-                      <label for="temp1" class="checkbox-lb">옵션명</label>
-                    </p>
-                    <span>10,000원</span>
-                    <div class="option-sel">
-                      <label for="">수량</label>
-                      <select name="" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                      </select>
-                      <span>(개)</span>
-                    </div>
-                  </li>
-                  <li>
-                    <p class="checkbox">
-                      <input type="checkbox" id="temp2">
-                      <label for="temp2" class="checkbox-lb">옵션명</label>
-                    </p>
-                    <span>20,000원</span>
-                    <div class="option-sel">
-                      <label for="">수량</label>
-                      <select name="" id="">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                      </select>
-                      <span>(장)</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="option-wrap">
-              <h3 class="tit-sub">요청사항</h3>
-              <div class="request-txt">요청사항</div>
-            </div>
-          </div>
-
-          <div class="section-gap"></div>
-
-          <!-- 결제금액 안내 -->
-          <div class="book-price">
-            <div class="book-price__wrap">
-              <h3 class="tit-sub">객실요금</h3>
-              <p>100,000원</p>
-            </div>
-            <span class="mark"><i class="fa-regular fa-plus"></i></span>
-            <div class="book-price__wrap">
-              <h3 class="tit-sub">인원추가</h3>
-              <p>100,000원</p>
-              <div class="price-extramen">(성인:2명/아동:1명/유아:1명)</div>
-            </div>
-            <span class="mark"><i class="fa-regular fa-plus"></i></span>
-            <div class="book-price__wrap">
-              <h3 class="tit-sub">옵션요금</h3>
-              <p>100,000원</p>
-            </div>
-            <span class="mark"><i class="fa-regular fa-equals"></i></span>
-            <div class="book-price__wrap">
-              <h3 class="tit-sub">총 결제금액</h3>
-              <p class="total-price">100,000원</p>
-            </div>
-          </div>
-          <div class="book-detail__btn flex-end">
-            <button type="button" class="btnSaveInfo btn btn-lg">저장</button>
-          </div>
-
-          <!-- 확인 모달 -->
-          <div class="modal">
-            <div class="modal-back modalClose"></div>
-            <div class="modal-wrap">
-              <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
-              <div class="modal-content">
-                예약정보를 저장하시겠습니까? 저장 시 예약자 정보도 함께 변경됩니다.
-                <!-- (미입력 항목명)을/를 입력해주세요. -->
-              </div>
-              <div class="modal-btns">
-                <button type="submit" class="btn-active">확인</button>
-                <!-- 미입력 항목 있을 경우 modalClose 주석처리 -->
-                <button type="reset" class="modalClose">취소</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </section>
-
-      <div class="section-end"></div>
-
-      <section id="consult">
-        <form action="">
-          <div class="consult">
-            <div class="consult-wrap">
-              <h3 class="tit-sub">상담기록</h3>
-              <div class="consult-write">
-                <textarea name="" id=""></textarea>
-                <div class="consult-btns">
-                  <button type="submit" class="btn">저장</button>
-                  <p class="checkbox">
-                    <input type="checkbox" id="상담저장">
-                    <label for="상담저장" class="checkbox-lb">문자</label>
-                  </p>
-                </div>
-              </div>
-              <div class="consult-history">
-                <ul class="consult-list">
-                  <li>
-                    <div class="consult-info">
-                      <p>상담자 2022.04.21 08:09:12</p>
-                      <div class="checkbox">
-                        <input type="checkbox" id="temp12" name="consult-checkbox" checked disabled>
-                        <label for="temp12" class="checkbox-lb">상담</label>
-                        <input type="checkbox" id="temp13" name="consult-checkbox" disabled>
-                        <label for="temp13" class="checkbox-lb">문자</label>
-                      </div>
-                    </div>
-                    <div class="consult-text">
-                      상담내용상담내용<br>내용 기록 문자 상담내용
-                    </div>
-                  </li>
-                </ul>
-                <ul class="pagination">
-                  <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
-                  <li><a href="">1</a></li>
-                  <li class="active"><a href="">2</a></li>
-                  <li><a href="">3</a></li>
-                  <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="consult-wrap">
-              <h3 class="tit-sub">예약내역</h3>
-              <div class="consult-booked">
-                <table>
-                  <colgroup>
-                    <col width="22%">
-                    <col width="">
-                    <col width="20%">
-                    <col width="">
-                    <col width="">
-                    <col width="50px">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>숙박기간</th>
-                      <th>예약자</th>
-                      <th>연락처</th>
-                      <th>객실명</th>
-                      <th>결제금액</th>
-                      <th>삭제</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>22.01.27 ~ 2박</td>
-                      <td>홍길동</td>
-                      <td>010-0000-0000</td>
-                      <td>A객실</td>
-                      <td>1,000,000</td>
-                      <td><button type="button"><i class="fa-solid fa-times"></i></button></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <ul class="pagination">
-                  <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
-                  <li><a href="">1</a></li>
-                  <li><a href="">2</a></li>
-                  <li class="active"><a href="">3</a></li>
-                  <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </form>
-      </section>
-    </main>
   </div>
+  <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+  <main id="PAGE">
+    <section id="bookDetail">
+      <form action="">
+        <div class="book-wrap">
+          <!-- 작은 달력 -->
+          <div class="smCalendarWrap" id="smCalendarWrap">
+            <div class="smCalendar-ctrl">
+              <div class="left">
+                <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+                <button type="button" class="todayBtn"><i class="fa-regular fa-home"></i></button>
+              </div>
+              <h2 class="currentYearMonth"></h2>
+              <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+            </div>
+            <div id="fullCalendar" style="height: 250px;"></div>
+          </div>
+          <!-- 예약정보 부분 -->
+          <div class="book-form book-info">
+            <div class="book-form__flex">
+              <div class="book-form__wrap">
+                <h3 class="tit-sub">예약정보</h3>
+                <div class="book-form__box">
+                  <label for="">등록일</label>
+                  <input type="date" value="2022-03-09">
+                </div>
+                <div class="book-form__box">
+                  <label for="">예약자</label>
+                  <input type="text" value="홍길동">
+                </div>
+                <div class="book-form__box">
+                  <label for="">연락처</label>
+                  <input type="tel" value="010-0000-0000">
+                </div>
+                <div class="book-form__box">
+                  <label for="">이메일</label>
+                  <input type="text" value="aaa@gmail.com">
+                </div>
+                <div class="book-form__box">
+                  <label for="">예약상태</label>
+                  <select name="" id="">
+                    <option value="all">전체</option>
+                    <option value="book">예약접수</option>
+                    <option value="reserved">예약완료</option>
+                    <option value="cutoff">취소요청</option>
+                    <option value="cancel">예약취소</option>
+                  </select>
+                </div>
+              </div>
+              <div class="book-form__wrap">
+                <h3 class="tit-sub">숙박정보</h3>
+                <div class="book-form__box">
+                  <label for="">숙박업소명</label>
+                  <input type="text" value="A숙박업소">
+                </div>
+                <div class="book-form__box">
+                  <label for="">동/그룹명</label>
+                  <select name="" id="">
+                    <option value="">전체</option>
+                    <option value="">동/그룹명1</option>
+                  </select>
+                </div>
+                <div class="book-form__box">
+                  <label for="">객실명</label>
+                  <select name="" id="">
+                    <option value="">전체</option>
+                    <option value="">객실명1</option>
+                  </select>
+                </div>
+                <div class="book-form__box">
+                  <label for="">예약일</label>
+                  <input type="date">
+                </div>
+                <div class="book-form__box">
+                  <label for="">숙박기간</label>
+                  <div class="flex">
+                    <select name="" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                    <div class="stay-length">(23.03.21 ~ 23.03.22)</div>
+                  </div>
+                </div>
+                <div class="book-form__box">
+                  <label for="">숙박자</label>
+                  <input type="text" maxlength="5">
+                </div>
+                <div class="book-form__box">
+                  <label for="">연락처</label>
+                  <input type="tel" placeholder="000-0000-0000" maxlength="13">
+                </div>
+                <div class="book-form__box">
+                  <label for="">이메일</label>
+                  <input type="email" maxlength="25">
+                </div>
+              </div>
+              <div class="book-form__wrap">
+                <h3 class="tit-sub">결제정보</h3>
+                <div class="book-form__box">
+                  <label for="">결제일시</label>
+                  <input class="box-value" type="text" value="2023-03-19 오전 11:33:13">
+                </div>
+                <div class="book-form__box">
+                  <label for="">결제방법</label>
+                  <input type="text" value="무통장입금">
+                </div>
+                <div class="book-form__box">
+                  <label for="">결제상태</label>
+                  <select name="" id="">
+                    <option value="">전체</option>
+                    <option value="">입금대기</option>
+                    <option value="">입금완료</option>
+                    <option value="">결제성공</option>
+                    <option value="">결제취소</option>
+                    <option value="">결제실패</option>
+                    <option value="">환불요청</option>
+                    <option value="">환불완료</option>
+                  </select>
+                </div>
+                <h3 class="tit-sub mt40">에이전시 정보</h3>
+                <div class="book-form__box">
+                  <label for="">에이전시명</label>
+                  <input type="text" value="B에이전시">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="section-gap"></div>
+
+        <!-- 옵션, 요청사항 -->
+        <div class="option">
+          <div class="option-wrap">
+            <h3 class="tit-sub">옵션</h3>
+            <div class="option-box">
+              <ul>
+                <li>
+                  <p class="checkbox">
+                    <input type="checkbox" id="temp1">
+                    <label for="temp1" class="checkbox-lb">옵션명</label>
+                  </p>
+                  <span>10,000원</span>
+                  <div class="option-sel">
+                    <label for="">수량</label>
+                    <select name="" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                    <span>(개)</span>
+                  </div>
+                </li>
+                <li>
+                  <p class="checkbox">
+                    <input type="checkbox" id="temp2">
+                    <label for="temp2" class="checkbox-lb">옵션명</label>
+                  </p>
+                  <span>20,000원</span>
+                  <div class="option-sel">
+                    <label for="">수량</label>
+                    <select name="" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                    </select>
+                    <span>(장)</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="option-wrap">
+            <h3 class="tit-sub">요청사항</h3>
+            <div class="request-txt">요청사항</div>
+          </div>
+        </div>
+
+        <div class="section-gap"></div>
+
+        <!-- 결제금액 안내 -->
+        <div class="book-price">
+          <div class="book-price__wrap">
+            <h3 class="tit-sub">객실요금</h3>
+            <p>100,000원</p>
+          </div>
+          <span class="mark"><i class="fa-regular fa-plus"></i></span>
+          <div class="book-price__wrap">
+            <h3 class="tit-sub">인원추가</h3>
+            <p>100,000원</p>
+            <div class="price-extramen">(성인:2명/아동:1명/유아:1명)</div>
+          </div>
+          <span class="mark"><i class="fa-regular fa-plus"></i></span>
+          <div class="book-price__wrap">
+            <h3 class="tit-sub">옵션요금</h3>
+            <p>100,000원</p>
+          </div>
+          <span class="mark"><i class="fa-regular fa-equals"></i></span>
+          <div class="book-price__wrap">
+            <h3 class="tit-sub">총 결제금액</h3>
+            <p class="total-price">100,000원</p>
+          </div>
+        </div>
+        <div class="book-detail__btn flex-end">
+          <button type="button" class="btnSaveInfo btn btn-lg">저장</button>
+        </div>
+
+        <!-- 확인 모달 -->
+        <div class="modal">
+          <div class="modal-back modalClose"></div>
+          <div class="modal-wrap">
+            <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+            <div class="modal-content">
+              예약정보를 저장하시겠습니까? 저장 시 예약자 정보도 함께 변경됩니다.
+              <!-- (미입력 항목명)을/를 입력해주세요. -->
+            </div>
+            <div class="modal-btns">
+              <button type="submit" class="btn-active">확인</button>
+              <!-- 미입력 항목 있을 경우 modalClose 주석처리 -->
+              <button type="reset" class="modalClose">취소</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <div class="section-end"></div>
+
+    <section id="consult">
+      <form action="">
+        <div class="consult">
+          <div class="consult-wrap">
+            <h3 class="tit-sub">상담기록</h3>
+            <div class="consult-write">
+              <textarea name="" id=""></textarea>
+              <div class="consult-btns">
+                <button type="submit" class="btn">저장</button>
+                <p class="checkbox">
+                  <input type="checkbox" id="상담저장">
+                  <label for="상담저장" class="checkbox-lb">문자</label>
+                </p>
+              </div>
+            </div>
+            <div class="consult-history">
+              <ul class="consult-list">
+                <li>
+                  <div class="consult-info">
+                    <p>상담자 2022.04.21 08:09:12</p>
+                    <div class="checkbox">
+                      <input type="checkbox" id="temp12" name="consult-checkbox" checked disabled>
+                      <label for="temp12" class="checkbox-lb">상담</label>
+                      <input type="checkbox" id="temp13" name="consult-checkbox" disabled>
+                      <label for="temp13" class="checkbox-lb">문자</label>
+                    </div>
+                  </div>
+                  <div class="consult-text">
+                    상담내용상담내용<br>내용 기록 문자 상담내용
+                  </div>
+                </li>
+              </ul>
+              <ul class="pagination">
+                <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="">1</a></li>
+                <li class="active"><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="consult-wrap">
+            <h3 class="tit-sub">예약내역</h3>
+            <div class="consult-booked">
+              <table>
+                <colgroup>
+                  <col width="22%">
+                  <col width="">
+                  <col width="20%">
+                  <col width="">
+                  <col width="">
+                  <col width="50px">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>숙박기간</th>
+                    <th>예약자</th>
+                    <th>연락처</th>
+                    <th>객실명</th>
+                    <th>결제금액</th>
+                    <th>삭제</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>22.01.27 ~ 2박</td>
+                    <td>홍길동</td>
+                    <td>010-0000-0000</td>
+                    <td>A객실</td>
+                    <td>1,000,000</td>
+                    <td><button type="button"><i class="fa-solid fa-times"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <ul class="pagination">
+                <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li class="active"><a href="">3</a></li>
+                <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
 </body>
 </html>

@@ -59,13 +59,13 @@
 .content-price li {border-top: 1px solid var(--silver); padding: var(--gap-lg) 0;}
 .content-price li:first-of-type {border-top: none;}
 .content-price .tit-lb {min-width: 60px; font-weight: 500; line-height: 30px;}
-.content-price .room-price__box {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 5px;}
+.content-price .room-price__box {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 5px; flex-wrap: wrap;}
 .content-price .room-price__box.flex-center {justify-content: flex-start; align-items: center;}
 .content-price .room-price__box.flex-center.flexwrap {flex-wrap: wrap;}
-.room-price__input {display: flex; justify-content: flex-start; align-items: center;}
-.room-price__season {margin-left: var(--gap-md);}
-.room-price__setting .season-name {display: flex; justify-content: flex-start; align-items: center;}
-.room-price__setting .room-price__box .cell {margin-left: var(--gap-sm); padding-top: 3px;}
+.room-price__input {display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap;}
+.room-price__input input {margin-right: var(--gap-md);}
+.room-price__setting .season-name {display: flex; justify-content: flex-start; align-items: center; margin-right: var(--gap-sm);}
+.room-price__setting .room-price__box .cell {padding-top: 3px;}
 .room-price__setting .season-info {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 5px;}
 .room-price__setting .season-info .checkbox {margin: 0 10px;}
 .room-price__setting .season-info .btnW {margin-left: 5px;}

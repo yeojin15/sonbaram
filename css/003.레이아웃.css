@@ -1,6 +1,5 @@
 /* * 레이아웃 pc */
-#HEADER_PC {position: sticky; top: 0; z-index: 900; min-width: 1280px;}
-#HEADER_PC .top-header {height: 60px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); padding: 0 var(--gap-lg); background: #fff; border-bottom: 1px solid var(--silver);}
+#HEADER_PC {position: fixed; left: 0; right: 0; top: 0; z-index: 900; min-width: var(--window); height: 60px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); padding: 0 var(--gap-lg); background: #fff; border-bottom: 1px solid var(--silver);}
 #HEADER_PC .header-title {width: 250px; display: flex; justify-content: flex-start; align-items: center;}
 #HEADER_PC .header-title h2 {font-size: var(--fz-big); color: var(--main); font-weight: 600; margin-right: 10px;}
 #HEADER_PC .header-title .toggle {position: relative; width: 45px; height: 20px; border-radius: 20px; border: 1px solid var(--main); cursor: pointer; transition: .4s;}
@@ -16,12 +15,18 @@
 #HEADER_PC .header-info .user {display: flex; justify-content: flex-end; align-items: center;}
 #HEADER_PC .header-info .user h4 {position: relative; padding-right: 20px;}
 #HEADER_PC .header-info .user h4:after {content: ''; position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 1px; height: 12px; background: var(--black);}
-#HEADER_PC .snb {position: fixed; transition: .4s; z-index: 800; left: -100%; width: 200px; top: 60px; bottom: 0; border-right: 1px solid var(--silver); padding: 30px 0 30px 30px; background: #fff;}
-#HEADER_PC .snb li {margin-bottom: 30px; font-weight: 600; transition: .4s;}
-#HEADER_PC .snb li:hover {color: var(--main);}
-#HEADER_PC.toggleOn .snb {left: 0;}
+
+#SNB_PC {position: fixed; transition: .4s; z-index: 800; left: -100%; width: 200px; top: 60px; bottom: 0; border-right: 1px solid var(--silver); padding: 30px 0 30px 30px; background: #fff;}
+#SNB_PC li {margin-bottom: 30px; font-weight: 600; transition: .4s;}
+#SNB_PC li:hover {color: var(--main);}
+
+#PAGE {position: relative; margin-top: 60px; padding: var(--gap-md); min-width: var(--window); transition: .4s;}
+
+/* * toggleOn */
 #HEADER_PC.toggleOn .toggle {background: var(--main);}
-#HEADER_PC.toggleOn .toggle-switch {left: 25px; background: #fff;}
+#HEADER_PC.toggleOn .toggle-switch {left: 26px; background: #fff;}
+#SNB_PC.toggleOn {left: 0;}
+#PAGE.toggleOn {margin-left: 200px;}
 
 /* * 레이아웃 mo */
 #HEADER_MO header {position: fixed; z-index: 900; left: 0; right: 0; top: 0; height: 50px; box-shadow: var(--shadow); padding: 0 var(--gap-md); display: flex; justify-content: space-between; align-items: center;}
