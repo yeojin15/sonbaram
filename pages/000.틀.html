@@ -14,23 +14,25 @@
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
   <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/003.레이아웃.css">
   <!-- custom -->
-  <link rel="stylesheet" href="">
 </head>
 <body>
-  <div class="BODYWRAP">
-    <section id="HEADER_PC"></section>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
     <script>
       $(document).ready(function(){
-        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+        $('#headerWrap').load("/pages/003.레이아웃.html");
       });
     </script>
-    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
-    <main id="PAGE">
-      
-    </main>
   </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="PAGE">
+
+  </main>
 </body>
 </html>

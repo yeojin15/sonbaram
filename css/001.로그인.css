@@ -14,12 +14,12 @@ body {position: static; min-width: initial;}
 .login .reset form {position: absolute; z-index: 10; left: 50%; top: 50%; transform: translate(-50%,-50%); padding: 20px; border-radius: 12px; background: #fff;}
 .login .reset p {margin: 15px 0; font-size: var(--fz-sm); line-height: 1.3;}
 .reset-btns {display: flex; justify-content: space-between; align-items: center;}
-.reset-btns button {width: calc(50% - 5px); height: 34px; background: var(--gray); color: #fff; border-radius: 6px;}
+.reset-btns button {width: calc(50% - 5px); height: 34px; background: var(--gray); color: #fff; border-radius: 6px; margin-bottom: 0;}
 .reset-btns .btn-send {background: var(--main);}
 
 /* * 로그인 pc */
-#LOGIN_PC {min-width: 1310px; padding: 0 15px; width: 100%; height: 99vh; display: flex; justify-content: center; align-items: center; background: var(--white);}
-#LOGIN_PC .login-wrap {position: relative; width: 1280px; padding: 30px 50px; min-height: 90vh; max-height: 95vh; border: 1px solid var(--silver); border-radius: 20px; box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); background: #fff; overflow: hidden;}
+#LOGIN_PC {min-width: calc(var(--window) + 30px); padding: 0 15px; width: 100%; height: 99vh; display: flex; justify-content: center; align-items: center; background: var(--white);}
+#LOGIN_PC .login-wrap {position: relative; width: var(--window); padding: 30px 50px; min-height: 90vh; max-height: 95vh; border: 1px solid var(--silver); border-radius: 20px; box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); background: #fff; overflow: hidden;}
 #LOGIN_PC .copy {position: absolute; left: 20px; bottom: 20px; font-size: var(--fz-sm);}
 #LOGIN_PC .login-bg {position: absolute; top: 0; bottom: 0; right: 0; width: 50%;}
 #LOGIN_PC .login-wrap form {width: 40%;}

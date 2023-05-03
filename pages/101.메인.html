@@ -14,91 +14,89 @@
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
   <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
   <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
-  <link rel="stylesheet" href="/css/common.css">
-  <link rel="stylesheet" href="/css/003.레이아웃.css">
-  <!-- custom -->
   <script src="/js/calendar.js"></script>
 </head>
 <body>
-  <div class="BODYWRAP">
-    <section id="HEADER_PC"></section>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
     <script>
       $(document).ready(function(){
-        $('#HEADER_PC').load("/pages/003.레이아웃.html");
+        $('#headerWrap').load("/pages/003.레이아웃.html");
       });
     </script>
-    <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
-    <main id="PAGE">
-      <section id="mainCalendar">
-        <div class="fullCalendarWrap" id="fullCalendarWrap">
-          <div class="fullCalendar-head">
-            <div class="fullCalendar-ctrl">
-              <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
-              <h2 class="currentYearMonth"></h2>
-              <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
-              <button type="button" class="todayBtn">Today</button>
-            </div>
-            <div class="fullCalendar-status">
-              <span class="c-book">예약접수</span>
-              <span class="c-reserved">예약완료</span>
-              <span class="c-stayed">숙박완료</span>
-              <span class="c-stop">취소요청</span>
-              <span class="c-cancel">예약취소</span>
-            </div>
-          </div>
-          <div id="fullCalendar" style="height: 600px;"></div>
-        </div>
-      </section>
-
-      <div class="section-end"></div>
-
-      <section id="mainBookStatus">
-        <h2 class="tit-sec">예약현황</h2>
-        <table class="table-base">
-          <thead>
-            <tr>
-              <th>숙박업소명</th>
-              <th>에이전시명</th>
-              <th>등록일</th>
-              <th>예약일</th>
-              <th>동/그룹명</th>
-              <th>객실명</th>
-              <th>예약자</th>
-              <th>숙박기간</th>
-              <th>결제수단</th>
-              <th>요금</th>
-              <th>예약상태</th>
-              <th>결제상태</th>
-              <th>상담기록</th>
-              <th>문자기록</th>
-              <th>상세보기</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>A숙박업소</td>
-              <td>B에이전시</td>
-              <td>22.03.09</td>
-              <td>22.03.26</td>
-              <td>A동</td>
-              <td>C객실명</td>
-              <td>홍길동</td>
-              <td>22.03.26 ~ 22.03.27</td>
-              <td>무통장</td>
-              <td>100,000</td>
-              <td>예약접수</td>
-              <td>입금대기</td>
-              <td>10</td>
-              <td>5</td>
-              <td><button type="button" class="btn">상세보기</button></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="flex-center">
-          <button type="submit" class="btn btn-lg mt30">더보기</button>
-        </div>
-      </section>
-    </main>
   </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #page -->
+  <main id="PAGE">
+    <section id="mainCalendar">
+      <div class="fullCalendarWrap" id="fullCalendarWrap">
+        <div class="fullCalendar-head">
+          <div class="fullCalendar-ctrl">
+            <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+            <h2 class="currentYearMonth"></h2>
+            <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+            <button type="button" class="todayBtn">Today</button>
+          </div>
+          <div class="fullCalendar-status">
+            <span class="c-book">예약접수</span>
+            <span class="c-reserved">예약완료</span>
+            <span class="c-stayed">숙박완료</span>
+            <span class="c-stop">취소요청</span>
+            <span class="c-cancel">예약취소</span>
+          </div>
+        </div>
+        <div id="fullCalendar" style="height: 600px;"></div>
+      </div>
+    </section>
+
+    <div class="section-end"></div>
+
+    <section id="mainBookStatus">
+      <h2 class="tit-sec">예약현황</h2>
+      <table class="table-base">
+        <thead>
+          <tr>
+            <th>숙박업소명</th>
+            <th>에이전시명</th>
+            <th>등록일</th>
+            <th>예약일</th>
+            <th>동/그룹명</th>
+            <th>객실명</th>
+            <th>예약자</th>
+            <th>숙박기간</th>
+            <th>결제수단</th>
+            <th>요금</th>
+            <th>예약상태</th>
+            <th>결제상태</th>
+            <th>상담기록</th>
+            <th>문자기록</th>
+            <th>상세보기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A숙박업소</td>
+            <td>B에이전시</td>
+            <td>22.03.09</td>
+            <td>22.03.26</td>
+            <td>A동</td>
+            <td>C객실명</td>
+            <td>홍길동</td>
+            <td>22.03.26 ~ 22.03.27</td>
+            <td>무통장</td>
+            <td>100,000</td>
+            <td>예약접수</td>
+            <td>입금대기</td>
+            <td>10</td>
+            <td>5</td>
+            <td><button type="button" class="btn">보기</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="flex-center">
+        <button type="submit" class="btn btn-lg mt30">더보기</button>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
