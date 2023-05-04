@@ -19,7 +19,7 @@ body {position: static; min-width: initial;}
 
 /* * 로그인 pc */
 #LOGIN_PC {min-width: calc(var(--window) + 30px); padding: 0 15px; width: 100%; height: 99vh; display: flex; justify-content: center; align-items: center; background: var(--white);}
-#LOGIN_PC .login-wrap {position: relative; width: var(--window); padding: 30px 50px; min-height: 90vh; max-height: 95vh; border: 1px solid var(--silver); border-radius: 20px; box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); background: #fff; overflow: hidden;}
+#LOGIN_PC .login-wrap {position: relative; min-width: var(--window); padding: 30px 50px; min-height: 90vh; max-height: 95vh; border: 1px solid var(--silver); border-radius: 20px; box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1); background: #fff; overflow: hidden;}
 #LOGIN_PC .copy {position: absolute; left: 20px; bottom: 20px; font-size: var(--fz-sm);}
 #LOGIN_PC .login-bg {position: absolute; top: 0; bottom: 0; right: 0; width: 50%;}
 #LOGIN_PC .login-wrap form {width: 40%;}
