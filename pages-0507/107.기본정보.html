@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <script src="/js/setting.js"></script>
+  <script src="/js/image-uploader.js"></script>
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <link rel="stylesheet" href="/css/107.기본정보.css">
+  <script>
+    $(document).ready(function(){
+      $('.popClose').click(function(){
+        $('.popup').removeClass('popOpen');
+      })
+
+      // 팝업창 열기
+      function popUpHandler(popup){
+        $(`.${popup}`).click(function(){
+          $(`#${popup}`).addClass('popOpen')
+        })
+      }
+      popUpHandler('popCharge')
+      popUpHandler('popMemo')
+      popUpHandler('popNew')
+      popUpHandler('popEachRoom')
+
+      // 이미지업로드
+      $('.input-images').each(function(){
+        $(this).imageUploader()
+      })
+
+      // 새로 등록 버튼 클릭 시 수정하겠습니까 모달 open
+      $('.newItemBtn').click(function(){
+        $('.modal').addClass('modalOn')
+      });
+      $('.modalClose').click(function(){
+        $('.modal').removeClass('modalOn');
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
+    <script>
+      $(document).ready(function(){
+        $('#headerWrap').load("/pages/003.레이아웃.html");
+      });
+    </script>
+  </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="PAGE">
+    <form action="">
+      <ul class="search">
+        <li>
+          <span class="tit-lb">등록일</span>
+          <div>
+            <p class="radio">
+              <input type="radio" name="set-month" id="setMonthAll" checked />
+              <label for="setMonthAll" class="radio-lb">전체</label>
+            </p>
+            <p class="radio">
+              <input type="radio" name="set-month" id="setMonthSelect" />
+              <label for="setMonthSelect" class="radio-lb">설정</label>
+            </p>
+            <p class="date">
+              <input type="date" disabled>
+              <span class="mark">~</span>
+              <input type="date" disabled>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">상태</span>
+          <div>
+            <p class="radio">
+              <input type="radio" name="set-status" id="setStatusAll" checked />
+              <label for="setStatusAll" class="radio-lb">전체</label>
+              <input type="radio" name="set-status" id="setStatusUse" />
+              <label for="setStatusUse" class="radio-lb">사용</label>
+              <input type="radio" name="set-status" id="setStatusUnuse" />
+              <label for="setStatusUnuse" class="radio-lb">미사용</label>
+              <input type="radio" name="set-status" id="setStatusPending" />
+              <label for="setStatusPending" class="radio-lb">사용대기</label>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">검색어</span>
+          <div>
+            <input type="text" placeholder="검색어를 입력해주세요.">
+            <button type="button" class="btn">검색</button>
+          </div>
+        </li>
+      </ul>
+      <table class="table-full">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>등록일시</th>
+            <th>숙박업소명</th>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>수수료</th>
+            <th>소속 에이전시</th>
+            <th>상태</th>
+            <th>삭제</th>
+            <th>메모</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7</td>
+            <td>2023-02-20 17:12:31</td>
+            <td><button type="button" class="btn-line">abc</button></td>
+            <td>abc@abc.com</td>
+            <td>이중재</td>
+            <td>매출의 10%</td>
+            <td>-</td>
+            <td><button type="button" class="popCharge btn-line">사용대기</button></td>
+            <td><button type="button" class="btn-line">삭제</button></td>
+            <td><button type="button" class="popMemo btn-line">입력</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pagination">
+        <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+        <li><a href="">1</a></li>
+        <li class="active"><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+      </ul>
+      <button type="button" class="popNew btn-lg btn">신규등록</button>
+    </form>
+
+    <!-- 상태 탭 클릭 시 사용대기 수수료 설정 팝업  -->
+    <div class="popup" id="popCharge">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">사용대기 수수료 설정</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <ul>
+              <li>
+                <span class="tit-lb">수수료설정</span>
+                <div class="cell">
+                  <div class="radio">
+                    <input type="radio" name="pop-fare" id="popFarePc" value="" checked />
+                    <label for="popFarePc" class="radio-lb">매출의 <input type="text" class="sm"/>%</label>
+                    <input type="radio" name="pop-fare" id="popFareWon" value="" />
+                    <label for="popFareWon" class="radio-lb">월 이용료 <input type="text" class="sm"/>원</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <span class="tit-lb">상태</span>
+                <div class="cell">
+                  <div class="radio">
+                    <input type="radio" name="pop-use" id="popUseY" value="" checked />
+                    <label for="popUseY" class="radio-lb">사용</label>
+                    <input type="radio" name="pop-use" id="popUseN" value="" />
+                    <label for="popUseN" class="radio-lb">미사용</label>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <span class="tit-lb">기본정산<br>계좌정보</span>
+                <div class="cell">
+                  <div class="account-info">
+                    <p>
+                      <label for="">은행명</label>
+                      <select name="" id="">
+                        <option value="">국민은행</option>
+                      </select>
+                    </p>
+                    <p>
+                      <label for="">계좌번호</label>
+                      <input type="number">
+                    </p>
+                    <p>
+                      <label for="">예금주</label>
+                      <input type="text">
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="flex-end pop-btns">
+              <button type="button" class="popClose btn-lg btnW">취소</button>
+              <button type="submit" class="btn-lg btn">저장</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- 메모 탭 클릭 시 메모 팝업 -->
+    <div class="popup" id="popMemo">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">메모 입력 및 수정</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <ul>
+              <li>
+                <span class="tit-lb">메모</span>
+                <div class="cell">  <textarea name="" id=""></textarea></div>
+              </li>
+            </ul>
+            <div class="flex-end pop-btns">
+              <button type="button" class="popClose btn-lg btnW">취소</button>
+              <button type="submit" class="btn-lg btn">등록</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- 신규 등록 클릭 시 신규 팝업 -->
+    <div class="popup" id="popNew">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">신규 등록</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <div class="pop-flex">
+              <div class="pop-box">
+                <ul>
+                  <li class="dib">
+                    <span class="tit-lb">숙박업소명</span>
+                    <div class="cell"><input type="text" maxlength="15"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">이름</span>
+                    <div class="cell"><input type="text" maxlength="10"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">아이디</span>
+                    <div class="cell"><input type="text"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">연락처</span>
+                    <div class="cell"><input type="tel" maxlength="11"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">비밀번호</span>
+                    <div class="cell"><input type="password"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">비밀번호 확인</span>
+                    <div class="cell"><input type="password"></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">주소</span>
+                    <div class="cell"><input type="text"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">체크인</span>
+                    <div class="cell"><input type="time"></div>
+                  </li>
+                  <li class="dib">
+                    <span class="tit-lb">체크아웃</span>
+                    <div class="cell"><input type="time"></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">홈페이지</span>
+                    <div class="cell"><input type="text"></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">알림수신번호</span>
+                    <div class="cell"><input type="tel" maxlength="11"></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">에이전시 선택</span>
+                    <div class="cell">
+                      <select name="" id="">
+                        <option value="">option1</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">수수료 설정</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="" id="" value="" checked />
+                        <label for="" class="radio-lb">매출의 <input type="text" class="sm"/>%</label>
+                        <input type="radio" name="" id="" value="" />
+                        <label for="" class="radio-lb">월 이용료 <input type="text" class="sm"/>원</label>
+                        <button type="button" class="popEachRoom btn-line">객실별 설정</button>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">상태</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="" id="" value="" checked />
+                        <label for="" class="radio-lb">사용</label>
+                        <input type="radio" name="" id="" value="" />
+                        <label for="" class="radio-lb">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">기본정산 <br>계좌정보</span>
+                    <div class="cell">
+                      <div class="account-info">
+                        <p>
+                          <label for="">은행명</label>
+                          <select name="" id="">
+                            <option value="">국민은행</option>
+                          </select>
+                        </p>
+                        <p>
+                          <label for="">계좌번호</label>
+                          <input type="number">
+                        </p>
+                        <p>
+                          <label for="">예금주</label>
+                          <input type="text">
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">숙박업소안내</span>
+                    <div class="cell"><textarea name="" id=""></textarea></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">이용안내</span>
+                    <div class="cell"><textarea name="" id=""></textarea></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="pop-box">
+                <ul>
+                  <li>
+                    <span class="tit-lb">예약안내</span>
+                    <div class="cell"><textarea name="" id=""></textarea></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">기타안내</span>
+                    <div class="cell"><textarea name="" id=""></textarea></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">무통장정보</span>
+                    <div class="cell">
+                      <div class="account-info">
+                        <p>
+                          <label for="">은행명</label>
+                          <select name="" id="">
+                            <option value="">국민은행</option>
+                          </select>
+                        </p>
+                        <p>
+                          <label for="">계좌번호</label>
+                          <input type="number">
+                        </p>
+                        <p>
+                          <label for="">예금주</label>
+                          <input type="text">
+                        </p>
+                        <p>
+                          <label for="">대기시간</label>
+                          <input type="text" class="sm">시간
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="image-area">
+                    <div class="cell">
+                      <div class="img-box">
+                        <span>대표사진</span>
+                        <div class="input-images"></div>
+                      </div>
+                      <div class="img-box">
+                        <div class="input-images"></div>
+                      </div>
+                    </div>
+                    <p class="guide">
+                      Drag & Drop
+                      <br>1920 X 1080 으로 등록해주세요.
+                      <br> 사진은 각 3MB 이하로 등록해주세요.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="flex-end pop-btns">
+              <button type="button" class="newItemBtn btn-lg btn">등록</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- 신규 팝업 내 수수료 객실별 설정 클릭 시 팝업 -->
+    <div class="popup" id="popEachRoom">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">객실 별 설정</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <ul>
+              <li>
+                <div class="checkbox">
+                  <input type="checkbox" id="tempp1">
+                  <label for="tempp1" class="checkbox-lb">A동 / 객실명1</label>
+                </div>
+                <div class="cell">
+                  <span class="tit-lb">수수료설정</span>
+                  <div class="radio">
+                    <input type="radio" name="" id="" value="" checked />
+                    <label for="" class="radio-lb">매출의 <input type="text" class="sm"/>%</label>
+                    <input type="radio" name="" id="" value="" />
+                    <label for="" class="radio-lb">월 이용료 <input type="text" class="sm"/>원</label>
+                  </div>
+                </div>
+                <div class="cell">
+                  <span class="tit-lb">객실별 정산 <br>계좌 설정</span>
+                  <div class="account-info">
+                    <p>
+                      <label for="">은행명</label>
+                      <select name="" id="">
+                        <option value="">국민은행</option>
+                      </select>
+                    </p>
+                    <p>
+                      <label for="">계좌번호</label>
+                      <input type="number">
+                    </p>
+                    <p>
+                      <label for="">예금주</label>
+                      <input type="text">
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="checkbox">
+                  <input type="checkbox" id="tempp2">
+                  <label for="tempp2" class="checkbox-lb">B동 / 객실명1</label>
+                </div>
+                <div class="cell">
+                  <span class="tit-lb">수수료설정</span>
+                  <div class="radio">
+                    <input type="radio" name="" id="" value="" checked />
+                    <label for="" class="radio-lb">매출의 <input type="text" class="sm"/>%</label>
+                    <input type="radio" name="" id="" value="" />
+                    <label for="" class="radio-lb">월 이용료 <input type="text" class="sm"/>원</label>
+                  </div>
+                </div>
+                <div class="cell">
+                  <span class="tit-lb">객실별 정산 <br>계좌 설정</span>
+                  <div class="account-info">
+                    <p>
+                      <label for="">은행명</label>
+                      <select name="" id="">
+                        <option value="">국민은행</option>
+                      </select>
+                    </p>
+                    <p>
+                      <label for="">계좌번호</label>
+                      <input type="number">
+                    </p>
+                    <p>
+                      <label for="">예금주</label>
+                      <input type="text">
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- 확인모달 -->
+    <div class="modal">
+      <div class="modal-back modalClose"></div>
+      <div class="modal-wrap">
+        <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+        <div class="modal-content">
+          수정하시겠습니까?
+        </div>
+        <div class="modal-btns">
+          <button type="submit" class="btn-active">확인</button>
+          <button type="reset" class="modalClose">취소</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

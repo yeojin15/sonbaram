@@ -7,13 +7,12 @@
 .search button {margin-left: 10px;}
 .search input[type="text"] {width: 150px;}
 
+/* * 정산상세 */
 table {width: 100%; margin-top: 30px; border: 1px solid var(--input); border-top: none; border-bottom: none;}
 table thead tr {background: var(--main); color: #fff;}
 table thead th {padding: 10px 0;}
 table tbody tr {border-bottom: 1px solid var(--input);}
 table tbody td {padding: 10px 5px; text-align: center;}
-
-/* * 정산상세 */
 .balance-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
 .balance-wrap {width: 55%; padding-right: var(--gap-md);}
 .balance-wrap .search {display: flex; justify-content: flex-start; align-items: center;}
@@ -21,9 +20,9 @@ table tbody td {padding: 10px 5px; text-align: center;}
 .balance-wrap .search button {flex: none;}
 .balance-sheet {width: 45%; border: 1px solid var(--input); padding: var(--gap-md);}
 .balance-sheet li {font-size: var(--fz-md); font-weight: 700; margin-bottom: var(--gap-md);}
-.balance-sheet table {margin-top: 10px; font-size: var(--fz-base); font-weight: 400;}
-.balance-sheet table thead tr {background: var(--silver); color: var(--black);}
-.balance-sheet table thead th {text-align: center; font-weight: 600; border: 1px solid var(--input);}
-.balance-sheet table tbody td {border: 1px solid var(--input);}
-.balance-sheet table tbody tr:last-of-type td {padding: 15px 0; background: var(--silver); font-weight: 600;}
+.balance-sheet li table {width: 100%; margin-top: 10px; font-size: var(--fz-base); font-weight: 400; border: 1px solid var(--input);}
+.balance-sheet li table thead tr {background: var(--silver); color: var(--black);}
+.balance-sheet li table thead th {padding: 10px 0; text-align: center; font-weight: 600; border: 1px solid var(--input);}
+.balance-sheet li table tbody td {padding: 10px 5px; text-align: center; border: 1px solid var(--input);}
+.balance-sheet li table tbody tr:last-of-type td {padding: 15px 0; background: var(--silver); font-weight: 600;}
 .balance-btns {text-align: center;}

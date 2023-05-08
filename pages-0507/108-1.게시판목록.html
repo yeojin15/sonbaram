@@ -19,8 +19,7 @@
   <link rel="stylesheet" href="/css/common.css">
   <link rel="stylesheet" href="/css/003.레이아웃.css">
   <!-- custom -->
-  <script src="/js/balance.js"></script>
-  <link rel="stylesheet" href="/css/106.정산관리.css">
+  <link rel="stylesheet" href="/css/108.게시판.css">
 </head>
 <body>
   <!-- ? HEADER 임시 import -->
@@ -37,77 +36,49 @@
     <form action="">
       <ul class="search">
         <li>
-          <span class="tit-lb">정산 월</span>
-          <div>
-            <p class="radio">
-              <input type="radio" name="balance-month" id="balanceMonthAll" checked />
-              <label for="balanceMonthAll" class="radio-lb">전체</label>
-            </p>
-            <p class="radio">
-              <input type="radio" name="balance-month" id="balanceMonthSelect" />
-              <label for="balanceMonthSelect" class="radio-lb">설정</label>
-            </p>
-            <p class="date">
-              <input type="date" disabled>
-              <span class="mark">~</span>
-              <input type="date" disabled>
-            </p>
-          </div>
-        </li>
-        <li>
           <span class="tit-lb">상태</span>
-          <div>
-            <p class="radio">
-              <input type="radio" name="balance-status" id="balanceStatusAll" checked />
-              <label for="balanceStatusAll" class="radio-lb">전체</label>
-              <input type="radio" name="balance-status" id="balanceStatusPending" />
-              <label for="balanceStatusPending" class="radio-lb">정산대기</label>
-              <input type="radio" name="balance-status" id="balanceStatusDone" />
-              <label for="balanceStatusDone" class="radio-lb">정산완료</label>
-            </p>
+          <div class="radio">
+            <input type="radio" name="board-search" id="boardSearchAll" checked />
+            <label for="boardSearchAll" class="radio-lb">전체</label>
+            <input type="radio" name="board-search" id="boardSearchUse" />
+            <label for="boardSearchUse" class="radio-lb">사용</label>
+            <input type="radio" name="board-search" id="boardSearchUnuse" />
+            <label for="boardSearchUnuse" class="radio-lb">미사용</label>
           </div>
         </li>
         <li>
-          <span class="tit-lb">검색어</span>
+          <span class="tit-lb">숙박업소명</span>
           <div>
             <input type="text" placeholder="검색어를 입력해주세요.">
             <button type="button" class="btn">검색</button>
-            <button type="button" class="btn">저장</button>
           </div>
         </li>
       </ul>
-      <table>
+      <table class="table-full">
         <thead>
           <tr>
             <th>번호</th>
-            <th>정산 월</th>
-            <th>소속 에이전트</th>
+            <th>등록일시</th>
+            <th>소속 에이전시</th>
             <th>숙박업소명</th>
-            <th>구분</th>
             <th>아이디</th>
             <th>이름</th>
-            <th>수수료</th>
-            <th>청구일</th>
+            <th>등록 공지 수</th>
             <th>상태</th>
+            <th>삭제</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>7</td>
-            <td>2023-03</td>
+            <td>2023-02-20 17:12:31</td>
             <td>-</td>
-            <td><button type="button" class="btn-line">ABC</button></td>
-            <td>매출의 10%</td>
-            <td>aaa@aaa.com</td>
+            <td><button type="button" class="btn-line">abc</button></td>
+            <td>abc@abc.com</td>
             <td>이중재</td>
-            <td>580,000</td>
-            <td>2023-04-02</td>
-            <td>
-              <select name="" id="">
-                <option value="">정산대기</option>
-                <option value="">정산완료</option>
-              </select>
-            </td>
+            <td>7</td>
+            <td>사용</td>
+            <td><button type="button" class="delBtn btn-line">삭제</button></td>
           </tr>
         </tbody>
       </table>
