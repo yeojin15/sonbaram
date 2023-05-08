@@ -40,6 +40,14 @@
         if($(this).val()==='bankUseY') $('.room-price__bank.bank-info').addClass('show');
         else $('.room-price__bank.bank-info').removeClass('show');
       });
+
+      // 시설관리 팝업
+      $('.typeFacBtn').click(function(){
+        $('#typeFacPopup').addClass('popOpen');
+      });
+      $('.popClose').click(function(){
+        $('#typeFacPopup').removeClass('popOpen');
+      })
     });
   </script>
 </head>
@@ -93,7 +101,7 @@
                 <div>A에이전시</div>
                 <div>B숙박업소</div>
                 <div>A동</div>
-                <div>어반블루</div>
+                <div>어반블루ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇ</div>
                 <div>2 ~ 6</div>
                 <div>33.3㎡ / 10평</div>
               </li>
@@ -117,7 +125,7 @@
                 <li class="active" data-target="contentRoom">객실정보</li>
                 <li data-target="contentPrice">가격정보</li>
               </ul>
-              <button type="button" class="btn">타입/시설관리</button>
+              <button type="button" class="typeFacBtn btn">타입/시설관리</button>
             </div>
             <div class="room-info__contents">
               <!-- 객실정보 -->
@@ -213,7 +221,7 @@
                           <span>Drag &amp; Drop<br>1920*1080으로 등록하시면 좋습니다.<br>사진은 각 3MB 이하로 등록해주세요.</span>
                         </label>
                         <div class="input-images"></div>
-                    </div>
+                      </div>
                     </div>
                   </li>
                   <li>
@@ -372,7 +380,7 @@
                       </div>
                       <div class="room-price__box">
                         <label for="" class="tit-lb">계좌번호</label>
-                        <input type="num" maxlength="25">
+                        <input type="number" maxlength="25">
                       </div>
                       <div class="room-price__box">
                         <label for="" class="tit-lb">예금주</label>
@@ -380,7 +388,7 @@
                       </div>
                       <div class="room-price__box">
                         <label for="" class="tit-lb">대기시간</label>
-                        <input type="num" class="sm" maxlength="2"> 시간
+                        <input type="number" class="sm" maxlength="2"> 시간
                       </div>
                     </div>
                   </li>
@@ -391,6 +399,53 @@
         </div>
       </form>
     </section>
+
+    <div class="popup" id="typeFacPopup">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">타입/시설관리</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <div class="flex">
+              <div class="box">
+                <p class="tit-lb">타입관리</p>
+                <div class="fac-box">
+                  <p>
+                    <input type="text" maxlength="25">
+                    <button type="button" class="btn">추가</button>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>타입명01</p>
+                      <button type="button" class="btnW">삭제</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="box">
+                <p class="tit-lb">시설관리</p>
+                <div class="fac-box">
+                  <p>
+                    <input type="text" maxlength="25">
+                    <button type="button" class="btn">추가</button>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>시설명01</p>
+                      <button type="button" class="btnW">삭제</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-lg btn btn-center">저장</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
 </body>
 </html>

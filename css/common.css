@@ -1,17 +1,5 @@
 @import url(/css/reset.css);
 
-/* * 모달 */
-.modal {position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0; display: none;}
-.modal.modalOn {display: block;}
-.modal-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
-.modal-wrap {position: absolute; left: 50%; top: 50%; min-width: 350px; min-height: 200px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
-.modal-close {position: absolute; right: 15px; top: 15px; font-size: var(--fz-lg); cursor: pointer;}
-.modal-content {text-align: center; padding-top: 30px;}
-.modal-btns {width: 100%; display: flex; justify-content: space-between; align-items: center;}
-.modal-btns button {margin: 0 5px; flex: 1; border: 1px solid var(--main); padding: 10px; border-radius: 4px; color: var(--main); transition: .4s;}
-.modal-btns button:hover {transform: translateY(-4px); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
-.modal-btns .btn-active {background: var(--main); color: #fff;}
-
 /* * 제목 */
 .tit-sec {font-size: var(--fz-lg); font-weight: 700; margin-bottom: var(--gap-big);}
 .tit-sub {font-size: var(--fz-md); font-weight: 500; margin-bottom: var(--gap-md);}
@@ -22,6 +10,8 @@
 .btnW {padding: 0 7px; height: 24px; border-radius: 4px; border: 1px solid var(--main); color: var(--main); transition: .4s;}
 .btnW:hover {background: var(--hover); border-color: var(--hover); color: #fff;}
 .btn-lg {padding: 0 20px; height: 32px; font-size: var(--fz-md);}
+.btn-line {border-bottom: 2px solid var(--main); color: var(--main);}
+.btn-center {display: block; margin: 0 auto;}
 button:disabled {background: var(--silver); color: var(--gray); cursor: initial;}
 button:disabled:hover {background: var(--silver); color: var(--gray);}
 
@@ -81,10 +71,55 @@ textarea {border: 1px solid var(--input); border-radius: 6px; padding: 10px; res
 #smCalendarWrap .toastui-calendar-grid-cell-header {height: 100% !important; display: flex; justify-content: center; align-items: center;}
 #smCalendarWrap .toastui-calendar-grid-cell-date {display: flex; justify-content: center; align-items: center;}
 
-
 /* * table-base */
 .table-base {table-layout: fixed; width: 100%;}
 .table-base thead tr {border-bottom: 2px solid var(--gray);}
 .table-base thead th {padding: 10px 0; font-weight: 500;}
 .table-base tbody tr {border-bottom: 1px solid var(--silver);}
 .table-base tbody td {padding: 10px 5px; vertical-align: middle; text-align: center;}
+
+/* * table-full */
+.table-list {width: 100%; margin-top: 30px;}
+.table-head {display: flex; justify-content: flex-start; align-items: center;}
+.table-head h4 {flex: 1; text-align: center; background: var(--main); color: #fff; padding: 10px 5px; white-space: nowrap;}
+.table-list ul {max-height: 75vh; overflow-y: auto; border: 1px solid var(--input); border-top: none; border-bottom: none;}
+.table-list li {display: flex; align-items: stretch; border-bottom: 1px solid var(--input);}
+.table-list li div {display: flex; align-items: center; justify-content: center; flex: 1; text-align: center; padding: 10px 5px;}
+
+.table-full {width: 100%; margin-top: 30px; border: 1px solid var(--input); border-top: none; border-bottom: none;}
+.table-full thead tr {background: var(--main); color: #fff;}
+.table-full thead th {padding: 10px 0;}
+.table-full tbody tr {border-bottom: 1px solid var(--input);}
+.table-full tbody td {padding: 10px 5px; text-align: center;}
+
+/* * pagination */
+.pagination {width: 100%; display: flex; justify-content: center; align-items: center; margin-top: var(--gap-lg);}
+.pagination li {position: relative; width: 20px; height: 20px; margin: 0 2px; color: var(--main); transition: .4s;}
+.pagination li.pager-prev, 
+.pagination li.pager-next {border: 1px solid var(--gray); border-radius: 50%;}
+.pagination li a {display: block; text-align: center; line-height: 20px;}
+.pagination li:hover {transform: translateY(-3px);}
+.pagination li.pager-prev:hover, 
+.pagination li.pager-next:hover {transform: none; background: var(--main); color: #fff; border-color: var(--main);} 
+.pagination li.active {font-weight: 900;}
+
+/* * 모달 */
+.modal {position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0; display: none;}
+.modal.modalOn {display: block;}
+.modal-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
+.modal-wrap {position: absolute; left: 50%; top: 50%; min-width: 350px; min-height: 200px; max-width: 90%; max-height: 80vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
+.modal-close {position: absolute; right: 15px; top: 15px; font-size: var(--fz-lg); cursor: pointer;}
+.modal-content {text-align: center; padding-top: 30px;}
+.modal-btns {width: 100%; display: flex; justify-content: space-between; align-items: center;}
+.modal-btns button {margin: 0 5px; flex: 1; border: 1px solid var(--main); padding: 10px; border-radius: 4px; color: var(--main); transition: .4s;}
+.modal-btns button:hover {transform: translateY(-4px); box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;}
+.modal-btns .btn-active {background: var(--main); color: #fff;}
+
+/* * 팝업 */
+.popup {position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 999; display: none;}
+.popup.popOpen {display: block;}
+.pop-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
+.pop-container {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); min-width: 350px; min-height: 200px; max-width: 90%; max-height: 85vh; background: #fff; border-radius: 4px; overflow: hidden;}
+.pop-top {position: fixed; left: 0; right: 0; top: 0; display: flex; justify-content: space-between; align-items: center; height: 40px; border-bottom: 1px solid var(--black); padding: 0 var(--gap-md); font-size: var(--fz-md); font-weight: 700;}
+.pop-close {font-size: var(--fz-lg); cursor: pointer;}
+.pop-wrap {padding: var(--gap-md); margin-top: 40px; width: 100%; max-height: calc(85vh - 40px); overflow: auto;}

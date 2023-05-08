@@ -36,11 +36,11 @@
 .book-price .price-extramen {position: absolute; left: 50%; top: calc(100% + 10px); width: 100%; transform: translateX(-50%); text-align: center;}
 .book-price p {font-size: var(--fz-md);}
 .book-price .total-price {color: var(--cancel); font-weight: 700; font-size: var(--fz-lg);}
-.book-detail__btn {width: 1130px; margin: var(--gap-big) auto 0;}
+.book-detail__btn {width: 100%; margin: var(--gap-big) auto 0;}
 
 /* * 예약관리 상담, 예약내역 */
 .consult {display: flex; justify-content: flex-start; align-items: flex-start;}
-.consult-wrap {width: 45%; padding-right: var(--gap-md); min-width: 600px;}
+.consult-wrap {width: 50%; padding-right: var(--gap-md);}
 .consult-write {display: flex; justify-content: flex-start; align-items: flex-start;}
 .consult-write textarea {width: 450px; height: 80px;}
 .consult-btns {margin-left: var(--gap-md);}
@@ -63,14 +63,14 @@
 .consult-booked table {table-layout: fixed; width: 100%;}
 .consult-booked th {padding: 7px 0; background: var(--silver);}
 .consult-booked tbody tr {border-bottom: 1px solid var(--input);}
-.consult-booked td {padding: 7px 0; text-align: center;}
+.consult-booked td {padding: 7px 0; text-align: center; vertical-align: middle;}
 .consult-booked td button {color: var(--cancel); font-size: var(--fz-md);}
 
 
 /* * 예약추가모달 */
 .modalSearchLodge {display: none; position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0;}
 .modalSearchLodge.modalOn {display: block;}
-.modalSearchLodge .modal-wrap {position: absolute; display: block; left: 50%; top: 50%; min-width: 1000px; height: 500px; width: 70%; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
+.modalSearchLodge .modal-wrap {position: absolute; display: block; left: 50%; top: 50%; height: 500px; width: 80%; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
 .modalSearchLodge .modal-content {padding-top: 0; text-align: initial;}
 .modalSearchLodge .search {text-align: center; margin-bottom: var(--gap-big);}
 .modalSearchLodge .search-bar {display: flex; justify-content: center; align-items: center;}
@@ -79,6 +79,6 @@
 .modalSearchLodge .search-result__head {display: flex; justify-content: flex-start; align-items: center; text-align: center;}
 .modalSearchLodge .search-result__head h5 {width: 20%; padding: 10px 0; background: var(--silver);}
 .modalSearchLodge ul {height: 230px; overflow-y: auto; text-align: center;}
-.modalSearchLodge li {display: flex; justify-content: flex-start; align-items: center;}
-.modalSearchLodge li div {width: 20%; padding: 10px 0; border-bottom: 1px solid var(--input);}
+.modalSearchLodge li {display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid var(--input);}
+.modalSearchLodge li div {width: 20%; padding: 5px;}
 .modalSearchLodge li div button {color: var(--main); font-weight: 600; text-decoration: underline;}

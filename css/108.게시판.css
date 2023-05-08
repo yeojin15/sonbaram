@@ -1,0 +1,32 @@
+/* * 게시판목록 */
+.search li {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 15px;}
+.search .tit-lb {width: 70px;}
+.search div {width: calc(100% - 70px); display: flex; justify-content: flex-start; align-items: center;}
+.search label {margin-right: 15px;}
+.search .radio {display: flex; justify-content: flex-start; align-items: center;}
+.search button {margin-left: 10px;}
+.search input[type="text"] {width: 150px;}
+
+/* * 게시판상세 */
+.board-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
+.board-wrap {width: 48%; margin-right: var(--gap-md);}
+.board-search {display: flex; justify-content: space-between; align-items: center;}
+.board-search > button {flex: none;}
+.board-wrap .table-head h4:first-of-type {width: 130px; flex: none;}
+.board-wrap .table-head h4:nth-of-type(2) {width: 140px; flex: none;}
+.table-list li div:nth-of-type(2) {width: 140px; flex: none;}
+.ellp-btn {width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+.board-inputs ul {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; border-left: 1px solid var(--input); border-bottom: 1px solid var(--input); margin-top: 55px;}
+.board-inputs li {width: 100%; display: flex; justify-content: flex-start; align-items: stretch; border: 1px solid var(--input); border-left: none; border-bottom: none;}
+.board-inputs li.dib {width: 50%;}
+.board-inputs .tit-lb {display: flex; align-items: center; flex: none; width: 100px; padding: 10px; background: var(--silver);}
+.board-inputs .cell {flex: 1; display: flex; justify-content: flex-start; align-items: center; padding: 10px;}
+.board-inputs .account-info p {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 5px;}
+.board-inputs .account-info p label {width: 70px;}
+.board-inputs .radio {display: flex; justify-content: flex-start; align-items: center; padding: 10px;}
+.board-inputs .radio label {margin-right: var(--gap-md);}
+.board-inputs .radio input {margin-right: 5px;}
+.board-inputs input {border: 1px solid var(--input); border-radius: 4px;}
+.board-inputs select {border: 1px solid var(--input); border-radius: 4px;}
+.board-inputs .btn-lg {display: block; margin-left: auto; margin-top: var(--gap-md);}
