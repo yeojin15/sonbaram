@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <script src="/js/calendar.js"></script>
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/004.레이아웃mo.css">
+  <link rel="stylesheet" href="/css/102.예약관리.css">
+</head>
+<body>
+  <section id="HEADER_MO">
+    <header class="top-header">
+      <h2>손바람</h2>
+      <div class="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <aside class="aside">
+      <div class="aside-back"></div>
+      <nav class="snb">
+        <div class="snb-info">
+          <h3>손바람</h3>
+          <a href="" class="logout">로그아웃</a>
+          <ul>
+            <li><a href="">오늘예약 (1)</a></li>
+            <li><a href="">숙박완료 (1)</a></li>
+            <li><a href="">환불요청 (1)</a></li>
+            <li><a href="">입금대기 (1)</a></li>
+          </ul>
+        </div>
+        <ul class="snb-menu">
+          <li><a href=""><span><i class="fa-regular fa-home"></i></span> 홈</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-lines-pen"></i></span> 예약관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-bed"></i></span> 객실/요금</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-exclamation"></i></span> 휴일관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-minus"></i></span> 방막기</a></li>
+          <li><a href=""><span><i class="fa-regular fa-sack-dollar"></i></span> 정산관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-circle-info"></i></span> 기본정보</a></li>
+          <li><a href=""><span><i class="fa-regular fa-gear"></i></span> 옵션관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-list"></i></span> 공지사항</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-question"></i></span> FAQ</a></li>
+          <li><a href=""><span><i class="fa-regular fa-envelope"></i></span> 문자발송</a></li>
+          <li><a href=""><span><i class="fa-regular fa-users"></i></span> 직원관리</a></li>
+        </ul>
+    </nav>
+    </aside>
+  </section>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="APP">
+    <div class="smCalendarWrap" id="smCalendarWrap">
+      <div class="smCalendar-ctrl">
+        <div class="left">
+          <button type="button" class="prevMonthBtn"><i class="fa-solid fa-angle-left"></i></button>
+          <button type="button" class="todayBtn"><i class="fa-regular fa-home"></i></button>
+        </div>
+        <h2 class="currentYearMonth"></h2>
+        <button type="button" class="nextMonthBtn"><i class="fa-solid fa-angle-right"></i></button>
+      </div>
+      <div id="fullCalendar" style="height: 250px;"></div>
+    </div>
+    <form action="">
+      <div class="main-search">
+        <div class="book-form">
+          <div class="book-form__box">
+            <label for="">예약일</label>
+            <input type="date">
+          </div>
+          <div class="book-form__box">
+            <label for="">객실명</label>
+            <select name="" id="">
+              <option value="">전체</option>
+              <option value="">객실명1</option>
+            </select>
+          </div>
+          <div class="book-form__box">
+            <label for="">예약자</label>
+            <input type="text" maxlength="5">
+          </div>
+          <div class="book-form__box">
+            <label for="">결제상태</label>
+            <select name="" id="">
+              <option value="">전체</option>
+              <option value="">입금대기</option>
+              <option value="">입금완료</option>
+              <option value="">결제성공</option>
+              <option value="">결제취소</option>
+              <option value="">결제실패</option>
+              <option value="">환불요청</option>
+              <option value="">환불완료</option>
+            </select>
+          </div>
+          <div class="book-btns">
+            <button type="submit" class="btn btn-full">검색</button>
+            <button type="button" class="btn btn-full">예약추가</button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="main-list">
+        <li>
+          <p>등록일 : 22.03.09</p>
+          <div class="book-item">
+            <div class="book-info">
+              <h3>[예약자] 그룹/객실명</h3>
+              <div>예약일 : 22.03.17</div>
+              <div>2박 (22.03.26 ~ 22.03.27)</div>
+              <div>NNN,NNN원</div>
+            </div>
+            <button type="button" class="btn">예약상태</button>
+          </div>
+        </li>
+        <li>
+          <p>등록일 : 22.03.09</p>
+          <div class="book-item">
+            <div class="book-info">
+              <h3>[예약자] 그룹/객실명</h3>
+              <div>예약일 : 22.03.17</div>
+              <div>2박 (22.03.26 ~ 22.03.27)</div>
+              <div>NNN,NNN원</div>
+            </div>
+            <button type="button" class="btn">예약상태</button>
+          </div>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-full">더보기</button>
+    </form>
+  </main>
+</body>
+</html>

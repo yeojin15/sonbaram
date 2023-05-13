@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/004.레이아웃mo.css">
+  <!-- custom -->
+  <script src="/js/image-uploader.js"></script>
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <link rel="stylesheet" href="/css/103.객실요금.css">
+  <script>
+    $(document).ready(function(){
+      // 객실리스트 드래그&드롭으로 순서정렬
+      $("#roomSort").sortable();
+
+      // 객실정보 이미지 업로드, 업로드한 이미지 순서정렬
+      $('.input-images').imageUploader();
+      $('.input-images .uploaded').sortable();
+      // 무통장입금 사용시 계좌정보 노출
+      $('input[name="bank"]').on('change',function(){
+        if($(this).val()==='bankUseY') $('.room-price__bank.bank-info').addClass('show');
+        else $('.room-price__bank.bank-info').removeClass('show');
+      });
+
+      // 시설관리 팝업
+      $('.typeFacBtn').click(function(){
+        $('#typeFacPopup').addClass('popOpen');
+      });
+      $('.popClose').click(function(){
+        $('#typeFacPopup').removeClass('popOpen');
+      })
+
+      // 타입/시설관리 탭
+      $('.pop-tablist li').each(function(){
+        $(this).click(function(){
+          let idx = $(this).index();
+          $('.pop-tablist li').removeClass('active');
+          $(this).addClass('active');
+          $('.pop-tab').removeClass('active');
+          $('.pop-tab').eq(idx).addClass('active')
+        });
+      })
+    });
+  </script>
+</head>
+<body>
+  <section id="HEADER_MO">
+    <header class="top-header">
+      <h2>손바람</h2>
+      <div class="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <!-- aside snb -->
+    <aside class="aside">
+      <div class="aside-back"></div>
+      <nav class="snb">
+        <div class="snb-info">
+          <h3>손바람</h3>
+          <a href="" class="logout">로그아웃</a>
+          <ul>
+            <li><a href="">오늘예약 (1)</a></li>
+            <li><a href="">숙박완료 (1)</a></li>
+            <li><a href="">환불요청 (1)</a></li>
+            <li><a href="">입금대기 (1)</a></li>
+          </ul>
+        </div>
+        <ul class="snb-menu">
+          <li><a href=""><span><i class="fa-regular fa-home"></i></span> 홈</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-lines-pen"></i></span> 예약관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-bed"></i></span> 객실/요금</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-exclamation"></i></span> 휴일관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-minus"></i></span> 방막기</a></li>
+          <li><a href=""><span><i class="fa-regular fa-sack-dollar"></i></span> 정산관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-circle-info"></i></span> 기본정보</a></li>
+          <li><a href=""><span><i class="fa-regular fa-gear"></i></span> 옵션관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-list"></i></span> 공지사항</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-question"></i></span> FAQ</a></li>
+          <li><a href=""><span><i class="fa-regular fa-envelope"></i></span> 문자발송</a></li>
+          <li><a href=""><span><i class="fa-regular fa-users"></i></span> 직원관리</a></li>
+        </ul>
+    </nav>
+    </aside>
+  </section>
+
+  <!-- 뒤로가기 헤더 -->
+  <section id="app_header">
+    <button type="button" class="prev"><i class="fa-regular fa-angle-left"></i></button>
+    <h2>요금/객실추가</h2>
+    <button type="button" class="typeFacBtn btn-box">타입/시설관리</button>
+  </section>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #APP -->
+  <main id="APP">
+    <ul class="tab-list">
+      <li class="active">객실정보</li>
+      <li>가격정보</li>
+    </ul>
+    
+    <section class="app-tab active" id="room-info">
+      <form action="">
+        <div id="contentRoom" class="active room-info__content content-room">
+          <ul class="room-info__list">
+            <li class="flex">
+              <div class="room-info__item">
+                <p class="tit-lb">객실명</p>
+                <div class="cell">
+                  <input type="text" maxlength="25">
+                </div>
+              </div>
+              <div class="room-info__item">
+                <p class="tit-lb">동/그룹</p>
+                <div class="cell">
+                  <select name="" id="">
+                    <option value="">동/그룹명1</option>
+                  </select>
+                  <input type="text" placeholder="직접입력" maxlength="25">
+                </div>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">인원</p>
+              <div class="cell">
+                <input type="number" class="sm" min="1" max="999">
+                <span class="mark"> ~ </span>
+                <input type="number" class="sm" min="1" max="999">
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">무료</p>
+              <div class="cell">
+                <input type="number" class="sm">
+                <p class="mark">인원수에 포함하지 않은 유아 수</p>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">면적</p>
+              <div class="cell">
+                <input type="text" class="sm">
+                <span class="mark">㎡</span>
+                <span class="mark"><i class="fa-solid fa-arrows-left-right"></i></span>
+                <input type="text" class="sm">
+                <span class="mark">PY</span>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">타입</p>
+              <div class="cell">
+                <p class="checkbox">
+                  <input type="checkbox" id="type1">
+                  <label for="type1" class="checkbox-lb">타입명</label>
+                </p>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">시설</p>
+              <div class="cell">
+                <p class="checkbox">
+                  <input type="checkbox" id="fac1">
+                  <label for="fac1" class="checkbox-lb">시설명</label>
+                </p>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">옵션</p>
+              <div class="cell">
+                <p class="checkbox">
+                  <input type="checkbox" id="opt1">
+                  <label for="opt1" class="checkbox-lb">옵션명 <span class="opt-price">10,000원</span></label>
+                </p>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">안내</p>
+              <div class="cell">
+                <input type="text" maxlength="100" class="full">
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">설명</p>
+              <div class="cell">
+                <textarea name="" id="" maxlength="500"></textarea>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">사진</p>
+              <div class="cell">
+                <div class="image-box">
+                  <label class="active">
+                    <span><i class="fa-solid fa-upload"></i><br>1920*1080으로 등록하시면 좋습니다.<br>사진은 각 3MB 이하로 등록해주세요.</span>
+                  </label>
+                  <div class="input-images"></div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <p class="tit-lb">사용</p>
+              <div class="cell">
+                <p class="radio">
+                  <input type="radio" name="use" id="useY" value="useY" checked />
+                  <label for="useY" class="radio-lb">사용</label>
+                  <input type="radio" name="use" id="useN" value="useN" />
+                  <label for="useN" class="radio-lb">미사용</label>
+                </p>
+              </div>
+            </li>
+          </ul>
+          <button type="submit" class="btn-full btn">저장</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="app-tab" id="room-price">
+      <form action="">
+        <div id="contentPrice" class=" room-info__content content-price">
+          <ul class="room-price__list">
+            <li class="room-price__tit">
+              <span class="tit-cont">숙박업소명</span>
+              <span class="tit-cont">객실명</span>
+              <p>시즌 Season (시즌은 전체 객실에 적용 됩니다.)</p>
+            </li>
+            <li class="room-price__input">
+              <input type="text" placeholder="시즌명 입력" maxlength="25">
+              <div class="room-price__season">
+                <input type="date">
+                <span class="mark">~</span>
+                <input type="date">
+                <button type="button" class="btn">추가</button>
+              </div>
+            </li>
+            <li class="room-price__setting">
+              <div class="room-price__box flex-center">
+                <span class="tit-lb">비수기</span>
+                <p>추가된 시즌 기간 외 날짜가 자동으로 비수기 날짜로 지정됩니다.</p>
+              </div>
+              <div class="room-price__box">
+                <div class="season-name">
+                  <span class="tit-lb">성수기</span>
+                  <button type="button" class="btn seasonAdd" disabled>추가</button>
+                </div>
+                <div class="cell">
+                  <div class="season-info">
+                    <input type="date" value="2023-04-28">
+                    <span class="mark">~</span>
+                    <input type="date" value="2023-04-29">
+                    <button type="button" class="btnW">수정</button>
+                    <button type="button" class="btnW">삭제</button>
+                  </div>
+                  <div class="season-info">
+                    <input type="date">
+                    <span class="mark">~</span>
+                    <input type="date">
+                    <button type="button" class="btnW">저장</button>
+                    <button type="button" class="btnW">삭제</button>
+                  </div>
+                </div>
+              </div>
+              <div class="room-price__box">
+                <div class="season-name">
+                  <span class="tit-lb">준성수기</span>
+                  <button type="button" class="btn seasonAdd">추가</button>
+                </div>
+                <div class="cell">
+                  <div class="season-info">
+                    <input type="date" value="2023-04-28">
+                    <span class="mark">~</span>
+                    <input type="date" value="2023-04-29">
+                    <button type="button" class="btnW">수정</button>
+                    <button type="button" class="btnW">삭제</button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="room-price__table">
+              <div class="room-price__box flex-center">
+                <span class="tit-lb">요금 Price</span>
+                <div class="cell">
+                  <select name="" id="">
+                    <option value="">가격정보 불러오기</option>
+                    <option value="">어반블루</option>
+                  </select>
+                </div>
+              </div>
+              <div class="room-price__box">
+                <div class="room-price__cell">
+                  <h4>비수기</h4>
+                  <ul>
+                    <li>
+                      <p>일요일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>평일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>금요일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>토요일</p>
+                      <div>100,000</div>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <p>성인</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>아동</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>유아</p>
+                      <div>100,000</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="room-price__cell">
+                  <h4>성수기</h4>
+                  <ul>
+                    <li>
+                      <p>일요일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>평일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>금요일</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>토요일</p>
+                      <div>100,000</div>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      <p>성인</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>아동</p>
+                      <div>100,000</div>
+                    </li>
+                    <li>
+                      <p>유아</p>
+                      <div>100,000</div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="room-price__bank">
+              <div class="room-price__box flex-center flexwrap">
+                <label>객실별 무통장 입금 계좌 설정</label>
+                <div class="radio">
+                  <input type="radio" name="bank" id="bankUseN" value="bankUseN" checked/>
+                  <label for="bankUseN" class="radio-lb">미사용</label>
+                  <input type="radio" name="bank" id="bankUseY" value="bankUseY"  />
+                  <label for="bankUseY" class="radio-lb">사용</label>
+                </div>
+                <p>* 해당 객실 예약 시 등록된 무통장 계좌 정보가 노출됩니다. </p>
+              </div>
+              <div class="room-price__bank bank-info">
+                <div class="room-price__box">
+                  <label for="" class="tit-lb">은행명</label>
+                  <input type="text" maxlength="25">
+                </div>
+                <div class="room-price__box">
+                  <label for="" class="tit-lb">계좌번호</label>
+                  <input type="number" maxlength="25">
+                </div>
+                <div class="room-price__box">
+                  <label for="" class="tit-lb">예금주</label>
+                  <input type="text" maxlength="25">
+                </div>
+                <div class="room-price__box">
+                  <label for="" class="tit-lb">대기시간</label>
+                  <input type="number" class="sm" maxlength="2"> 시간
+                </div>
+              </div>
+            </li>
+          </ul>
+          <button type="submit" class="btn-full btn">저장</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 타입/시설관리 팝업 -->
+    <div class="popup" id="typeFacPopup">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">타입/시설관리</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <form action="">
+            <ul class="pop-tablist">
+              <li class="active">타입관리</li>
+              <li>시설관리</li>
+            </ul>
+            <div class="flex">
+              <div class="active pop-tab box">
+                <p class="tit-lb">타입관리</p>
+                <div class="fac-box">
+                  <p>
+                    <input type="text" maxlength="25">
+                    <button type="button" class="btn">추가</button>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>타입명01</p>
+                      <button type="button" class="btnW">삭제</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="pop-tab box">
+                <p class="tit-lb">시설관리</p>
+                <div class="fac-box">
+                  <p>
+                    <input type="text" maxlength="25">
+                    <button type="button" class="btn">추가</button>
+                  </p>
+                  <ul>
+                    <li>
+                      <p>시설명01</p>
+                      <button type="button" class="btnW">삭제</button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn-full btn btn-center">저장</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -12,6 +12,7 @@
 .btn-lg {padding: 0 20px; height: 32px; font-size: var(--fz-md);}
 .btn-line {border-bottom: 2px solid var(--main); color: var(--main);}
 .btn-center {display: block; margin: 0 auto;}
+.btn-full {display: block; width: 100%; height: 30px;}
 button:disabled {background: var(--silver); color: var(--gray); cursor: initial;}
 button:disabled:hover {background: var(--silver); color: var(--gray);}
 
