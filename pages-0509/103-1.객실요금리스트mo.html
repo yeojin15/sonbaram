@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/004.레이아웃mo.css">
+  <!-- custom -->
+  <script src="/js/image-uploader.js"></script>
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <link rel="stylesheet" href="/css/103.객실요금.css">
+  <script>
+    $(document).ready(function(){
+      // 객실리스트 드래그&드롭으로 순서정렬
+      $("#roomSort").sortable();
+
+      // 객실정보 이미지 업로드, 업로드한 이미지 순서정렬
+      $('.input-images').imageUploader();
+      $('.input-images .uploaded').sortable();
+      // 무통장입금 사용시 계좌정보 노출
+      $('input[name="bank"]').on('change',function(){
+        if($(this).val()==='bankUseY') $('.room-price__bank.bank-info').addClass('show');
+        else $('.room-price__bank.bank-info').removeClass('show');
+      });
+
+      // 시설관리 팝업
+      $('.typeFacBtn').click(function(){
+        $('#typeFacPopup').addClass('popOpen');
+      });
+      $('.popClose').click(function(){
+        $('#typeFacPopup').removeClass('popOpen');
+      })
+    });
+  </script>
+</head>
+<body>
+  <section id="HEADER_MO">
+    <header class="top-header">
+      <h2>손바람</h2>
+      <div class="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <!-- aside snb -->
+    <aside class="aside">
+      <div class="aside-back"></div>
+      <nav class="snb">
+        <div class="snb-info">
+          <h3>손바람</h3>
+          <a href="" class="logout">로그아웃</a>
+          <ul>
+            <li><a href="">오늘예약 (1)</a></li>
+            <li><a href="">숙박완료 (1)</a></li>
+            <li><a href="">환불요청 (1)</a></li>
+            <li><a href="">입금대기 (1)</a></li>
+          </ul>
+        </div>
+        <ul class="snb-menu">
+          <li><a href=""><span><i class="fa-regular fa-home"></i></span> 홈</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-lines-pen"></i></span> 예약관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-bed"></i></span> 객실/요금</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-exclamation"></i></span> 휴일관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-minus"></i></span> 방막기</a></li>
+          <li><a href=""><span><i class="fa-regular fa-sack-dollar"></i></span> 정산관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-circle-info"></i></span> 기본정보</a></li>
+          <li><a href=""><span><i class="fa-regular fa-gear"></i></span> 옵션관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-list"></i></span> 공지사항</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-question"></i></span> FAQ</a></li>
+          <li><a href=""><span><i class="fa-regular fa-envelope"></i></span> 문자발송</a></li>
+          <li><a href=""><span><i class="fa-regular fa-users"></i></span> 직원관리</a></li>
+        </ul>
+    </nav>
+    </aside>
+  </section>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #APP -->
+  <main id="APP">
+    <!-- 객실리스트 -->
+    <section id="roomInfo">
+      <form action="">
+        <div class="search">
+          <div class="search-room roomname">
+            <label for="">객실명</label>
+            <input type="text" maxlength="25">
+            <button type="button" class="btn">검색</button>
+            <button type="button" class="btn">추가</button>
+          </div>
+        </div>
+        <div class="room-flex">
+          <div class="room-list">
+            <ul id="roomSort" class="room-list__item">
+              <li>
+                <span>
+                  <img src="https://picsum.photos/300/200" alt="thumbnail">
+                </span>
+                <div>
+                  <div>동/그룹명 - 객실명</div>
+                  <div>2 ~ 6</div>
+                  <div>33.3㎡ / 10평</div>
+                </div>
+              </li>
+              <li>
+                <span>
+                  <img src="https://picsum.photos/300/200" alt="thumbnail">
+                </span>
+                <div>
+                  <div>동/그룹명 - 객실명</div>
+                  <div>2 ~ 6</div>
+                  <div>33.3㎡ / 10평</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

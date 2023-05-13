@@ -38,6 +38,7 @@
 .book-price .total-price {color: var(--cancel); font-weight: 700; font-size: var(--fz-lg);}
 .book-detail__btn {width: 100%; margin: var(--gap-big) auto 0;}
 
+
 /* * 예약관리 상담, 예약내역 */
 .consult {display: flex; justify-content: flex-start; align-items: flex-start;}
 .consult-wrap {width: 50%; padding-right: var(--gap-md);}
@@ -66,19 +67,53 @@
 .consult-booked td {padding: 7px 0; text-align: center; vertical-align: middle;}
 .consult-booked td button {color: var(--cancel); font-size: var(--fz-md);}
 
+#APP .book-price {flex-direction: column;}
+#APP .book-price__wrap {width: auto; margin-bottom: var(--gap-md);}
+#APP .book-price__wrap:nth-of-type(2) {margin-bottom: 40px;}
+#APP .book-price__wrap .tit-sub {margin-bottom: var(--gap-sm);}
+#APP .book-price .mark {display: none;}
+#APP .book-price .price-extramen {width: max-content;}
+#APP .btn-full {width: 100%;}
+#APP .consult-wrap {width: 100%; padding-right: 0;}
+#APP .consult-write textarea {width: auto; flex: 1;}
+#APP .consult-list li {width: 100%;}
+#APP .consult .pagination {width: 100%;}
+#APP .consult-booked {overflow-x: auto; padding: var(--gap-md) 0;}
+#APP .consult-booked table {width: 600px;}
 
 /* * 예약추가모달 */
 .modalSearchLodge {display: none; position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0;}
 .modalSearchLodge.modalOn {display: block;}
-.modalSearchLodge .modal-wrap {position: absolute; display: block; left: 50%; top: 50%; height: 500px; width: 80%; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
+.modalSearchLodge .modal-wrap {position: absolute; display: block; left: 50%; top: 50%; height: 500px; width: 80%; padding: 15px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
 .modalSearchLodge .modal-content {padding-top: 0; text-align: initial;}
 .modalSearchLodge .search {text-align: center; margin-bottom: var(--gap-big);}
 .modalSearchLodge .search-bar {display: flex; justify-content: center; align-items: center;}
-.modalSearchLodge .search-bar .tit-sub {margin-bottom: 0;}
+.modalSearchLodge .search-bar .tit-sub {margin-bottom: 0; flex: none;}
 .modalSearchLodge .search-bar input {width: 400px; margin-left: 10px;}
 .modalSearchLodge .search-result__head {display: flex; justify-content: flex-start; align-items: center; text-align: center;}
-.modalSearchLodge .search-result__head h5 {width: 20%; padding: 10px 0; background: var(--silver);}
+.modalSearchLodge .search-result__head h5 {width: 20%; height: 34px; line-height: 34px; white-space: nowrap; background: var(--silver);}
 .modalSearchLodge ul {height: 230px; overflow-y: auto; text-align: center;}
 .modalSearchLodge li {display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid var(--input);}
 .modalSearchLodge li div {width: 20%; padding: 5px;}
 .modalSearchLodge li div button {color: var(--main); font-weight: 600; text-decoration: underline;}
+
+/* ? 모바일 */
+#APP .book-wrap {display: block;}
+#APP .book-wrap .smCalendarWrap {width: 100%; margin-bottom: var(--gap-lg);}
+#APP .book-form {width: 100%; padding-left: 0;}
+#APP .book-form__flex {display: block;}
+#APP .book-form__wrap {max-width: initial; width: 100%; padding-right: 0; margin-bottom: var(--gap-lg);}
+
+#APP .option {display: block;}
+#APP .option-wrap {width: 100%; padding-right: 0; max-width: initial; display: block; margin-bottom: var(--gap-lg);}
+#APP .option-wrap .request-txt {width: 100%;}
+#APP .modalSearchLodge li {font-size: var(--fz-sm);}
+
+#APP .main-search {margin-top: var(--gap-lg);}
+#APP .main-search .btn-full {margin-top: 5px;}
+#APP .main-list {margin-top: var(--gap-lg);}
+#APP .main-list li > p {text-align: right; line-height: 1.5;}
+#APP .main-list .book-item {display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--input); padding: 10px; border-radius: 6px; margin-bottom: var(--gap-md);}
+#APP .main-list .book-item h3 {font-size: var(--fz-md); font-weight: 700; line-height: 2;}
+#APP .main-list .book-item div {margin-bottom: 5px;}
+#APP .main-list .book-item button {flex: none;}

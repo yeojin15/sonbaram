@@ -35,7 +35,7 @@
 * {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;}
 ol,ul {list-style: none;} table {border-collapse: collapse; border-spacing: 0;} a {text-decoration: none; color: inherit;} em {font-style: normal;} img {vertical-align: top; outline: none;}
 input,select,textarea,button,::placeholder {appearance: none; -webkit-appearance: none; outline: none; background: none; border: none; border-radius: 0; margin: 0; font-family: Pretendard, sans-serif;} ::placeholder {color: var(--input);}
-button {cursor: pointer;}a:visited {background: none;}a:active {background: none;}br {font-family: 'Dotum';}
+button, select, option {color: var(--black);} button {cursor: pointer;}a:visited {background: none;}a:active {background: none;}br {font-family: 'Dotum';}
 input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active {background: transparent; background-clip: text; -webkit-background-clip: text;}
 input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active {background: #fff;}
 input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active {-webkit-text-fill-color: var(--gray); -webkit-box-shadow: 0 0 0px 1000px #fff inset; box-shadow: 0 0 0px 1000px #fff inset; transition: background-color 5000s ease-in-out 0s;}
