@@ -40,20 +40,7 @@
       $('.typeFacBtn').click(function(){
         $('#typeFacPopup').addClass('popOpen');
       });
-      $('.popClose').click(function(){
-        $('#typeFacPopup').removeClass('popOpen');
-      })
 
-      // 타입/시설관리 탭
-      $('.pop-tablist li').each(function(){
-        $(this).click(function(){
-          let idx = $(this).index();
-          $('.pop-tablist li').removeClass('active');
-          $(this).addClass('active');
-          $('.pop-tab').removeClass('active');
-          $('.pop-tab').eq(idx).addClass('active')
-        });
-      })
     });
   </script>
 </head>

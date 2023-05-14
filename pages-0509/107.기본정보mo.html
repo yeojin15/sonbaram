@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/004.레이아웃mo.css">
+  <!-- custom -->
+  <script src="/js/image-uploader.js"></script>
+  <link rel="stylesheet" href="/css/image-uploader.css">
+  <link rel="stylesheet" href="/css/107.기본정보.css">
+</head>
+<body>
+  <section id="HEADER_MO">
+    <header class="top-header">
+      <h2>손바람</h2>
+      <div class="toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <aside class="aside">
+      <div class="aside-back"></div>
+      <nav class="snb">
+        <div class="snb-info">
+          <h3>손바람</h3>
+          <a href="" class="logout">로그아웃</a>
+          <ul>
+            <li><a href="">오늘예약 (1)</a></li>
+            <li><a href="">숙박완료 (1)</a></li>
+            <li><a href="">환불요청 (1)</a></li>
+            <li><a href="">입금대기 (1)</a></li>
+          </ul>
+        </div>
+        <ul class="snb-menu">
+          <li><a href=""><span><i class="fa-regular fa-home"></i></span> 홈</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-lines-pen"></i></span> 예약관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-bed"></i></span> 객실/요금</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-exclamation"></i></span> 휴일관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-calendar-circle-minus"></i></span> 방막기</a></li>
+          <li><a href=""><span><i class="fa-regular fa-sack-dollar"></i></span> 정산관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-circle-info"></i></span> 기본정보</a></li>
+          <li><a href=""><span><i class="fa-regular fa-gear"></i></span> 옵션관리</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-list"></i></span> 공지사항</a></li>
+          <li><a href=""><span><i class="fa-regular fa-square-question"></i></span> FAQ</a></li>
+          <li><a href=""><span><i class="fa-regular fa-envelope"></i></span> 문자발송</a></li>
+          <li><a href=""><span><i class="fa-regular fa-users"></i></span> 직원관리</a></li>
+        </ul>
+    </nav>
+    </aside>
+  </section>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #APP -->
+  <main id="APP">
+    <form action="">    
+      <div class="basic-info">
+        <ul>
+          <li>
+            <span class="tit-lb">숙박업소명</span>
+            <div class="cell"><input type="text" maxlength="15"></div>
+          </li>
+          <li>
+            <span class="tit-lb">이름</span>
+            <div class="cell"><input type="text" maxlength="10"></div>
+          </li>
+          <li>
+            <span class="tit-lb">아이디</span>
+            <div class="cell"><input type="text"></div>
+          </li>
+          <li>
+            <span class="tit-lb">연락처</span>
+            <div class="cell"><input type="tel" maxlength="11"></div>
+          </li>
+          <li>
+            <span class="tit-lb">비밀번호 재설정</span>
+            <div class="cell"><input type="password"></div>
+          </li>
+          <li>
+            <span class="tit-lb">비밀번호 확인</span>
+            <div class="cell"><input type="password"></div>
+          </li>
+          <li>
+            <span class="tit-lb">주소</span>
+            <div class="cell"><input type="text"></div>
+          </li>
+          <li>
+            <span class="tit-lb">체크인</span>
+            <div class="cell"><input type="time"></div>
+          </li>
+          <li>
+            <span class="tit-lb">체크아웃</span>
+            <div class="cell"><input type="time"></div>
+          </li>
+          <li>
+            <span class="tit-lb">홈페이지</span>
+            <div class="cell"><input type="text"></div>
+          </li>
+          <li>
+            <span class="tit-lb">알림수신번호</span>
+            <div class="cell"><input type="tel" maxlength="11"></div>
+          </li>
+          <li>
+            <span class="tit-lb">에이전시 선택</span>
+            <div class="cell">에이전시명</div>
+          </li>
+          <li>
+            <span class="tit-lb">상태</span>
+            <div class="cell">
+              <div class="radio">
+                <input type="radio" name="info-use" id="infoUseY" checked />
+                <label for="infoUseY" class="radio-lb">사용</label>
+                <input type="radio" name="info-use" id="infoUseN" />
+                <label for="infoUseN" class="radio-lb">미사용</label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="tit-lb">기본정산 <br>계좌정보</span>
+            <div class="cell">
+              <div class="account-info">
+                <p>
+                  <label for="">은행명</label>
+                  <select name="" id="">
+                    <option value="">국민은행</option>
+                  </select>
+                </p>
+                <p>
+                  <label for="">계좌번호</label>
+                  <input type="number">
+                </p>
+                <p>
+                  <label for="">예금주</label>
+                  <input type="text">
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="tit-lb">무통장정보</span>
+            <div class="cell">
+              <div class="account-info">
+                <p>
+                  <label for="">은행명</label>
+                  <select name="" id="">
+                    <option value="">국민은행</option>
+                  </select>
+                </p>
+                <p>
+                  <label for="">계좌번호</label>
+                  <input type="number">
+                </p>
+                <p>
+                  <label for="">예금주</label>
+                  <input type="text">
+                </p>
+                <p>
+                  <label for="">대기시간</label>
+                  <input type="text" class="sm">시간
+                </p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="tit-lb">숙박업소안내</span>
+            <div class="cell"><textarea name="" id=""></textarea></div>
+          </li>
+          <li>
+            <span class="tit-lb">이용안내</span>
+            <div class="cell"><textarea name="" id=""></textarea></div>
+          </li>
+          <li>
+            <span class="tit-lb">예약안내</span>
+            <div class="cell"><textarea name="" id=""></textarea></div>
+          </li>
+          <li>
+            <span class="tit-lb">기타안내</span>
+            <div class="cell"><textarea name="" id=""></textarea></div>
+          </li>
+          <li>
+            <p class="tit-lb">사진</p>
+            <div class="cell">
+              <div class="image-box">
+                <label class="active">
+                  <span>1920*1080으로 등록하시면 좋습니다.<br>사진은 각 3MB 이하로 등록해주세요.</span>
+                </label>
+                <div class="input-images"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-full">등록</button>
+        <button type="button" class="btnW btn-full">취소</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

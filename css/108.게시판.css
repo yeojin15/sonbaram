@@ -9,16 +9,61 @@
 
 /* * 게시판상세 */
 .board-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
-.board-wrap {width: 48%; margin-right: var(--gap-md);}
+.board-wrap, .faq-wrap, .option-wrap {width: 48%; margin-right: var(--gap-md);}
 .board-search {display: flex; justify-content: space-between; align-items: center;}
 .board-search > button {flex: none;}
 .board-wrap .table-head h4:first-of-type {width: 130px; flex: none;}
 .board-wrap .table-head h4:nth-of-type(2) {width: 140px; flex: none;}
 .table-list li div:nth-of-type(2) {width: 140px; flex: none;}
 .ellp-btn {width: 120px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+#APP .table-list .table-head h4 {flex: initial;}
+#APP .table-list .table-head h4:nth-of-type(1) {width: 36%;}
+#APP .table-list .table-head h4:nth-of-type(2) {width: 36%;}
+#APP .table-list .table-head h4:nth-of-type(3) {width: 14%;}
+#APP .table-list .table-head h4:nth-of-type(4) {width: 14%;}
+#APP .table-list {border-bottom: 1px solid var(--input);}
+#APP .table-list li {border-bottom: none; border-top: 1px solid var(--input);}
+#APP .table-list li div {flex: initial;}
+#APP .table-list li div:nth-of-type(1) {width: 36%;}
+#APP .table-list li div:nth-of-type(2) {width: 36%;}
+#APP .table-list li div:nth-of-type(3) {width: 14%;}
+#APP .table-list li div:nth-of-type(4) {width: 14%;}
+#APP .ellp-btn {width: auto;}
 
+/* * FAQ상세 */
+.faq-wrap .table-head h4,
+.faq-wrap .table-list li div {flex: initial;}
+.faq-wrap .table-head h4:nth-of-type(1) {width: 50%; }
+.faq-wrap .table-head h4:nth-of-type(2) {width: 25%;}
+.faq-wrap .table-head h4:nth-of-type(3) {width: 25%;}
+.faq-wrap .table-list li div:nth-of-type(1) {width: 50%;}
+.faq-wrap .table-list li div:nth-of-type(2) {width: 25%;}
+.faq-wrap .table-list li div:nth-of-type(3) {width: 25%;}
+.faq-wrap .table-list .ellp-btn {width: auto;}
+#APP .faq-list .table-head h4:nth-of-type(1) {width: 50%;}
+#APP .faq-list .table-head h4:nth-of-type(2) {width: 25%;}
+#APP .faq-list .table-head h4:nth-of-type(3) {width: 25%;}
+#APP .faq-list li div:nth-of-type(1) {width: 50%;}
+#APP .faq-list li div:nth-of-type(2) {width: 25%;}
+#APP .faq-list li div:nth-of-type(3) {width: 25%;}
+
+/* * 옵션상세 */
+.option-wrap .table-list li div {flex: initial; width: calc(100% / 7)}
+#APP .option-list .table-head h4:nth-of-type(1) {width: 30%;}
+#APP .option-list .table-head h4:nth-of-type(2) {width: 30%;}
+#APP .option-list .table-head h4:nth-of-type(3) {width: 10%;}
+#APP .option-list .table-head h4:nth-of-type(4) {width: 15%;}
+#APP .option-list .table-head h4:nth-of-type(5) {width: 15%;}
+#APP .option-list li div:nth-of-type(1) {width: 30%;}
+#APP .option-list li div:nth-of-type(2) {width: 30%;}
+#APP .option-list li div:nth-of-type(3) {width: 10%;}
+#APP .option-list li div:nth-of-type(4) {width: 15%;}
+#APP .option-list li div:nth-of-type(5) {width: 15%;}
+
+/* * 공지input */
 .board-inputs ul {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap; border-left: 1px solid var(--input); border-bottom: 1px solid var(--input); margin-top: 55px;}
 .board-inputs li {width: 100%; display: flex; justify-content: flex-start; align-items: stretch; border: 1px solid var(--input); border-left: none; border-bottom: none;}
+/* .board-inputs li:first-of-type input[type="text"] {flex: 1;} */
 .board-inputs li.dib {width: 50%;}
 .board-inputs .tit-lb {display: flex; align-items: center; flex: none; width: 100px; padding: 10px; background: var(--silver);}
 .board-inputs .cell {flex: 1; display: flex; justify-content: flex-start; align-items: center; padding: 10px;}
@@ -30,3 +75,10 @@
 .board-inputs input {border: 1px solid var(--input); border-radius: 4px;}
 .board-inputs select {border: 1px solid var(--input); border-radius: 4px;}
 .board-inputs .btn-lg {display: block; margin-left: auto; margin-top: var(--gap-md);}
+#APP .board-inputs {border-bottom: 1px solid var(--input); border-left: 1px solid var(--input);}
+#APP .board-inputs .cell input,
+#APP .board-inputs .cell textarea {width: 100%;}
+#APP .btn-full {margin-top: 5px;}
+
+#APP .option-inputs {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+#APP .option-inputs .tit-lb {width: 80px;}

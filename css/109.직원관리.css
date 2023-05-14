@@ -1,0 +1,19 @@
+/* * 검색 */
+.search li {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 15px;}
+.search .tit-lb {width: 70px;}
+.search div {width: calc(100% - 70px); display: flex; justify-content: flex-start; align-items: center;}
+.search label {margin-right: 15px;}
+.search .radio {display: flex; justify-content: flex-start; align-items: center;}
+.search button {margin-left: 10px;}
+.search input[type="text"] {width: 150px;}
+
+/* * 계정등록 */
+.pop-wrap ul {border-top: 1px solid var(--input); margin-bottom: 30px;}
+.pop-wrap li {display: flex; justify-content: flex-start; align-items: stretch; border: 1px solid var(--input); border-top: none;}
+.pop-wrap .tit-lb {width: 100px; flex: none; background: var(--silver); padding: 10px 5px;}
+.pop-wrap .cell {flex: 1; display: flex; justify-content: flex-start; align-items: center; padding: 10px;}
+.pop-wrap .cell > input {width: 100%; border: 1px solid var(--input); border-radius: 4px;}
+.pop-wrap .agency-list label {display: block; margin-bottom: 5px;}
+.pop-table thead th {white-space: nowrap; padding: 0 10px; height: 34px; vertical-align: middle; background: var(--main); color: #fff;}
+.pop-table tbody tr {border: 1px solid var(--input);}
+.pop-table tbody td {padding: 10px; text-align: center; white-space: nowrap;}

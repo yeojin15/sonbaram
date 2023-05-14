@@ -79,7 +79,7 @@
 #APP .consult-list li {width: 100%;}
 #APP .consult .pagination {width: 100%;}
 #APP .consult-booked {overflow-x: auto; padding: var(--gap-md) 0;}
-#APP .consult-booked table {width: 600px;}
+#APP .consult-booked table {min-width: 600px;}
 
 /* * 예약추가모달 */
 .modalSearchLodge {display: none; position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0;}

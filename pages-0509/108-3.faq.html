@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/108.게시판.css">
+  <script>
+    $(document).ready(function(){
+      $('.delBtn').click(function(){
+        $('.modal').addClass('modalOn')
+      })
+    });
+  </script>
+</head>
+<body>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
+    <script>
+      $(document).ready(function(){
+        $('#headerWrap').load("/pages/003.레이아웃.html");
+      });
+    </script>
+  </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="PAGE">
+    <form action="">
+      <ul class="search">
+        <li>
+          <span class="tit-lb">상태</span>
+          <div class="radio">
+            <input type="radio" name="board-search" id="boardSearchAll" checked />
+            <label for="boardSearchAll" class="radio-lb">전체</label>
+            <input type="radio" name="board-search" id="boardSearchUse" />
+            <label for="boardSearchUse" class="radio-lb">사용</label>
+            <input type="radio" name="board-search" id="boardSearchUnuse" />
+            <label for="boardSearchUnuse" class="radio-lb">미사용</label>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">숙박업소명</span>
+          <div>
+            <input type="text" placeholder="검색어를 입력해주세요.">
+            <button type="button" class="btn">검색</button>
+          </div>
+        </li>
+      </ul>
+      <table class="table-full">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>등록일시</th>
+            <th>소속 에이전시</th>
+            <th>숙박업소명</th>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>등록 FAQ 수</th>
+            <th>상태</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7</td>
+            <td>2023-02-20 17:12:31</td>
+            <td>-</td>
+            <td><button type="button" class="btn-line">abc</button></td>
+            <td>abc@abc.com</td>
+            <td>이중재</td>
+            <td>7</td>
+            <td>사용</td>
+            <td><button type="button" class="delBtn btn-line">삭제</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pagination">
+        <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+        <li><a href="">1</a></li>
+        <li class="active"><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+      </ul>
+
+      <div class="modal">
+        <div class="modal-back modalClose"></div>
+        <div class="modal-wrap">
+          <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+          <div class="modal-content">
+            삭제하시겠습니까?
+          </div>
+          <div class="modal-btns">
+            <button type="submit" class="btn-active">확인</button>
+            <button type="reset" class="modalClose">취소</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

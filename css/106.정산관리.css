@@ -4,8 +4,10 @@
 .search div {width: calc(100% - 70px); display: flex; justify-content: flex-start; align-items: center;}
 .search label {margin-right: 15px;}
 .search .radio {display: flex; justify-content: flex-start; align-items: center;}
-.search button {margin-left: 10px;}
+.search button {margin-left: 10px; flex: none;}
 .search input[type="text"] {width: 150px;}
+#APP .search {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+#APP .search .radio {margin-bottom: 10px;}
 
 /* * 정산상세 */
 table {width: 100%; margin-top: 30px; border: 1px solid var(--input); border-top: none; border-bottom: none;}
@@ -26,3 +28,6 @@ table tbody td {padding: 10px 5px; text-align: center;}
 .balance-sheet li table tbody td {padding: 10px 5px; text-align: center; border: 1px solid var(--input);}
 .balance-sheet li table tbody tr:last-of-type td {padding: 15px 0; background: var(--silver); font-weight: 600;}
 .balance-btns {text-align: center;}
+#APP .table-wrap {overflow-x: auto; padding-bottom: var(--gap-md);}
+#APP .table-wrap table {width: 500px; margin-top: var(--gap-md);}
+#APP .balance-sheet {width: 100%; border: none; padding: 0;}

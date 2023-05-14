@@ -47,4 +47,15 @@
 #popEachRoom li .cell:last-of-type {border-bottom: 1px solid var(--input);}
 #popEachRoom li .cell > div {padding: 10px;}
 
-
+/* * 모바일 */
+#APP .basic-info ul {border-top: 1px solid var(--input);}
+#APP .basic-info li {display: flex; justify-content: flex-start; align-items: stretch; border: 1px solid var(--input); border-top: none;}
+#APP .basic-info .tit-lb {width: 100px; flex: none; display: flex; align-items: center; background: var(--silver); padding: 5px;}
+#APP .basic-info .cell {flex: 1; padding: 5px; display: flex; justify-content: flex-start; align-items: center;}
+#APP .basic-info input {border: 1px solid var(--input); border-radius: 4px; flex: 1;}
+#APP .basic-info .account-info p {margin-bottom: 5px;}
+#APP .basic-info .account-info p:last-of-type {margin-bottom: 0;}
+#APP .basic-info textarea {flex: 1;}
+#APP .basic-info .btn-full {margin-top: 5px;}
+#APP .basic-info .image-box {position: relative; width: 100%; height: 100px; border: 1px solid var(--input); overflow-y: auto;}
+#APP .basic-info .image-box label {position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 100%;}
