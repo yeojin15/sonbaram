@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/108.게시판.css">
+  <script>
+    $(document).ready(function(){
+      $('.delBtn').click(function(){
+        $('.modal').addClass('modalOn')
+      })
+    });
+  </script>
+</head>
+<body>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
+    <script>
+      $(document).ready(function(){
+        $('#headerWrap').load("/pages/003.레이아웃.html");
+      });
+    </script>
+  </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="PAGE">
+    <form action="">
+      <div class="board-flex">
+        <div class="faq-wrap">
+          <div class="board-search">
+            <div class="search-box">
+              <span class="tit-lb">공지명</span>
+              <input type="text">
+              <button class="btn">검색</button>
+            </div>
+            <button class="btn">신규 등록</button>
+          </div>
+          <div class="table-list faq-list">
+            <div class="table-head">
+              <h4>FAQ 타이틀</h4>
+              <h4>상태</h4>
+              <h4>삭제</h4>
+            </div>
+            <ul>
+              <li>
+                <div><button type="button" class="ellp-btn btn-line">등록한 공지의 타이틀 노출</button></div>
+                <div>사용</div>
+                <div><button type="button" class="delBtn btn-line">삭제</button></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="board-wrap board-inputs">
+          <ul>
+            <li>
+              <span class="tit-lb">FAQ 타이틀</span>
+              <div class="cell">
+                <input type="text" maxlength="50">
+              </div>
+            </li>
+            <li>
+              <span class="tit-lb">FAQ 내용</span>
+              <div class="cell">에디터 적용?</div>
+            </li>
+            <li>
+              <span class="tit-lb">상태</span>
+              <div class="radio">
+                <input type="radio" name="noti-use" id="notiUseY" checked />
+                <label for="notiUseY" class="radio-lb">사용</label>
+                <input type="radio" name="noti-use" id="notiUseN" />
+                <label for="notiUseN" class="radio-lb">미사용</label>
+              </div>
+            </li>
+          </ul>
+          <button type="button" class="btn-lg btn">등록</button>
+        </div>
+      </div>
+
+      <!-- modal -->
+      <div class="modal">
+        <div class="modal-back modalClose"></div>
+        <div class="modal-wrap">
+          <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+          <div class="modal-content">
+            삭제하시겠습니까?
+          </div>
+          <div class="modal-btns">
+            <button type="submit" class="btn-active">확인</button>
+            <button type="reset" class="modalClose">취소</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

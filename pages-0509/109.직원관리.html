@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- calendar -->
+  <script src="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
+  <link rel="stylesheet" href="https://uicdn.toast.com/calendar/latest/toastui-calendar.min.css" />
+  <!-- common -->
+  <script src="/js/common.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/003.레이아웃.css">
+  <!-- custom -->
+  <link rel="stylesheet" href="/css/109.직원관리.css">
+  <script>
+    $(document).ready(function(){
+      $('.delBtn').click(function(){
+        $('.modal').addClass('modalOn')
+      })
+      $('.newAccountBtn').click(function(){
+        $('#newAccountPopup').addClass('popOpen');
+      });
+      $('.agencyMngBtn').click(function(){
+        $('#agencyMngPopup').addClass('popOpen');
+      });
+    });
+  </script>
+</head>
+<body>
+  <!-- ? HEADER 임시 import -->
+  <div id="headerWrap">
+    <script>
+      $(document).ready(function(){
+        $('#headerWrap').load("/pages/003.레이아웃.html");
+      });
+    </script>
+  </div>
+
+  <!-- ? 각 페이지 별 필수 최상위 태그 #PAGE -->
+  <main id="PAGE">
+    <form action="">
+      <ul class="search">
+        <li>
+          <span class="tit-lb">등록일</span>
+          <div>
+            <p class="radio">
+              <input type="radio" name="set-month" id="setMonthAll" checked />
+              <label for="setMonthAll" class="radio-lb">전체</label>
+            </p>
+            <p class="radio">
+              <input type="radio" name="set-month" id="setMonthSelect" />
+              <label for="setMonthSelect" class="radio-lb">설정</label>
+            </p>
+            <p class="date">
+              <input type="date" disabled>
+              <span class="mark">~</span>
+              <input type="date" disabled>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">계정구분</span>
+          <div>
+            <p class="radio">
+              <input type="radio" name="account-status" id="accStatusAll" checked />
+              <label for="accStatusAll" class="radio-lb">전체</label>
+              <input type="radio" name="account-status" id="accStatusHead" />
+              <label for="accStatusHead" class="radio-lb">본사</label>
+              <input type="radio" name="account-status" id="accStatusAgency" />
+              <label for="accStatusAgency" class="radio-lb">에이전시</label>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">상태</span>
+          <div>
+            <p class="radio">
+              <input type="radio" name="set-status" id="setStatusAll" checked />
+              <label for="setStatusAll" class="radio-lb">전체</label>
+              <input type="radio" name="set-status" id="setStatusUse" />
+              <label for="setStatusUse" class="radio-lb">사용</label>
+              <input type="radio" name="set-status" id="setStatusUnuse" />
+              <label for="setStatusUnuse" class="radio-lb">미사용</label>
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="tit-lb">검색어</span>
+          <div>
+            <input type="text" placeholder="검색어를 입력해주세요.">
+            <button type="button" class="btn">검색</button>
+          </div>
+        </li>
+      </ul>
+      <table class="table-full">
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>등록일시</th>
+            <th>계정구분</th>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>연락처</th>
+            <th>소속 에이전시</th>
+            <th>상태</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>7</td>
+            <td>2023-02-20 17:12:31</td>
+            <td>본사</td>
+            <td><button type="button" class="btn-line">abc@abc.com</button></td>
+            <td>이중재</td>
+            <td>010-1234-1234</td>
+            <td>-</td>
+            <td>사용</td>
+            <td><button type="button" class="delBtn btn-line">삭제</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pagination">
+        <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+        <li><a href="">1</a></li>
+        <li class="active"><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+      </ul>
+      <div class="btns-right">
+        <button type="button" class="agencyMngBtn btn btn-lg">에이전시 관리</button>
+        <button type="button" class="newAccountBtn btn btn-lg">계정 등록</button>
+      </div>
+
+      <!-- 삭제버튼 모달 -->
+      <div class="modal">
+        <div class="modal-back modalClose"></div>
+        <div class="modal-wrap">
+          <span class="modal-close modalClose"><i class="fa-solid fa-times"></i></span>
+          <div class="modal-content">
+            삭제하시겠습니까?
+          </div>
+          <div class="modal-btns">
+            <button type="submit" class="btn-active">확인</button>
+            <button type="reset" class="modalClose">취소</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 에이전시관리 -->
+      <div class="popup" id="agencyMngPopup">
+        <div class="pop-back popClose"></div>
+        <div class="pop-container">
+          <div class="pop-top">
+            <h2 class="pop-tit">에이전시 관리</h2>
+            <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+          </div>
+          <div class="pop-wrap">
+            <form action="">
+              <div class="pop-box">
+                <ul>
+                  <li>
+                    <span class="tit-lb">에이전시명</span>
+                    <div class="cell"><input type="text" maxlength="15" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">아이디</span>
+                    <div class="cell"><input type="email" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">비밀번호</span>
+                    <div class="cell"><input type="password" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">이름</span>
+                    <div class="cell"><input type="text" maxlength="10" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">연락처</span>
+                    <div class="cell"><input type="tel" maxlength="11" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">수수료설정</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="pop-fare" id="popFarePc" value="" checked />
+                        <label for="popFarePc" class="radio-lb">매출의 <input type="text" class="sm"/>%</label>
+                        <input type="radio" name="pop-fare" id="popFareWon" value="" />
+                        <label for="popFareWon" class="radio-lb">월 이용료 <input type="text" class="sm"/>원</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">URL</span>
+                    <div class="cell"><input type="text" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">상태</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="pop-agencyUse" id="popAgencyY" checked />
+                        <label for="popAgencyY" class="radio-lb">사용</label>
+                        <input type="radio" name="pop-agencyUse" id="popAgencyN" />
+                        <label for="popAgencyN" class="radio-lb">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">등록직원수</span>
+                    <div class="cell">0</div>
+                  </li>
+                </ul>
+                <div class="btns-right">
+                  <button type="button" class="btn btn-lg">등록/수정</button>
+                </div>
+              </div>
+              <div class="pop-table">
+                <h3 class="tit-sub" >등록 현황</h3>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>등록일시</th>
+                      <th>에이전시명</th>
+                      <th>아이디</th>
+                      <th>이름</th>
+                      <th>연락처</th>
+                      <th>수수료</th>
+                      <th>상태</th>
+                      <th>등록직원수</th>
+                      <th>삭제</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2023-10-13 11:21:21</td>
+                      <td>HO</td>
+                      <td>aaa@aaa.com</td>
+                      <td>이중재</td>
+                      <td>010-1234-1234</td>
+                      <td>매출의 10%</td>
+                      <td>사용</td>
+                      <td>5</td>
+                      <td><button type="button" class="btn-line">삭제</button></td>
+                    </tr>
+                    <tr>
+                      <td>2023-10-13 11:21:21</td>
+                      <td>HO</td>
+                      <td>aaa@aaa.com</td>
+                      <td>이중재</td>
+                      <td>010-1234-1234</td>
+                      <td>매출의 10%</td>
+                      <td>사용</td>
+                      <td>5</td>
+                      <td><button type="button" class="btn-line">삭제</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <ul class="pagination">
+                  <li class="pager-prev"><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+                  <li><a href="">1</a></li>
+                  <li class="active"><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li class="pager-next"><a href=""><i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- 계정등록 -->
+      <div class="popup" id="newAccountPopup">
+        <div class="pop-back popClose"></div>
+        <div class="pop-container">
+          <div class="pop-top">
+            <h2 class="pop-tit">계정 등록</h2>
+            <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+          </div>
+          <div class="pop-wrap">
+            <form action="">
+              <ul class="pop-tablist">
+                <li class="active">본사</li>
+                <li>에이전시</li>
+              </ul>
+              <div class="pop-tab active">
+                <ul>
+                  <li>
+                    <span class="tit-lb">아이디</span>
+                    <div class="cell"><input type="email" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">비밀번호</span>
+                    <div class="cell"><input type="password" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">이름</span>
+                    <div class="cell"><input type="text" maxlength="10" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">연락처</span>
+                    <div class="cell"><input type="tel" maxlength="11" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">상태</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="staffUse" id="staffUseY" checked />
+                        <label for="staffUseY" class="radio-lb">사용</label>
+                        <input type="radio" name="staffUse" id="staffUseN" />
+                        <label for="staffUseN" class="radio-lb">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="btns-right">
+                  <button type="button" class="btn btn-lg">등록</button>
+                </div>
+              </div>
+              <div class="pop-tab">
+                <ul>
+                  <li>
+                    <span class="tit-lb">에이전시 선택</span>
+                    <div class="cell">
+                      <div class="radio agency-list">
+                        <input type="radio" name="agencyList" id="agency_1" checked />
+                        <label for="agency_1" class="radio-lb">에이전시1</label>
+                        <input type="radio" name="agencyList" id="agency_2" />
+                        <label for="agency_2" class="radio-lb">에이전시2</label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">아이디</span>
+                    <div class="cell"><input type="email" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">비밀번호</span>
+                    <div class="cell"><input type="password" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">이름</span>
+                    <div class="cell"><input type="text" maxlength="10" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">연락처</span>
+                    <div class="cell"><input type="tel" maxlength="11" required></div>
+                  </li>
+                  <li>
+                    <span class="tit-lb">상태</span>
+                    <div class="cell">
+                      <div class="radio">
+                        <input type="radio" name="agencyUse" id="agencyUseY" checked />
+                        <label for="agencyUseY" class="radio-lb">사용</label>
+                        <input type="radio" name="agencyUse" id="agencyUseN" />
+                        <label for="agencyUseN" class="radio-lb">미사용</label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="btns-right">
+                  <button type="button" class="btn btn-lg">등록</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
