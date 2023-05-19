@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js/front-common.js"></script>
+  <link rel="stylesheet" href="/css/400.프론트common.css">
+  <link rel="stylesheet" href="/css/400.프론트레이아웃mo.css">
+  <!-- custom -->
+  <script src="/js/403.예약하기.js"></script>
+  <link rel="stylesheet" href="/css/403.예약하기.css">
+</head>
+<body>
+  <!-- <header>
+    <h1>숙박업소명</h1>
+    <ul class="gnb">
+      <li class="active"><a href="">실시간예약</a></li>
+      <li><a href="">예약확인</a></li>
+      <li><a href="">공지사항</a></li>
+      <li><a href="">FAQ</a></li>
+    </ul>
+  </header> -->
+
+  <!-- 뒤로가기 헤더 -->
+  <section id="app_header">
+    <button type="button" class="prev"><i class="fa-regular fa-angle-left"></i></button>
+    <h2>예약하기</h2>
+  </section>
+
+  <!-- ? mo 버전 최상단 태그 main#APP -->
+  <main id="APP">
+    <form action="">
+      <ul class="book-list">
+        <li class="book-list__name">
+          <span class="tit-li">선택한 객실</span>
+          <div class="line">동/그룹명 - 객실명</div>
+        </li>
+        <li class="book-list__days">
+          <span class="tit-li">기간선택</span>
+          <div class="cell">
+            <span>CHECK-IN</span>
+            <div>2023.03.30 ~ CHECK OUT</div>
+            <select name="" id="">
+              <option value="">머무실 기간 선택</option>
+              <option value="">1박</option>
+              <option value="">2박</option>
+            </select>
+          </div>
+        </li>
+        <li class="book-list__men">
+          <span class="tit-li">인원</span>
+          <div class="cell">
+            <div class="sel-box">
+              <label for="">성인</label>
+              <select name="" id="">
+                <option value="">선택</option>
+                <option value="">1</option>
+                <option value="">2</option>
+              </select>
+            </div>
+            <div class="sel-box">
+              <label for="">아동(12세 이하)</label>
+              <select name="" id="">
+                <option value="">선택</option>
+                <option value="">없음</option>
+                <option value="">1</option>
+              </select>
+            </div>
+            <div class="sel-box">
+              <label for="">유아(12개월 이하)</label>
+              <select name="" id="">
+                <option value="">선택</option>
+                <option value="">없음</option>
+                <option value="">1</option>
+              </select>
+            </div>
+          </div>
+        </li>
+        <li class="book-list__option">
+          <span class="tit-li">옵션</span>
+          <div class="cell">
+            <ul>
+              <li>
+                <p class="checkbox">
+                  <input type="checkbox" id="opt_1">
+                  <label for="opt_1" class="checkbox-lb">옵션명</label>
+                </p>
+                <span>10,000원</span>
+                <div class="option-sel">
+                  <label for="">수량</label>
+                  <select name="" id="" disabled>
+                    <option value="">선택</option>
+                    <option value="">1</option>
+                  </select>
+                  <span>단위</span>
+                </div>
+              </li>
+              <li>
+                <p class="checkbox">
+                  <input type="checkbox" id="opt_2">
+                  <label for="opt_2" class="checkbox-lb">옵션명</label>
+                </p>
+                <span>10,000원</span>
+                <div class="option-sel">
+                  <label for="">수량</label>
+                  <select name="" id="" disabled>
+                    <option value="">선택</option>
+                    <option value="">1</option>
+                  </select>
+                  <span>단위</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="book-list__price">
+          <span class="tit-li">결제금액</span>
+          <div class="cell">
+            <div class="price">
+              <span>객실요금</span>
+              <p>100,000원</p>
+            </div>
+            <span class="mark"><i class="fa-regular fa-plus"></i></span>
+            <div class="price">
+              <span>인원추가</span>
+              <p>100,000원</p>
+              <div class="price-extra">(성인:2명/아동:1명/유아:1명)</div>
+            </div>
+            <span class="mark"><i class="fa-regular fa-plus"></i></span>
+            <div class="price">
+              <span>옵션요금</span>
+              <p>100,000원</p>
+            </div>
+            <span class="mark"><i class="fa-regular fa-equals"></i></span>
+            <div class="price total">
+              <span>총 결제금액</span>
+              <p>100,000원</p>
+            </div>
+          </div>
+        </li>
+        <li class="book-list__info">
+          <span class="tit-li">예약자 정보</span>
+          <div class="cell">
+            <div>
+              <label for="">예약자</label>
+              <input type="text" maxlength="5">
+            </div>
+            <div>
+              <label for="">연락처</label>
+              <input type="text" maxlength="13" placeholder="“-” 하이픈 포함">
+            </div>
+            <div>
+              <label for="">이메일</label>
+              <input type="email" maxlength="25">
+            </div>
+          </div>
+        </li>
+        <li class="book-list__info">
+          <span class="tit-li">숙박자 정보</span>
+          <p class="checkbox">
+            <input type="checkbox" id="identicalCheck">
+            <label for="identicalCheck" class="checkbox-lb">예약자 정보와 동일</label>
+          </p>
+          <div class="cell">
+            <div>
+              <label for="">예약자</label>
+              <input type="text" maxlength="5">
+            </div>
+            <div>
+              <label for="">연락처</label>
+              <input type="text" maxlength="13" placeholder="“-” 하이픈 포함">
+            </div>
+            <div>
+              <label for="">이메일</label>
+              <input type="email" maxlength="25">
+            </div>
+          </div>
+        </li>
+        <li class="book-list__request">
+          <span class="tit-li">예약 요청사항</span>
+          <div class="cell">
+            <textarea name="" id="" placeholder="추가로 요청할 사항을 입력해주세요."></textarea>
+          </div>
+        </li>
+        <li class="book-list__payment">
+          <span class="tit-li">결제정보</span>
+          <div class="cell">
+            <div class="total-amount">
+              <label for="">총 결제금액</label>
+              <p>100,000원</p>
+            </div>
+            <div>
+              <label for="">결제방법</label>
+              <div class="pay-radio">
+                <p class="radio">
+                  <input type="radio" name="payment" id="pay_deposit" checked />
+                  <label for="pay_deposit" class="radio-lb">무통장</label>
+                </p>
+                <p class="radio">
+                  <input type="radio" name="payment" id="pay_credit" />
+                  <label for="pay_credit" class="radio-lb">신용카드</label>
+                </p>
+                <p class="radio">
+                  <input type="radio" name="payment" id="pay_transfer" />
+                  <label for="pay_transfer" class="radio-lb">실시간 계좌이체</label>
+                </p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="agreement">
+        <div class="checklist">
+          <p class="checkbox">
+            <input type="checkbox" name="agreeCheck" id="agree_1" required>
+            <label for="agree_1" class="checkbox-lb">(필수) 개인정보 수집 및 이용 동의 <button type="button" class="popBtn_agree" data-target="agree1"><i class="fa-solid fa-chevron-right"></i></button></label>
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" name="agreeCheck" id="agree_2" required>
+            <label for="agree_2" class="checkbox-lb">(필수) 개인정보 제3자 제공 동의 <button type="button" class="popBtn_agree" data-target="agree2"><i class="fa-solid fa-chevron-right"></i></button></label>
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" name="agreeCheck" id="agree_3" required>
+            <label for="agree_3" class="checkbox-lb">(필수) 예약자, 이용자는 미성년자가 아닙니다.</label>
+          </p>
+          <p class="checkbox">
+            <input type="checkbox" name="agreeCheck" id="agreeAll">
+            <label for="agreeAll" class="checkbox-lb">모두 확인하였으며 동의합니다.</label>
+          </p>
+        </div>
+        <div class="popup agreePop" id="agree1">
+          <div class="pop-back popClose"></div>
+          <div class="pop-container">
+            <div class="pop-top">
+              <h2 class="pop-tit">개인정보 수집 및 이용 동의</h2>
+              <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+            </div>
+            <div class="pop-wrap">
+              <h3>주식회사 손바람은 숙박 예약에 필요한 최소한의 개인정보를 수집하고 있으며 동의 받은 목적 외 용도로 사용하지 않습니다.</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>구분</th>
+                    <th>수집∙이용목적</th>
+                    <th>수집∙이용항목</th>
+                    <th>보유 및 이용기간</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>예약자 및 숙박자</td>
+                    <td>예약 서비스 이용, 불법 · 부정이용방지</td>
+                    <td>
+                      - 예약자 : 이름, 연락처, 이메일, 예약내역 (예약일시, 결제금액)
+                      <br> - 숙박자 : 이름, 연락처, 이메일
+                    </td>
+                    <td><strong>이용 종료 후 1년까지</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>* 동의를 거부할 수 있으나 거부 시 숙박 예약이 제한될 수 있습니다.</p>
+              <button type="button" class="popClose btn-lg btn">닫기</button>
+            </div>
+          </div>
+        </div>
+        <div class="popup agreePop" id="agree2">
+          <div class="pop-back popClose"></div>
+          <div class="pop-container">
+            <div class="pop-top">
+              <h2 class="pop-tit">개인정보 제3자 제공 동의</h2>
+              <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+            </div>
+            <div class="pop-wrap">
+              <h3>주식회사 손바람은 숙박 예약에 필요한 최소한의 개인정보를 제공하고 있으며 동의 받은 목적 외 용도로 제공하지 않습니다.</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>제공받는 자</th>
+                    <th>제공 목적</th>
+                    <th>제공 정보</th>
+                    <th>보유 및 이용기간</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>숙박업체명</td>
+                    <td>예약 상품 서비스 제공, 계약의 이행을 위한 본인확인, 고지/안내사항 전달, 상담 · 불만 · 민원처리</td>
+                    <td>
+                      - 예약자 : 이름, 연락처, 이메일, 예약내역 (예약일시, 결제금액)
+                      <br>- 숙박자 : 이름, 연락처, 이메일
+                    </td>
+                    <td><strong>이용 종료 후 1년까지</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>* 동의를 거부할 수 있으나 거부 시 숙박 예약이 제한될 수 있습니다.</p>
+              <button type="button" class="popClose btn-lg btn">닫기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="payBtn btn btn-lg">결제하기</button>
+    </form>
+  </main>
+</body>
+</html>

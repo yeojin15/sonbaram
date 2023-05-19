@@ -1,0 +1,76 @@
+@import url(/css/reset.css);
+
+/* * forms */
+input {width: 180px; height: 24px; line-height: 24px; padding: 0 5px; border-bottom: 1px solid var(--gray);}
+input:disabled {background: var(--silver);}
+select {height: 24px; background: url(/img/indic-select.png) no-repeat right 5px center / 8px 5px; border: 1px solid var(--input); border-radius: 4px; padding: 0 25px 0 5px;}
+select:disabled {background: var(--input);}
+textarea {border: 1px solid var(--input); border-radius: 4px; padding: 5px; resize: none; line-height: 1.2;}
+
+/* * 버튼 */
+.btn {padding: 0 7px; height: 24px; border-radius: 4px; background: var(--main); color: #fff; transition: .4s;}
+.btn:hover {background: var(--hover);}
+.btnW {padding: 0 7px; height: 24px; border-radius: 4px; border: 1px solid var(--main); color: var(--main); transition: .4s;}
+.btnW:hover {background: var(--hover); border-color: var(--hover); color: #fff;}
+.btn-lg {padding: 0 20px; height: 32px; line-height: 32px; font-size: var(--fz-md);}
+.btn-line {border-bottom: 2px solid var(--main); color: var(--main);}
+.btn-center {display: block; margin: 0 auto;}
+.btn-full {display: block; width: 100%; height: 30px;}
+.btns-right {display: flex; justify-content: flex-end; align-items: center;}
+.btns-right button {margin-left: 5px;}
+button:disabled {background: var(--silver); color: var(--gray); cursor: initial;}
+button:disabled:hover {background: var(--silver); color: var(--gray);}
+
+/* * checkbox */
+.checkbox {position: relative;}
+.checkbox-lb {position: relative; padding-left: 15px; cursor: pointer; white-space: nowrap;}
+.checkbox-lb:after {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1px solid var(--silver); border-radius: 2px; box-sizing: border-box;}
+.checkbox-lb:before {content: '\f00c'; position: absolute; font-size: 10px; left: 2px; top: 50%; transform: translateY(-50%); font-family: 'Font Awesome 6 Pro'; color: #fff; z-index: 1; opacity: 0;}
+.checkbox input {position: absolute; width: 0; opacity: 0; visibility: hidden;}
+.checkbox input:checked + .checkbox-lb:after {border-color: var(--main); background: var(--main);}
+.checkbox input:checked + .checkbox-lb:before {opacity: 1;}
+
+/* * radio */
+.radio {position: relative;}
+.radio-lb {position: relative; padding-left: 15px; cursor: pointer; color: var(--silver); white-space: nowrap;}
+.radio-lb:after {content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1px solid var(--silver); border-radius: 50%; box-sizing: border-box;}
+.radio-lb:before {content: ''; position: absolute; left: 3px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--main); opacity: 0;}
+.radio > input {position: absolute; width: 0; opacity: 0; visibility: hidden;}
+.radio > input:checked + .radio-lb {color: var(--black);}
+.radio > input:checked + .radio-lb:after {border-color: var(--main);}
+.radio > input:checked + .radio-lb:before {opacity: 1;}
+.radio > input:checked + .radio-lb input {color: var(--black);}
+.radio-lb input {color: var(--silver);}
+
+/* * 팝업 */
+.popup {position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 999; display: none;}
+.popup.popOpen {display: block;}
+.pop-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
+.pop-container {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); min-width: 350px; max-width: 600px; max-height: 80vh; background: #fff; border-radius: 4px; overflow: hidden;}
+.pop-top {position: fixed; left: 0; right: 0; top: 0; display: flex; justify-content: space-between; align-items: center; height: 40px; border-bottom: 1px solid var(--black); padding: 0 var(--gap-md); font-size: var(--fz-md); font-weight: 700;}
+.pop-close {font-size: var(--fz-lg); cursor: pointer;}
+.pop-wrap {padding: var(--gap-md); margin-top: 40px; width: 100%; max-height: calc(85vh - 40px); overflow: auto;}
+.pop-wrap h3 {font-size: var(--fz-base); font-weight: 600; line-height: 1.5; margin-bottom: var(--gap-md);}
+.pop-wrap .contents {max-height: 300px; overflow-y: auto; line-height: 1.4;}
+.pop-wrap .btn-lg {margin-left: auto; display: block; margin-top: var(--gap-md);}
+
+/* * 모달 */
+.modal {position: fixed; z-index: 999; left: 0; right: 0; top: 0; bottom: 0; display: none;}
+.modal.modalOn {display: block;}
+.modal-back {position: absolute; left: 0; right: 0; top: 0; bottom: 0; background: var(--trans);}
+.modal-wrap {position: absolute; left: 50%; top: 50%; min-width: 340px; max-width: 90%; max-height: 80vh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 30px; transform: translate(-50%,-50%); border-radius: 12px; background: var(--white);}
+.modal-close {position: absolute; right: 15px; top: 15px; font-size: var(--fz-lg); cursor: pointer;}
+.modal-content {text-align: center; padding-top: 20px; line-height: 1.4; margin-bottom: var(--gap-big);}
+
+/* * 공통클래스요소 */
+.tit-sec {font-size: var(--fz-big); font-weight: 700; margin-bottom: var(--gap-big);}
+
+/* * 달력 상단 공지사항 */
+.notice {padding-bottom: var(--gap-md); margin-bottom: var(--gap-md); border-bottom: 1px solid var(--input);}
+.notice-tit {display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;}
+.notice-tit div {display: inline-block; margin-bottom: var(--gap-sm); cursor: pointer;}
+
+/* * pagination */
+.pagination {display: flex; justify-content: center; align-items: center; margin-top: var(--gap-lg);}
+.pagination li {padding: 10px; cursor: pointer;}
+.pagination li.active {font-weight: 900;}

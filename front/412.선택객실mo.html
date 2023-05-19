@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js/front-common.js"></script>
+  <link rel="stylesheet" href="/css/400.프론트common.css">
+  <link rel="stylesheet" href="/css/400.프론트레이아웃mo.css">
+  <!-- custom -->
+  <script src="/js/swiper.min.js"></script>
+  <script src="/js/roomslider.js"></script>
+  <link rel="stylesheet" href="/css/swiper.min.css">
+  <link rel="stylesheet" href="/css/402.선택객실.css">
+</head>
+<body>
+  <!-- <header>
+    <h1>숙박업소명</h1>
+    <ul class="gnb">
+      <li class="active"><a href="">실시간예약</a></li>
+      <li><a href="">예약확인</a></li>
+      <li><a href="">공지사항</a></li>
+      <li><a href="">FAQ</a></li>
+    </ul>
+  </header> -->
+
+  <!-- 뒤로가기 헤더 -->
+  <section id="app_header">
+    <button type="button" class="prev"><i class="fa-regular fa-angle-left"></i></button>
+    <h2>선택한 객실정보</h2>
+  </section>
+
+  <!-- ? mo 버전 최상단 태그 main#APP -->
+  <main id="APP">
+    <div class="room-container">
+      <div class="room-photos">
+        <div class="swiper-container room-slider">
+          <div class="swiper-wrapper popImages">
+            <div class="swiper-slide"><img src="https://picsum.photos/1920/1080" alt="객실이미지"></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/400/400" alt="객실이미지"></div>
+            <div class="swiper-slide"><img src="https://picsum.photos/768/800" alt="객실이미지"></div>
+          </div>
+          <div class="room-ctrl">
+            <div class="ctrl-nav prev"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="ctrl-nav next"><i class="fa-solid fa-chevron-right"></i></div>
+          </div>
+          <div class="room-pager"></div>
+        </div>
+      </div>
+
+      <div class="room-info">
+        <h2 class="tit-sec">동/그룹명 - 객실명</h2>
+        <ul>
+          <li>최소 N명 ~ 최대 N명 (유아 N명까지 무료)</li>
+          <li>100평</li>
+          <li>타입명 노출 타입명 노출 타입명 노출 타입명 노출 </li>
+          <li>시설명 노출 시설명 노출 시설명 노출 시설명 노출</li>
+        </ul>
+      </div>
+
+      <div class="room-detail">
+        <ul>
+          <li>
+            <p>안내</p>
+            <div>블라블라블라블라블라블라<br>블라블라블라블라블라블라</div>
+          </li>
+          <li>
+            <p>설명</p>
+            <div>블라블라블라블라블라블라블라블라블라블라블라블라</div>
+          </li>
+          <li>
+            <p>이용안내</p>
+            <div>블라블라블라블라블라블라블라블라블라블라블라블라</div>
+          </li>
+          <li>
+            <p>예약안내</p>
+            <div>블라블라블라블라블라블라블라블라블라블라블라블라</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tac">
+      <a href="" class="bookBtn btn-lg btn">예약하기</a>
+    </div>
+  </main>
+</body>
+</html>

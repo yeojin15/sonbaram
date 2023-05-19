@@ -1,0 +1,87 @@
+/* * 예약하기 */
+.book-list {border-bottom: 1px solid var(--input);}
+.book-list > li {margin-bottom: var(--gap-lg);}
+.book-list .tit-li {display: inline-block; font-size: var(--fz-md); font-weight: 600; margin-bottom: var(--gap-sm);}
+.book-list .line {display: inline-block; font-size: var(--fz-md); padding-left: var(--gap-md);}
+.book-list .cell {padding-left: var(--gap-md);}
+#APP .book-list .cell {padding-left: 0;}
+/* 기간선택 */
+.book-list__days .cell span {font-size: var(--fz-sm);}
+.book-list__days .cell div {padding: 5px 0 var(--gap-sm); font-weight: 600; font-size: var(--fz-md);}
+#APP .book-list__days select {width: 100%;}
+/* 인원 */
+.book-list__men .cell {display: flex; justify-content: flex-start; align-items: flex-start;}
+.book-list__men .sel-box {margin-right: var(--gap-md);}
+.book-list__men label {display: block; margin-bottom: var(--gap-sm);}
+.book-list__men select {min-width: 100px;}
+#APP .book-list__men .cell {display: block;}
+#APP .book-list__men .sel-box {margin-right: 0; display: flex; justify-content: flex-start; align-items: center; margin-bottom: 5px;}
+#APP .book-list__men label {width: 120px;}
+/* 옵션 */
+.book-list__option li {display: flex; justify-content: flex-start; align-items: center; margin-bottom: 5px;}
+.book-list__option li span {margin:  0 var(--gap-sm);}
+.book-list__option li select {margin: 0 var(--gap-sm); min-width: 80px;}
+.book-list__option li .option-sel span {margin: 0;}
+/* 결제금액 */
+.book-list__price .cell {display: flex; justify-content: flex-start; align-items: center; margin-top: var(--gap-md); font-size: var(--fz-md);}
+.book-list__price .mark {padding: 0 10px;}
+.book-list__price .price {position: relative; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid var(--black); padding: 0 var(--gap-md) var(--gap-sm);}
+.book-list__price .price span {margin-right: var(--gap-sm); font-weight: 600;}
+.book-list__price .total p {color: var(--cancel); font-weight: 700;}
+.book-list__price .price-extra {position: absolute; left: 50%; width: max-content; transform: translateX(-50%); top: calc(100% + 5px); font-size: var(--fz-sm); }
+#APP .book-list__price .cell {flex-direction: column;}
+#APP .book-list__price .mark {display: none;}
+#APP .book-list__price .price {margin-bottom: var(--gap-lg);}
+/* 예약자,숙박자 정보 */
+.book-list__info .cell div {margin-bottom: 5px;}
+.book-list__info .cell div label {display: inline-block; width: 50px;}
+.book-list__info .checkbox {display: inline-block; margin-left: var(--gap-sm);}
+/* 요청사항 */
+.book-list__request textarea {width: 500px; height: 100px;}
+#APP .book-list__request textarea {width: 100%;}
+/* 결제정보 */
+.book-list__payment .cell div {display: flex; justify-content: flex-start; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap;}
+.book-list__payment .cell div > label {display: inline-block; width: 85px; flex: none;}
+.book-list__payment .total-amount {font-weight: 600; font-size: var(--fz-md);}
+.book-list__payment .total-amount p {color: var(--cancel);}
+.book-list__payment .pay-radio {width: calc(100% - 85px); display: flex; justify-content: flex-start; align-items: center;}
+.book-list__payment .radio {margin-right: var(--gap-md);}
+#APP .book-list__payment .radio {margin-bottom: 5px;}
+/* 약관동의 */
+.agreement {display: flex; justify-content: center; align-items: center; margin-top: var(--gap-lg);}
+.agreement .checklist p {margin-bottom: 10px;}
+.agreement .checklist p button {color: var(--book); padding-left: 10px;}
+.agreement .checklist .checkbox:last-of-type {font-size: var(--fz-md); font-weight: 600; margin-top: 15px;}
+.agreePop table {font-size: var(--fz-sm);}
+.agreePop table th {background: var(--silver); width: 25%; padding: 10px 0; border: 1px solid var(--input);}
+.agreePop table td {padding: 5px; border: 1px solid var(--input); line-height: 1.4;}
+.agreePop table td:last-of-type {font-weight: 600;}
+.agreePop p {margin-top: 5px;}
+.payBtn {margin: var(--gap-lg) auto; display: block;}
+
+/* * 예약완료 */
+.book-confirm table {width: 100%; margin-bottom: var(--gap-lg);}
+.book-confirm table th,
+.book-confirm table td {height: 30px; padding: 10px; border: 1px solid var(--input);}
+.book-confirm table th {background: var(--silver); width: 200px; vertical-align: middle; text-align: center;}
+#APP .book-confirm table th {width: 120px;}
+#APP .tac {margin-top: var(--gap-md);}
+
+/* * 예약확인 */
+.booking-check {padding-top: 70px;}
+.booking-check .tit p {color: var(--gray); display: inline-block;}
+.booking-check .tit-sec {margin-bottom: 5px;}
+.booking-input {margin-top: var(--gap-lg);}
+.booking-input li {position: relative; width: 260px; margin: 0 auto; display: flex; justify-content: center; align-items: center; margin-bottom: var(--gap-md);}
+.booking-input li label {width: 60px; font-weight: 700; position: absolute; right: 100%; top: 50%; transform: translateY(-50%);}
+.booking-input li input {width: 260px;}
+.booking-input li span {position: absolute; left: calc(100% + 15px); top: 50%; transform: translateY(-50%); width: max-content;}
+.booking-input .btn-lg {display: block; margin: var(--gap-lg) auto;}
+.booking-info {width: 600px; margin: 0 auto;}
+.booking-info .book-list__days .cell {display: flex; justify-content: flex-start; align-items: center;}
+.booking-info .book-list__days .cell > span {padding: 10px 10px 0;}
+.booking-info .book-list__request .cell {border: 1px solid var;}
+.booking-info .book-list {border: none;}
+.booking-info .btn-lg {display: block; margin: 0 auto;}
+#APP .booking-check {padding-top: 30px;}
+#APP .booking-info {width: 100%;}
