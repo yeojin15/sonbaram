@@ -1,0 +1,6 @@
+/* * 레이아웃 */
+header {position: fixed; z-index: 900; left: 0; right: 0; top: 0; height: 60px; padding: 0 var(--gap-md); display: flex; justify-content: space-between; align-items: center; background: var(--black);}
+header h1 {font-size: var(--fz-lg); font-weight: 800; color: #fff;}
+header ul {display: flex; justify-content: flex-end; align-items: center;}
+header li {margin-left: var(--gap-lg); color: #fff; font-size: var(--fz-base); font-weight: 600;}
+#FRONT {margin-top: 60px; padding: var(--gap-md);}

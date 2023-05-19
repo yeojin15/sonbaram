@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonbaram</title>
+  <script src="https://kit.fontawesome.com/bd8686ee32.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="/js/front-common.js"></script>
+  <link rel="stylesheet" href="/css/400.프론트common.css">
+  <link rel="stylesheet" href="/css/400.프론트레이아웃mo.css">
+  <!-- custom -->
+</head>
+<body>
+  <header>
+    <h1>숙박업소명</h1>
+    <ul class="gnb">
+      <li><a href="">실시간예약</a></li>
+      <li><a href="">예약확인</a></li>
+      <li><a href="">공지사항</a></li>
+      <li><a href="">FAQ</a></li>
+    </ul>
+  </header>
+
+  <!-- ? mo 버전 최상단 태그 main#APP -->
+  <main id="APP">
+    <div class="notice">
+      <h2 class="tit-sec">예약 공지사항</h2>
+      <div class="notice-tit">
+        <div>기본인원 4명은 (어른2+아이2) 를 기본으로 한 숫자입니다</div>
+        <div>인원추가시 추가1명당(어른, 아이 포함) 5만원이 추가됩니다</div>
+        <div>이용전날, 당일예약은 1시간 내에 입금하셔야 합니다</div>
+        <div>L03 D01 D02 D03 객실은 한 가족만 이용이 가능합니다.(두가족이상 이용불가)</div>
+        <div>예약금은 5만원 선입금 하신후 오셔서 카드나 현금으로 결제하시면 됩니다</div>
+      </div>
+    </div>
+
+    <div class="popup popOpen" id="noticePopup">
+      <div class="pop-back popClose"></div>
+      <div class="pop-container">
+        <div class="pop-top">
+          <h2 class="pop-tit">예약 공지사항</h2>
+          <span class="pop-close popClose"><i class="fa-solid fa-times"></i></span>
+        </div>
+        <div class="pop-wrap">
+          <h3>공지 제목</h3>
+          <div class="contents">내용내용</div>
+          <button type="button" class="popClose btn-lg btn">닫기</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar">
+      달력부분
+    </div>
+  </main>
+</body>
+</html>

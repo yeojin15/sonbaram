@@ -1,0 +1,8 @@
+.table-full {width: 1000px; margin: 0 auto;}
+.table-full th {background: var(--silver); padding: 10px 0; font-weight: 700; border-top: 2px solid var(--black);}
+.table-full tbody tr {border-bottom: 1px solid var(--input);}
+.table-full td {text-align: center; padding: 10px; vertical-align: middle;}
+.table-full td:nth-of-type(2) {text-align: left;}
+.table-full td button {text-align: left; line-height: 1.4;}
+#APP .table-head {background: var(--silver); padding: 10px 0; font-weight: 700; text-align: center; border-top: 2px solid var(--black);}
+#APP .table-body li {padding: 10px; line-height: 1.4; border-bottom: 1px solid var(--input); cursor: pointer;}

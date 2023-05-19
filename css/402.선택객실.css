@@ -1,0 +1,33 @@
+.room-container {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
+#APP .room-container {display: block;}
+/* * 객실사진슬라이드 */
+.room-photos {position: relative; width: 35%;}
+.room-photos .room-slider {width: 100%;}
+.room-photos .swiper-slide {cursor: pointer; position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;}
+.swiper-slide img {position: absolute; left: 50%; top: 50%; width: 100%; height: 100%; transform: translate(-50%,-50%); object-fit: cover;}
+.room-photos .room-ctrl {position: absolute; z-index: 10; left: 0; right: 0; top: 50%; transform: translateY(-50%); padding: 0 10px; display: flex; justify-content: space-between; align-items: center;}
+.room-photos .room-ctrl .ctrl-nav {width: 25px; height: 25px; line-height: 25px; border-radius: 50%; background: #fff; text-align: center; cursor: pointer;}
+.swiper-button-disabled {opacity: 0; visibility: hidden;}
+.room-photos .room-pager {position: absolute; z-index: 10; right: 0; bottom: 0; padding: 10px; font-size: var(--fz-md); color: #fff; text-align: right;}
+#APP .room-photos {width: 100%;}
+
+/* * 팝업객실사진 */
+.popup-images {position: fixed; z-index: 950; left: 0; right: 0; top: 0; bottom: 0;}
+.pop-slider {position: absolute; width: 800px; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+.pop-slider .swiper-slide {position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;}
+.pop-slider .popClose {position: absolute; cursor: pointer; right: 15px; top: 10px; z-index: 10; color: #fff; font-size: 24px;}
+.pop-slider .pop-ctrl {position: absolute; z-index: 10; left: 0; right: 0; top: 50%; transform: translateY(-50%); padding: 0 10px; display: flex; justify-content: space-between; align-items: center;}
+.pop-slider .pop-ctrl .ctrl-nav {width: 25px; height: 25px; line-height: 25px; border-radius: 50%; background: #fff; text-align: center; cursor: pointer;}
+.pop-slider .pop-pager {position: absolute; z-index: 10; right: 0; bottom: 0; padding: 10px; font-size: var(--fz-md); color: #fff; text-align: right;}
+
+/* * 객실 정보 */
+.room-info {width: 65%; padding-left: var(--gap-md); padding-top: var(--gap-md);}
+.room-info li {margin-bottom: var(--gap-md);}
+#APP .room-info {width: 100%; padding-left: 0;}
+
+/* * 객실상세안내 */
+.room-detail {width: 100%; margin-top: var(--gap-lg);}
+.room-detail li {border-bottom: 1px solid var(--gray); margin-bottom: var(--gap-lg);}
+.room-detail li p {font-size: var(--fz-md); font-weight: 500;}
+.room-detail li div {padding: var(--gap-sm); line-height: 1.5;}
+.bookBtn {display: inline-block;}

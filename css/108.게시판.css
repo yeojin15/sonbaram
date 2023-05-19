@@ -9,7 +9,7 @@
 
 /* * 게시판상세 */
 .board-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
-.board-wrap, .faq-wrap, .option-wrap {width: 48%; margin-right: var(--gap-md);}
+.board-wrap, .faq-wrap, .option-wrap, .sms-wrap {width: 48%; margin-right: var(--gap-md);}
 .board-search {display: flex; justify-content: space-between; align-items: center;}
 .board-search > button {flex: none;}
 .board-wrap .table-head h4:first-of-type {width: 130px; flex: none;}
@@ -75,6 +75,7 @@
 .board-inputs input {border: 1px solid var(--input); border-radius: 4px;}
 .board-inputs select {border: 1px solid var(--input); border-radius: 4px;}
 .board-inputs .btn-lg {display: block; margin-left: auto; margin-top: var(--gap-md);}
+
 #APP .board-inputs {border-bottom: 1px solid var(--input); border-left: 1px solid var(--input);}
 #APP .board-inputs .cell input,
 #APP .board-inputs .cell textarea {width: 100%;}
@@ -82,3 +83,24 @@
 
 #APP .option-inputs {display: flex; justify-content: flex-start; align-items: flex-start; flex-wrap: wrap;}
 #APP .option-inputs .tit-lb {width: 80px;}
+
+/* * 문자발송 */
+.sms-wrap .sms-list li div {flex: initial; width: calc(100% / 6)}
+.sms-inputs .cell {flex-wrap: wrap;}
+.sms-inputs .cell textarea {flex: 1;}
+.sms-inputs .cell p {width: 100%; margin-top: 5px;}
+.sms-inputs li {position: relative;}
+.sms-inputs .popup {position: absolute; left: 280px; top: 150px; right: initial; bottom: initial;}
+.sms-inputs .pop-container {border: 1px solid var(--black);}
+.sms-inputs .type-list {height: 150px; overflow-y: auto;}
+.sms-inputs .popup ul {margin-top: 0; border: 1px solid var(--input); border-bottom: none;}
+.sms-inputs .popup li {display: flex; justify-content: flex-start; align-items: center; border: none; height: 30px; border-bottom: 1px solid var(--input);}
+.sms-inputs .popup li .type {width: 80px; height: 100%; align-items: center; display: flex; justify-content: center; border-right: 1px solid var(--input);}
+.sms-inputs .popup li div {padding: 0 10px;} 
+#smsTemplate .pop-flex {display: flex; justify-content: flex-start; align-items: flex-start;}
+#smsTemplate .pop-box {width: 400px;}
+#smsTemplate .pop-box:first-of-type {margin-right: 10px;}
+#smsTemplate .pop-smslist ul {max-height: 400px;}
+#smsTemplate .pop-smslist li div {width: 20%;}
+#smsTemplate .template-inputs ul {margin-top: 0;}
+#smsTemplate .template-inputs textarea {flex: 1; height: 120px;}
